@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>PROJECT</title>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <meta name="format-detection" content="telephone=no" />
+    <link rel="stylesheet" href="./static/css/clear.css">
+    <script>
+      //这段可以防止ios在微信端返回的空白页
+      window.addEventListener("pageshow", function(e) {
+        if (e.persisted) {
+          window.location.reload();
+        }
+      });
+      try {
+        window.localStorage.foobar = "foobar";
+      } catch (_) {
+        window.is_storage = 0;
+        alert("本地储存写入错误，若为safari浏览器请关闭无痕模式浏览。");
+      }
+
+      resizeSystemFont();
+
+      window.onresize = function() {
+        resizeSystemFont();
+      };
+
+      function resizeSystemFont() {
+        var deviceWidth =
+          document.documentElement.clientWidth || window.innerWidth;
+        if (deviceWidth >= 750) {
+          deviceWidth = 750;
+        }
+        if (deviceWidth <= 320) {
+          deviceWidth = 320;
+        }
+        document.documentElement.style.fontSize = deviceWidth / 7.5 + "px";
+      }
+    </script>
+  </head>
+
+  <body>
+    <div id="app">
+      <div i="base-loading"></div>
+    </div>
+    <!-- built files will be auto injected -->
+  </body>
+</html>
