@@ -1,0 +1,23 @@
+<!--pages/member/code/code.wxml-->
+<view class="content" hidden="{{!show}}">
+	<!--面罩-->
+	<view class="mask" catchtouchmove="move" bindtap="cancel" />
+	<!--二维码内容-->
+	<view class="code">
+		<!--swiper-->
+		<swiper circular="true" bindchange="change">
+			<block wx:for="{{swiper}}" wx:key="index">
+				<swiper-item style="width:100% !important;height:100% !important;">
+					<image src="{{item.url}}" mode="aspectFit" bindlongtap="saveImage" data-src="{{ item.url }}"/>
+				</swiper-item>
+				<view class="text-center">长按保存图片</view>
+			</block>
+		</swiper>
+		<!--底部邀请 保存-->
+		<view class="tab text-center">
+			<image class="icon" src="{{download_img}}" mode="widthFix" />
+			   长按保存图片
+		</view>
+	</view>
+</view>
+

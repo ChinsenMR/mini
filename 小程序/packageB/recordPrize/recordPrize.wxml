@@ -1,0 +1,46 @@
+<view class="record">
+  <block wx:for="{{list}}" wx:key="index">
+    <view class="content">
+      <view class="content-title">{{item.CreateDate}} 获得</view>
+      <view class="content-main">
+        <view class="content-main-img_wrap">
+          <!-- 积分 -->
+          <view class="integral" wx:if="{{item.PrizeType==1}}">
+            <text>{{item.AwardName}}</text>
+          </view>
+          <!-- 优惠券 -->
+          <image wx:if="{{item.PrizeType==2}}" src="{{imgUrl+'icon_quan34@2x.png'}}"></image>
+          <!-- 礼品 -->
+          <image wx:if="{{item.PrizeType==3}}"  src="{{item.AwardPic}}"></image>
+        </view>
+        <view class="content-main-right_wrap">
+          <view class="content-main-right_wrap-title">
+            <text  >{{item.AwardName}}</text>
+            <text  wx:if="{{item.PrizeType==1}}">已自动增加到积分账户</text>
+            <text  wx:if="{{item.PrizeType==2}}">已自动增加到优惠券账户</text>
+          </view>
+          <view class="content-main-right_wrap-btn "  wx:if="{{item.PrizeType==1}}">
+            <text wx:if="{{item.PrizeType==1}}" bindtap="handleGo" data-type="{{ 1 }}">去看看</text>
+          </view>
+          <view class="content-main-right_wrap-btn"  wx:if="{{item.PrizeType==2}}">
+            <text bindtap="handleGo" data-type="{{ 2 }}">查看适用商品</text>
+          </view>
+          <view class="content-main-right_wrap-btn {{item.Status==1?'':'active'}}" wx:if="{{item.PrizeType==3}}">
+            <text  
+              bindtap="handleGo" 
+              data-type="{{ 3 }}" 
+              data-giftid="{{item.PrizeValue}}"
+              data-status="{{item.Status}}"
+              data-id="{{item.Id}}"
+              data-item="{{item}}"
+              >
+              {{item.Status==1?'去领取':'已领取'}}
+            </text>
+          </view>
+       
+        </view>
+      </view>
+    </view>
+  </block>
+  <view class="no_data" wx:if="{{showData}}">没有更多了~</view>
+</view>

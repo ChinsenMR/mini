@@ -1,0 +1,39 @@
+<!--pages/moduleHome/moduleHome.wxml-->
+<import src="../../../pages/common/templeates.wxml"></import>
+<import src="../../../wxParse/wxParse.wxml"></import>
+<button bindtap="onclick" wx:if="{{false}}">开启{{isShow}}</button>
+<!-- 分享 -->
+<share wx:if="{{isShow}}" shareInfo="{{shareInfo}}" bind:closeEvent="closeEvent"></share>
+
+<view class="homecont">
+  <!-- 首页模板 -->
+  <view class="mobanBox" wx:for="{{TopicData}}" wx:key="id" wx:for-item="itemName" wx:for-index="itemIndex">
+    <!-- 富文本 -->
+    <view class="" wx:if="{{itemName.type == '1'}}">
+      <view class='richtext'>
+        <template is="wxParse" data="{{wxParseData:richtext.nodes}}" />
+      </view>
+    </view>
+    <!-- 其他模块 -->
+    <view wx:else class="outerView">
+      <template is="{{'temp_'+itemName.type}}"
+        data="{{...itemName,itemIndex,swiperSite,RequestUrl,height,imgUrl,nums,title,toView,scrollTop,xiDing,navHeight,cObj,colorArr,colorIndex,headerTop, customTitle: PROJECT_TITLE, hideTitle: true}}"></template>
+    </view>
+  </view>
+</view>
+
+<!-- 产品规格  /  发货地址  弹出组件 -->
+<addCart 
+  wx:if="{{goodsInfo}}" 
+  skuItem='{{skuItem}}' 
+  skus='{{skus}}'
+  prDid='{{prDid}}' 
+  goodsInfo='{{goodsInfo}}'
+  freight='{{freight}}' 
+  id='goodsSpecsCom' 
+  bind:succ="succ" 
+  paramData="{{paramData}}" 
+/>
+
+<!-- 底部导航 -->
+<!-- <tabBar curActive='0'/> -->

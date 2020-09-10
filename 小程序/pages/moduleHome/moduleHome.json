@@ -1,0 +1,10 @@
+{
+  "navigationBarTextStyle": "black",
+  "navigationStyle": "custom",
+  "backgroundTextStyle": "dark",
+  "usingComponents": {
+    "share": "/components/productShare/productShare",
+    "tabBar": "/components/tabBar/tabBar",
+    "addCart": "/components/addCart/addCart"
+  }
+}

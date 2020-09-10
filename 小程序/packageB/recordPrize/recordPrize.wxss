@@ -1,0 +1,93 @@
+.record {
+  padding: 30rpx;
+  box-sizing: border-box;
+}
+.record .content {
+  background-color: #fff;
+  border-radius: 10rpx;
+  margin-bottom: 20rpx;
+}
+.record .content-title {
+  font-size: 28rpx;
+  color: #000000;
+  box-sizing: border-box;
+  padding: 20rpx 10rpx;
+  border-bottom: 1rpx solid #eee;
+}
+.record .content-main {
+  box-sizing: border-box;
+  padding: 20rpx;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+.record .content-main-img_wrap {
+  width: 200rpx;
+  height: 200rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.record .content-main-img_wrap image {
+  width: 100%;
+  height: 100%;
+}
+.record .content-main-img_wrap .integral {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: url('http://hmqy.oss-cn-hangzhou.aliyuncs.com/hmeshop_jxy/images/icon_integral2@2x.png') no-repeat;
+  background-size: 200rpx 200rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.record .content-main-img_wrap .integral text {
+  font-size: 32rpx;
+  color: #fff;
+}
+.record .content-main-right_wrap {
+  flex: 1;
+  height: 200rpx;
+  position: relative;
+  margin-left: 20rpx;
+}
+.record .content-main-right_wrap-title {
+  font-size: 28rpx;
+  color: #000;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.record .content-main-right_wrap-title > text:last-child {
+  font-size: 24rpx;
+  color: #999999;
+  margin-top: 10rpx;
+}
+.record .content-main-right_wrap-btn {
+  width: 250rpx;
+  font-size: 30rpx;
+  color: #fff;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  border-radius: 30rpx;
+  background-color: #ff484a;
+  text-align: center;
+  line-height: 0rpx;
+  height: 60rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  padding: 10rpx 0;
+}
+.record .content-main-right_wrap .active {
+  background-color: #cdcbce;
+}
+.record .no_data {
+  font-size: 28rpx;
+  color: #999;
+  text-align: center;
+  padding: 20rpx;
+}

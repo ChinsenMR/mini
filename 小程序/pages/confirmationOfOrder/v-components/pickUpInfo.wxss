@@ -1,0 +1,34 @@
+@import "../../../app.wxss";
+
+
+.attrList{
+  /* height: 88rpx; */
+  padding: 30rpx;
+  font-size: 28rpx;
+  color: #333;
+  border: 1rpx solid #F7F7F7;
+}
+
+.attrList image{
+  width: 30rpx;
+  margin-left: 22rpx;
+}
+
+.attrList input{
+  color: #333;
+  font-size: 26rpx;
+}
+
+.attrList-R{
+  color: #999999;
+}
+.pick-up-info{
+  /* width: 480rpx; */
+  color: #333;
+}
+.pick-up-info .name{
+  width: 150rpx;
+}
+.pick-up-info .value{
+  color: #999;
+}

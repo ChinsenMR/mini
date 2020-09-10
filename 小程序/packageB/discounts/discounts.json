@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "满额优惠",
+  "enablePullDownRefresh": true,
+  "navigationBarTextStyle": "black",
+  "navigationBarBackgroundColor": "#fff",
+  "usingComponents": {}
+}

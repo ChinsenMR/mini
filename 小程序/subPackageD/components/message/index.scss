@@ -1,0 +1,78 @@
+@keyframes fadeIn {
+    0% {
+        opacity: 0
+    }
+
+    100% {
+        opacity: 1
+    }
+}
+.fadeIn {
+    -webkit-animation-name: fadeIn;
+    animation-name: fadeIn
+}
+
+.message_wrap {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    z-index: 1;
+    top: 0;
+    left: 0;
+
+    &-filter {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        background: rgba(0, 0, 0, 1);
+        opacity: 0.57;
+        top: 0;
+        left: 0;
+    }
+
+    &-content {
+        position: relative;
+        z-index: 2;
+        $px610: 610rpx;
+        width: $px610;
+        min-height: $px610;
+        margin: 25% auto;
+        background-color: #fff;
+        border-radius: 10rpx;
+        background: url(https://img.hmeshop.cn/hmeshopV3/Storage/master/202007311137168551230.png) center center / 100% auto no-repeat;
+
+        &-close{
+            $width: 44rpx;
+            position: absolute;
+            width:  $width;
+            left: 50%;
+            margin-left:  -$width / 2;
+            bottom: -200rpx
+        }
+        &-picture {
+            width: 100%;
+            padding-bottom: 75rpx;
+            font-size: 36rpx;
+            font-family: PingFang SC;
+            font-weight: bold;
+            color: rgba(0, 0, 0, 1);
+            padding-top: 56rpx;
+            text-align: center;
+        }
+
+        &-list {
+            padding: 50rpx;
+
+            &-title {
+                font-weight: Bold;
+                font-size: 26rpx;
+            }
+
+            &-text {
+                font-size: 26rpx;
+                line-height: 48rpx;
+                margin-bottom: 20rpx;
+            }
+        }
+    }
+}

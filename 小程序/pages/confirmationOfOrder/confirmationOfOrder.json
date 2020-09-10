@@ -1,0 +1,12 @@
+{
+  "usingComponents": {
+    "coupon-modal":"/components/coupon/coupon",
+    "v-promotion": "./v-components/promotion",
+    "v-pick-up-info": "./v-components/pickUpInfo",
+    "v-goods-item": "./v-components/goodsItem"
+  },
+  "navigationBarTitleText": "确认订单",
+  "navigationBarTextStyle": "black",
+  "navigationBarBackgroundColor": "#fff"
+  
+}

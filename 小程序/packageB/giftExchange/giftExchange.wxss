@@ -1,0 +1,224 @@
+.exchange .header {
+  height: 100%;
+  background-color: #fff;
+}
+.exchange .header-swiper {
+  height: 750rpx;
+}
+.exchange .header-good_name {
+  font-size: 30rpx;
+  color: #000;
+  box-sizing: border-box;
+  font-weight: 600;
+  padding: 20rpx;
+}
+.exchange .header-price_wrap {
+  font-size: 28rpx;
+  color: var(--theme-red);
+  box-sizing: border-box;
+  padding: 10rpx 20rpx;
+}
+.exchange .header-price_wrap text:nth-child(3) {
+  color: #666666;
+}
+.exchange .header-price_wrap text:nth-child(2) {
+  font-size: 36rpx;
+  margin-right: 10rpx;
+}
+.exchange .tip_address {
+  margin-top: 20rpx;
+  background-color: #fff;
+  padding: 20rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.exchange .tip_address-wrap {
+  font-size: 28rpx;
+  color: #333;
+}
+.exchange .tip_address image {
+  width: 20rpx;
+  height: 30rpx;
+}
+.exchange .content-title_wrap-title {
+  font-size: 28rpx;
+  color: #999;
+  position: relative;
+  text-align: center;
+  box-sizing: border-box;
+  padding: 20rpx 0;
+}
+.exchange .content-title_wrap-title::after {
+  content: '';
+  position: absolute;
+  top: 40rpx;
+  left: 170rpx;
+  width: 100rpx;
+  height: 5rpx;
+  background-color: #c3c1c2;
+}
+.exchange .content-title_wrap-title::before {
+  content: '';
+  position: absolute;
+  top: 40rpx;
+  right: 170rpx;
+  width: 100rpx;
+  height: 5rpx;
+  background-color: #c3c1c2;
+}
+.exchange .content-title_wrap-imgs {
+  width: 100%;
+  height: 50rpx;
+}
+.exchange .content-title_wrap-imgs image {
+  width: 100%;
+  height: 100%;
+}
+.exchange .exchange_btn {
+  position: fixed;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  bottom: 5%;
+  font-size: 30rpx;
+  color: #fff;
+  background-color: #fe4443;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 90%;
+  height: 88rpx;
+  border-radius: 44rpx;
+}
+.address_wrap .van_popup {
+  background-color: #f4f4f4;
+}
+.address_wrap .van_popup .address-title {
+  position: relative;
+  padding: 20rpx 0;
+  border-bottom: 1rpx solid #eee;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff;
+}
+.address_wrap .van_popup .address-title text {
+  font-size: 30rpx;
+  color: #000;
+  font-weight: 600;
+  text-align: center;
+}
+.address_wrap .van_popup .address-title image {
+  width: 40rpx;
+  height: 40rpx;
+  position: absolute;
+  top: 28%;
+  right: 15rpx;
+}
+.address_wrap .van_popup .address {
+  box-sizing: border-box;
+  padding: 20rpx 0;
+  display: flex;
+  align-items: center;
+  border-bottom: 1rpx solid #eee;
+  background-color: #fff;
+}
+.address_wrap .van_popup .address-icon {
+  width: 100rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.address_wrap .van_popup .address-icon image {
+  width: 50rpx;
+  height: 50rpx;
+}
+.address_wrap .van_popup .address-main {
+  flex: 1;
+}
+.address_wrap .van_popup .address-main-title {
+  font-size: 30rpx;
+  color: #000;
+  font-weight: 700;
+}
+.address_wrap .van_popup .address-main-title text:last-child {
+  font-size: 24rpx;
+  color: #999;
+  font-weight: normal;
+  margin-left: 20rpx;
+}
+.address_wrap .van_popup .address-main-content {
+  font-size: 28rpx;
+  color: #333;
+}
+.address_wrap .van_popup .choose_other {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+  padding: 20rpx;
+  border-bottom: 1rpx solid #eee;
+  background-color: #fff;
+  margin-bottom: 20rpx;
+}
+.address_wrap .van_popup .choose_other text {
+  font-size: 28rpx;
+  color: #333;
+}
+.address_wrap .van_popup .choose_other image {
+  width: 30rpx;
+  height: 30rpx;
+}
+.address_wrap .van_popup .goods_content {
+  padding: 20rpx;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+}
+.address_wrap .van_popup .goods_content image {
+  width: 180rpx;
+  height: 180rpx;
+  border-radius: 10rpx;
+  margin-right: 20rpx;
+  border: 1rpx solid #eee;
+}
+.address_wrap .van_popup .goods_content-right {
+  flex: 1;
+  height: 180rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-sizing: border-box;
+  padding: 20rpx 0;
+}
+.address_wrap .van_popup .goods_content-right text {
+  font-size: 30rpx;
+  color: #000;
+  font-weight: 700;
+}
+.address_wrap .van_popup .goods_content-right text:last-child {
+  color: red;
+  font-weight: normal;
+}
+.address_wrap .address_btn {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 20rpx 0;
+}
+.address_wrap .address_btn text {
+  font-size: 30rpx;
+  color: #fff;
+  padding: 20rpx 0;
+  background-color: red;
+  border-radius: 50rpx;
+  width: 80%;
+  text-align: center;
+}

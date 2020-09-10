@@ -1,0 +1,136 @@
+.balance {
+  .header {
+    height: 245rpx;
+    background-color: #ea5955;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-sizing: border-box;
+    padding: 0 30rpx;
+
+    &-title {
+      font-size: 35rpx;
+      color: #fff;
+    }
+
+    &-price {
+      display: flex;
+      align-items: center;
+
+      text {
+        font-size: 68rpx;
+        color: #fff;
+      }
+
+      text:last-child {
+        font-size: 30rpx;
+        color: #DC6965;
+        background-color: #fff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 150rpx;
+        height: 60rpx;
+        border-radius: 10rpx;
+        margin-left: 20rpx;
+      }
+    }
+  }
+
+  .content {
+    box-sizing: border-box;
+    padding: 0 30rpx;
+
+    &-list {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background-color: #fff;
+      border-radius: 10rpx;
+      box-sizing: border-box;
+      padding: 20rpx;
+      margin-top: 20rpx;
+
+      &-img1 {
+        width: 47rpx;
+        height: 47rpx;
+        margin-right: 20rpx;
+      }
+
+      text {
+        flex: 1;
+        font-size: 30rpx;
+        color: #333333;
+        font-weight: 500;
+      }
+
+      &-img2 {
+        width: 13rpx;
+        height: 26rpx;
+      }
+    }
+  }
+}
+
+// 实名认证弹窗
+.real_name_wrap {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, .6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+
+  .real_name {
+    width: 610rpx;
+    height: 320rpx;
+    border-radius: 10rpx;
+    background-color: #fff;
+
+    &-title {
+      font-size: 32rpx;
+      color: #000000;
+      font-weight: 600;
+      text-align: center;
+      padding: 30rpx 0;
+    }
+
+    &-texts {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 50rpx;
+
+      text {
+        font-size: 26rpx;
+        color: #333333;
+        margin-bottom: 10rpx;
+      }
+    }
+
+    &-btn {
+      display: flex;
+      align-items: center;
+      padding: 20rpx 0;
+      border-top: 1rpx solid #eee;
+
+      text {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 30rpx;
+        color: #333333;
+      }
+
+      text:last-child {
+        color: var(--theme-red);
+      }
+    }
+  }
+}

@@ -1,0 +1,77 @@
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.fadeIn {
+  -webkit-animation-name: fadeIn;
+  animation-name: fadeIn;
+}
+
+.message_wrap {
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  z-index: 1;
+  top: 0;
+  left: 0;
+}
+
+.message_wrap-filter {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background: black;
+  opacity: 0.57;
+  top: 0;
+  left: 0;
+}
+
+.message_wrap-content {
+  position: relative;
+  z-index: 2;
+  width: 610rpx;
+  min-height: 610rpx;
+  margin: 25% auto;
+  background-color: #fff;
+  border-radius: 10rpx;
+  background: url(https://img.hmeshop.cn/hmeshopV3/Storage/master/202007311137168551230.png) center center/100% auto no-repeat;
+}
+
+.message_wrap-content-close {
+  position: absolute;
+  width: 44rpx;
+  left: 50%;
+  margin-left: -22rpx;
+  bottom: -200rpx;
+}
+
+.message_wrap-content-picture {
+  width: 100%;
+  padding-bottom: 75rpx;
+  font-size: 36rpx;
+  font-family: PingFang SC;
+  font-weight: bold;
+  color: black;
+  padding-top: 56rpx;
+  text-align: center;
+}
+
+.message_wrap-content-list {
+  padding: 50rpx;
+}
+
+.message_wrap-content-list-title {
+  font-weight: Bold;
+  font-size: 26rpx;
+}
+
+.message_wrap-content-list-text {
+  font-size: 26rpx;
+  line-height: 48rpx;
+  margin-bottom: 20rpx;
+}

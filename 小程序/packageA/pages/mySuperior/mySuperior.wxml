@@ -1,0 +1,28 @@
+<view id="super" class="padding-30">
+  <view wx:if="{{referralInfo}}">
+    <view class="item flex-content-center">
+      <view class="avatar">
+        <custom-image src="{{ referralInfo.picture }}"></custom-image>
+      </view>
+    </view>
+
+    <view class="item flex-center"><text class="item-name">姓名：</text> {{referralInfo.realName || "-"}}</view>
+    <view class="item flex-center"><text class="item-name">等级：</text> {{referralInfo.gradeName || "-"}}</view>
+    <view class="item flex-center"><text class="item-name">手机号：</text>{{referralInfo.cellPhone || '-'}}</view>
+    <view class="item flex-center"><text class="item-name">微信号：</text> {{referralInfo.WxNumber || "-"}}</view>
+    <view class="item flex-center"><text class="item-name">微信名：</text> {{referralInfo.nickName || "-"}}</view>
+    <view class="item flex-center"><text class="item-name">地址：</text>{{referralInfo.address || '-'}}</view>
+    <view class="item flex-center"><text class="item-name">性别：</text>{{referralInfo.Gender || '-'}}</view>
+    <view class="item flex-center"><text class="item-name">加入时间：</text>{{referralInfo.CreateDate || '-'}}</view>
+    <view class="item flex-center"><text class="item-name">个人描述：</text>{{referralInfo.perDescribe || '-'}}</view>
+    <view class="item flex-box">
+      <text class="item-name">微信二维码：</text>
+      <view class="qr-code" bindtap="seeQrCode">
+        <custom-image src="{{referralInfo.WxImage}}"></custom-image>
+      </view>
+    </view>
+  </view>
+ 
+</view>
+
+ <view wx:if="{{!referralInfo}}" class="emity">暂无直属上级</view>

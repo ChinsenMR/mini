@@ -1,0 +1,224 @@
+
+<import src="./template/point.wxml"></import>
+<import src="./template/agentGoods.wxml"></import>
+<import src="./template/userGoods.wxml"></import>
+<import src="./template/nav.wxml"></import>
+<wxs module="status">
+	module.exports.data = function(data){
+		var txt;
+		switch(data){
+			case 0: txt = '默认'; break;
+			case 1: txt = '代理发货'; break;
+			case 2: txt = '云仓发货'; break;
+			case 3: txt = '总部发货'; break;
+			case 4: txt = '代理补货'; break;
+			case 5: txt = '自营订单'; break;
+		}
+		return txt
+	}
+</wxs>
+<!-- 此页面有多重逻辑
+	1 IS_ALLOW_USER_APPLY_AFTER_SALE 通过此全局变量判断是否为是代理帮用户申请售后 true为用户发货反之亦然
+	2 根据系统需求如果为代理申请售后，请移步到agent || user，反之为用户发货
+	3 积分商品请移步到point
+-->
+<!-- 顶部导航 -->
+<view class='layout'>
+	<template is="nav" data="{{ activeItem, allOrderNum, BuyerAlreadyPaid, WaitReceivedCount, completeOrderNum, AfterSaleCount}}"></template>
+	<!-- 订单列表 -->
+	<view class='content-ul' wx:if="{{list.length}}">
+		<view
+			class='content-li'
+			wx:for='{{list}}'
+			wx:key="index"
+		>
+			<!--start 订单信息 -->
+			<block >
+				<view class='order-inner'>
+					<view class="order-item flex-center">
+						<text class="order-item-field">订单编号:</text>
+						<text class="flex-col-1">{{item.OrderId}}</text>
+						<text>{{item.StatusText}}</text>
+					</view>
+					<view class="order-item flex-center">
+						<text class="order-item-field">订单时间:</text>
+						<text class="flex-col-1">{{item.OrderDate}}</text>
+						<text>{{status.data(item.ReferralTempId)}}</text>
+					</view>
+					<view class="order-item flex-center">
+						<text class="order-item-field">订单买家:</text>
+						<text class="flex-col-1">{{item.RealName || item.Username}}</text>
+					</view>
+					<view class="order-item flex-center">
+						<text class="order-item-field">电话:</text>
+						<text class="flex-col-1">{{item.CellPhone}}</text>
+					</view>
+					<view class="order-item flex-center">
+						<text class="order-item-field">收货地址:</text>
+						<text class="flex-col-1">{{item.ShippingRegion}}{{item.Address}}</text>
+					</view>
+					<view class="order-item flex-center">
+						<text class="order-item-field">满额优惠:</text>
+						<text class="flex-col-1" wx:for="{{item.PromotionDesStr}}" wx:for-item="keyItem">{{keyItem}}</text>
+					</view>
+					<view class="order-item flex-center">
+						<text class="order-item-field">满额优惠:</text>
+						<text class="flex-col-1" wx:for="{{item.PromotionDesStr}}" wx:for-item="keyItem">{{keyItem}}</text>
+					</view>
+					<view class="order-item flex-center">
+						<text class="order-item-field">成交金额:</text>
+						<text class="flex-col-1" >￥{{item.Amount}}</text>
+					</view>
+					<view class="order-item flex-center" hidden='{{pageType != 1}}'>
+						<text class="order-item-field">推荐人:</text>
+						<text class="flex-col-1" >{{item.Username}}</text>
+					</view>
+					<view class="order-item flex-center">
+						<text class="order-item-field">微信昵称:</text>
+						<text class="flex-col-1" >{{ item.NickName }}</text>
+					</view>
+					<view class="order-item flex-center">
+						<text class="order-item-field">收货人:</text>
+						<text class="flex-col-1" >{{ item.ShipTo }}</text>
+					</view>
+				</view>
+			</block>
+			<!--end 订单信息 -->
+			<!-- 积分商品 -->
+			<block wx:if="{{ item.Gifts.length }}">
+				<template is="point" data="{{ pointGoodsList: item.Gifts }}"></template>
+			</block>
+			<!-- 商品列表这里分为两套 -->
+
+			<!-- 代理申请退款退货 -->
+			<block wx:if="{{!IS_ALLOW_USER_APPLY_AFTER_SALE}}">
+				<template is="agent-goods" data="{{ goodsList: item.LineItems, item }}"></template>
+			</block>
+
+			<!-- 用户申请退款退货 -->
+			<block wx:else>
+				<template is="user-goods" data="{{ goodsList: item.LineItems, item }}"></template>
+			</block>
+			<view class="send-goods">
+				<view class="send flex-center">
+					<view
+						wx:if="{{ item.IsAllowRefund }}"
+						class="send_apply"
+						bindtap="applyAfterSale"
+						data-item="{{ item }}"
+						data-type="{{ 0 }}"
+					>申请退款
+					</view>
+					<view
+						bindtap="reviewAftarSaleStatus"
+						class="send_apply"
+						data-item="{{ item }}"
+						data-goods="{{ goods }}"
+						data-type="{{ 2 }}"
+						wx:if="{{ item.RefundInfo }}"
+					>退款详情
+					</view>
+					<!-- start 发货按钮 -->
+					<view
+						class="send_btn"
+						catchtap="openSendFN"
+						data-item="{{item}}"
+						data-num="{{item.ReferralTempId}}"
+						wx:if="{{ item.Status == 2 && item.ReferralTempId==0 && IS_ALLOW_USER_SHOW_DELIVER_GOODS}}"
+					>
+						发货
+					</view>
+					<view
+						class="send_btn"
+						bindtap="openSendFN"
+						data-item="{{item}}"
+						wx:elif="{{  item.Status == 2 && item.KjSendGoods && IS_ALLOW_USER_SHOW_DELIVER_GOODS}}"
+					>
+						发货
+					</view>
+					<!-- <view
+						class="send_btn"
+						bindtap="seeOrderDetail"
+						data-id="{{item.OrderId}}"
+					>
+						订单详情
+					</view> -->
+					<!-- end 发货按钮 -->
+				</view>
+				<view class='goodsPrice df ais jct-end'>
+					<text>共 {{item.Quantity}} 件商品</text>
+					<!-- <text>净赚:￥{{item.Income}}</text> -->
+				</view>
+			</view>
+			
+		</view>
+		<view class="text-center color-333 padding-30 font-28">———— 我是有底线的 ————</view>
+	</view>
+	
+	<view class="emity" wx:if="{{!list.length}}">暂无订单</view>
+
+	<!-- 发货 -->
+	<view wx:if="{{showFH}}" class="Delivery_wrap">
+		<view
+			wx:if="{{item.status}}"
+			class="Delivery"
+			bindtap="chooseFN"
+			data-index="{{index}}"
+			data-id="{{item.id}}"
+			data-type="{{item.type}}"
+			wx:for="{{sendGoodsTypeList}}"
+			wx:key="index"
+		>
+			{{item.name}}
+		</view>
+	</view>
+
+	<!-- 遮罩 -->
+	<view
+		class="filter"
+		wx:if="{{showFH}}"
+		catchtap="closeFilter"
+		data-index="1"
+	/>
+	<!-- 发货填写相关信息 -->
+	<view wx:if="{{showEdit}}" class="showEdit_wrap">
+		<view class="showEdit">
+			<view class="name">物流名称:</view>
+			<picker class="flex-col-1 color-333" mode="selector" range="{{ columns }}"
+				 bindchange="onChange" >
+				<view class="flex">
+					{{sendData.name || '请选择' }}
+				</view>
+			</picker>
+			<image src="http://img.hmeshop.cn/hmeshop_jxy/images/arrowRight.png" />
+		</view>
+		<view class="showEdit">
+			<view class="name">物流单号:</view>
+			<view class="flex color-333">
+				<input 
+					type="text" 
+					bindinput="handleInput" 
+					placeholder="请输入物流单号" 
+					value="{{ sendData.sendId }}"
+					maxlength="20"
+				/>
+			</view>
+			<view class="theme-red">（必填）</view>
+		</view>
+		<view class="showEdit" wx:for="{{showEditList}}" :key="index">
+			<view class="name">{{item.name}}</view>
+			<view class="flex">{{item.val?item.val:'无'}}</view>
+		</view>
+		<!-- <van-button bindtap='submitSendType' data-id="0" round class="editSub" size="small" type="danger">
+      提交
+    </van-button> -->
+		<view class="show_btn" bindtap='submitSendType' data-id="0">提交</view>
+	</view>
+	<view
+		class="filter"
+		wx:if="{{showEdit}}"
+		catchtap="closeFilter"
+		data-index="2"
+	/>
+</view>
+

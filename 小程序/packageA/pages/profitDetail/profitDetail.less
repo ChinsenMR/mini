@@ -1,0 +1,71 @@
+.profitDetail{
+  border-top:1rpx solid #eee;
+  .content{
+    &-list{
+      background-color: #fff;
+      margin-bottom: 20rpx;
+      &-title{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        box-sizing: border-box;
+        padding: 20rpx;
+        border-bottom:1rpx solid #eee;
+        &-left{
+          font-size: 30rpx;
+          color:#000000;
+        }
+        &-right{
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          text{
+            font-size: 30rpx;
+            color:var(--theme-red);
+          }
+          image{
+            width: 13rpx;
+            height: 25rpx;
+            margin-left: 10rpx;
+          }
+        }
+      }
+      &-list_wrap{
+        box-sizing: border-box;
+        padding: 20rpx;
+        &-main{
+          text{
+            font-size: 24rpx;
+            color:#666666;
+          }
+          text:last-child{
+            color:#000000;
+            margin-left: 10rpx;
+          }
+        }
+      }
+    }
+  }
+  .no-data{
+    font-size: 30rpx;
+    color:#999;
+    text-align: center;
+    padding: 20rpx 0 40rpx 0;
+  }
+
+  .no_data{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 200rpx auto;
+    image{
+      width: 493rpx;
+      height: 238rpx;
+      margin-bottom: 30rpx;
+    }
+    text{
+      font-size: 30rpx;
+      color:#999999;
+    }
+  }
+}

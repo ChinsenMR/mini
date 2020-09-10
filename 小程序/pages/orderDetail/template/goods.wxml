@@ -1,0 +1,73 @@
+<wxs src="../../../utils/wxs/common.wxs" module="common"></wxs>
+<template name="goods">
+    <block wx:for="{{goodsList}}" wx:key="index">
+        <!-- 普通商品 -->
+        <block>
+            <view class='goodsList df ais relative'>
+                <!-- <view style="background-image: url({{item.Image}});"  class="image background-auto"/> -->
+                <view class="custom-image">
+                    <custom-image  src="{{item.Image}}"></custom-image>
+                </view>
+                <view class='flex'>
+                    <view class='goodsName to-line'>
+                        {{item.Name}}
+                        <view class="gift" wx:if="{{item.IsWelfareProduct}}">福利商品</view>
+                    </view>
+                    <view class='goodsType'>
+                        <text>{{item.SkuText || '默认规格'}}</text>
+                        <!-- <text>尺寸：24cm</text> -->
+                    </view>
+                    <view class='df ais jct-between goodsPrice'>
+        
+                        <text>￥ {{item.Price}}</text>
+        
+                        <text class="count">x {{item.Amount}}</text>
+                        <!-- start 如果系统允许用户退货 -->
+                        <!-- <block wx:if="{{IS_ALLOW_USER_APPLY_AFTER_SALE}}"> -->
+                            <view
+                             bindtap="applyAfterSale"
+                             class="apply-aftersale"
+                             data-params="{{ {goods: item, orderId: orderDetail.OrderId, type: 3} }}"
+                             wx:if="{{item.IsAllowReturn}}"
+                            >
+                                申请售后
+                            </view>
+                        <!-- </block> -->
+                        <view
+                            bindtap="seeAfterSaleDetail"
+                            class="apply-aftersale"
+                            data-params="{{ {type: 1, returnId: item.ReturnInfo.ReturnId, orderId: orderDetail.OrderId, skuId: item.ReturnInfo.SkuId} }}"
+                            wx:if="{{item.ReturnInfo}}"
+                        >
+                            售后详情
+                        </view>
+                        <!-- end 如果系统允许用户退货 -->
+                    </view>
+                </view>
+            </view>
+        </block>
+        <!-- 礼包商品 -->
+        <block wx:for="{{item.ProductGiftBagList}}" wx:for-item="gift"  wx:for-index="giftIndex" wx:key="giftIndex">
+            <view class='goodsList df ais'>
+                <view class="custom-image">
+                    <custom-image  src="{{gift.Image}}"></custom-image>
+                </view>
+                <view class='flex'>
+                    <view class='goodsName to-line'>{{gift.ItemDescription}}</view>
+                    <view class='goodsType'>
+                        <text>{{gift.Attribute || '默认规格'}}</text>
+                        <!-- <text>尺寸：24cm</text> -->
+                    </view>
+                    <view class='df ais jct-between goodsPrice'>
+                        <text class="color-000">【礼包商品】</text>
+                        <text class="count">x {{gift.ShipmentQuantity}}</text>
+                    </view>
+                </view>
+            </view>
+        </block>
+          
+          
+    </block>
+      
+ 
+</template>

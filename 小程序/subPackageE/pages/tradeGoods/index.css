@@ -1,0 +1,21 @@
+page {
+  background-color: #fff;
+}
+
+page .tradeGoods-wrap .container-bar {
+  background: #f2f2f2;
+  border-radius: 16rpx;
+}
+
+page .tradeGoods-wrap .container-bar-icon {
+  width: 48rpx;
+  height: 48rpx;
+}
+
+page .tradeGoods-wrap .trade-button {
+  margin-top: 108rpx;
+  background: #333333;
+  border-radius: 8rpx;
+  height: 88rpx;
+  line-height: 88rpx;
+}

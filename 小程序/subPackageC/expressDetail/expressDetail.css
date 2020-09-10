@@ -1,0 +1,14 @@
+.steps-wrap {
+  padding: 30rpx;
+}
+
+.goods-wrap {
+  padding: 30rpx;
+  background-color: #fff;
+}
+
+.van-card__title {
+  font-size: 28rpx;
+  margin-top: 10rpx;
+  margin-bottom: 15rpx;
+}

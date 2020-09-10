@@ -1,0 +1,85 @@
+<view id="mfpage">
+  <block wx:for="{{list}}" wx:key="index">
+    <view class="content">
+
+      <view class="head_wrap" wx:if="{{false}}">
+        <view class="head_left">
+          <image src="{{item.HeadImg}}"></image>
+          <view class="title">
+            <text>卡米街</text>
+            <text>{{item.tiems}}</text>
+          </view>
+        </view>
+        <!-- 分享图片 -->
+        <!-- <view class="head_right" bindtap="handleShare" data-productid="{{item.ProductId}}"> -->
+        <view class="head_right" bindtap="handleSave" data-type="1" data-imgs="{{item.Pic}}">
+          <image src="{{img1}}"></image>
+          <text>{{item.ShareTimes}}</text>
+        </view>
+      </view>
+      <!-- 时间 -->
+      <view class="time_wrap">{{item.result}}</view>
+
+      <view class="text_wrap">
+        <text>{{item.Context}}</text>
+        <view class="img_wrap">
+          <block wx:for="{{item.Pic}}" wx:for-item="subItem" wx:for-index="subIndex" wx:key="subIndex">
+            <image src="{{subItem}}"></image>
+          </block>
+        </view>
+      </view>
+      <!-- 自营商品 -->
+      <view class="goods_wrap" wx:if="{{item.productName}}" data-productid="{{item.ProductId}}" bindtap="handleSave"
+        data-type="3">
+        <image src="{{item.productPic}}"></image>
+        <view class="goods_right">
+          <view class="title_box line2">{{item.productName}}</view>
+          <!-- 预计佣金 -->
+          <text class="yjyj_wrap" wx:if="{{item.PredictCommission !=0}}">预计佣金￥{{item.PredictCommission}}</text>
+          <view class="price">￥{{item.SalePrice}}</view>
+        </view>
+      </view>
+      <!-- 按钮 -->
+      <view class="btn_wrap">
+        <view class="btn" bindtap="handleSave" data-type="1" data-imgs="{{item.Pic}}">
+          <image src="{{img2}}"></image>
+          <text>保存图片</text>
+        </view>
+        <view class="btn" bindtap="handleSave" data-type="2" data-span="{{item.Context}}">
+          <image src="{{img3}}"></image>
+          <text>复制文案</text>
+        </view>
+      </view>
+    </view>
+  </block>
+  <view class="no_data" wx:if="{{list.length ==0}}">暂无数据~</view>
+  <!-- 分享弹窗 -->
+  <view class="share_win" wx:if="{{isWin}}">
+    <image src="{{obj.SharePicUrl}}" catchtap="handleOffWin"></image>
+  </view>
+  <view class="wx_wrap" wx:if="{{isWin}}">
+    <view class="wx_title">分享至</view>
+    <view class="wx_btn">
+      <view class="wx_left">
+        <button open-type="share" class="opacity"></button>
+        <image src="{{imgUrl+'winxicon.png'}}"></image>
+        <text>微信</text>
+      </view>
+      <veiw class="wx_right" catchtap="saveImg">
+        <image class="wx_img" src="{{imgUrl+'haibaoic.png'}}"></image>
+        <text>保存图片</text>
+      </veiw>
+    </view>
+  </view>
+  <view class="zezhao" wx:if="{{isWin}}" catchtap="handleOffWin"></view>
+  <!-- 分享图片提示弹窗 -->
+  <view class="shareimg" wx:if="{{isShare}}">
+    <view class="img_tip">分享图片下载成功!</view>
+    <view class="tip_wrap">
+      <text>美图已保存本地,可以去分享啦!</text>
+      <text>打开微信,美图可分享好友或朋友圈!</text>
+    </view>
+    <view class="img_btn" catchtap="handleOffimg">关闭</view>
+  </view>
+  <view class="zezhao" catchtap="handleOffimg" wx:if="{{isShare}}"></view>
+</view>

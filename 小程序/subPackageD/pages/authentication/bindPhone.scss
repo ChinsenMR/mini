@@ -1,0 +1,54 @@
+page {
+  background-color: #fff;
+}
+.binding-container {
+  padding: 190rpx 84rpx;
+  &-title {
+    font-size: 44rpx;
+    font-family: PingFangSC-Medium, PingFang SC;
+    font-weight: 500;
+    color: rgba(51, 51, 51, 1);
+    line-height: 62rpx;
+  }
+  &-desc {
+    font-size: 24rpx;
+    font-family: PingFangSC-Regular, PingFang SC;
+    font-weight: 400;
+    color: rgba(153, 153, 153, 1);
+    line-height: 33rpx;
+    margin-top: 14rpx;
+  }
+  &-input-box {
+    margin: 130rpx 0 117rpx 0;
+    padding: 15rpx 0;
+    border-bottom: 1px solid #eee;
+    input,
+    &-input-placeholder {
+      font-size: 32rpx;
+      font-family: PingFangSC-Regular, PingFang SC;
+      font-weight: 400;
+      color: rgba(153, 153, 153, 1);
+      line-height: 45rpx;
+      width: 450rpx;
+
+    }
+  }
+  &-submit {
+    background: rgba(238, 238, 238, 1);
+    border-radius: 40rpx;
+    font-size: 32rpx;
+    font-family: PingFangSC-Regular, PingFang SC;
+    font-weight: 400;
+    color: rgba(153, 153, 153, 1);
+  }
+  &-send-code{
+    font-size: 24rpx;
+  }
+  .text-active {
+    color: rgba(255, 68, 68, 1);
+  }
+  .active {
+    background: rgba(255, 68, 68, 1);
+    color: #fff;
+  }
+}

@@ -1,0 +1,256 @@
+page {
+  padding-bottom: 20rpx;
+}
+.evaluatetop {
+  height: 105rpx;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  border-top: 1rpx solid gainsboro;
+  border-bottom: 1rpx solid gainsboro;
+}
+.evaluatetop .proimg {
+  width: 80rpx;
+  height: 80rpx;
+  background: skyblue;
+}
+.evaluatetop .proname {
+  width: 570rpx;
+  font-weight: 400;
+  color: #333333;
+  font-size: 28rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.rate {
+  background: #ffffff;
+  padding: 20rpx;
+  box-sizing: border-box;
+}
+.rate .commte {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  /* width: 60%; */
+  width: 500rpx;
+  font-weight: 400;
+  color: #333333;
+  font-size: 28rpx;
+}
+.rate .commte .moede {
+  width: 100rpx;
+  font-size: 28rpx;
+  color: #999999;
+}
+.inputbox {
+  margin-top: 20rpx;
+  background: #ffffff;
+}
+.inputbox .field_input {
+  position: relative;
+}
+.inputbox .field_input .van-cell {
+  height: 200rpx;
+}
+.inputbox .field_input .sum_num {
+  font-size: 24rpx;
+  color: #999;
+  position: absolute;
+  right: 30rpx;
+  bottom: 5rpx;
+}
+.inputbox .pictbox-title {
+  font-size: 28rpx;
+  color: #000000;
+  padding: 10px 20px 20rpx 20rpx;
+}
+.inputbox .pictbox-upload {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 0 20px 10rpx 20rpx;
+}
+.inputbox .pictbox-upload .evalteimg {
+  width: 150rpx;
+  height: 150rpx;
+  position: relative;
+  border: 1px solid #c8c8c8;
+  margin: 0 20rpx 20rpx 0;
+}
+.inputbox .pictbox-upload .evalteimg .tu {
+  width: 100%;
+  height: 100%;
+}
+.inputbox .pictbox-upload .evalteimg .close {
+  position: absolute;
+  width: 40rpx;
+  height: 40rpx;
+  top: -14rpx;
+  right: -13rpx;
+}
+.inputbox .pictbox-upload .takepic {
+  width: 150rpx;
+  height: 150rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  border: 1px solid #c8c8c8;
+  margin-right: 10rpx;
+  margin: 0 10rpx 20rpx 0;
+}
+.inputbox .pictbox-upload .takepic .pict {
+  width: 150rpx;
+  height: 150rpx;
+}
+.inputbox .pictbox-upload .video_wrap {
+  width: 150rpx;
+  height: 150rpx;
+  margin-bottom: 20rpx;
+  position: relative;
+}
+.inputbox .pictbox-upload .video_wrap #myVideo {
+  width: 100%;
+  height: 100%;
+}
+.inputbox .pictbox-upload .video_wrap .closeVideo {
+  position: absolute;
+  width: 40rpx;
+  height: 40rpx;
+  top: -14rpx;
+  right: -13rpx;
+}
+.evaluation {
+  background-color: #fff;
+  margin-top: 20rpx;
+}
+.evaluation-title {
+  font-size: 28rpx;
+  color: #000000;
+  padding: 10rpx 20rpx;
+}
+.evaluation-rate {
+  width: 745rpx;
+  padding: 0 20rpx 20rpx 20rpx;
+  box-sizing: border-box;
+}
+.evaluation-rate .commte {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 500rpx;
+  font-weight: 400;
+  color: #333333;
+  font-size: 28rpx;
+}
+.evaluation-rate .commte .moede {
+  width: 100rpx;
+  font-size: 28rpx;
+  color: #999999;
+}
+.submit {
+  width: 690rpx;
+  height: 88rpx;
+  background: var(--theme-red);
+  border-radius: 44rpx;
+  color: #ffffff;
+  font-size: 30rpx;
+  line-height: 88rpx;
+  text-align: center;
+  margin: 20% auto;
+}
+.van-field__input {
+  height: 137rpx !important;
+}
+/* 模板弹窗样式开始*/
+.popup_win {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 900;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.popup_win-content {
+  z-index: 999;
+  background-color: #fff;
+  border-radius: 20rpx;
+  padding: 20rpx;
+  box-sizing: border-box;
+  width: 80%;
+  height: 60%;
+}
+.popup_win-content-tip {
+  font-size: 28rpx;
+  color: #e21918;
+  margin-bottom: 20rpx;
+}
+.popup_win-content-list_wrap {
+  overflow: auto;
+  width: 95%;
+  height: 70%;
+  margin: 0 auto;
+  box-sizing: border-box;
+  padding: 10rpx;
+  border: 1rpx solid #eee;
+  border-radius: 10rpx;
+}
+.popup_win-content-list_wrap-list {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10rpx;
+  border: 1rpx solid #eee;
+  border-radius: 10rpx;
+}
+.popup_win-content-list_wrap-list-left_img {
+  width: 60rpx;
+  margin-right: 10rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.popup_win-content-list_wrap-list-left_img image {
+  width: 40rpx;
+  height: 40rpx;
+  border-radius: 50%;
+}
+.popup_win-content-list_wrap-list-main {
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+.popup_win-content-list_wrap-list-main image {
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 10rpx;
+  margin-right: 10rpx;
+}
+.popup_win-content-list_wrap-list-main text {
+  flex: 1;
+  font-size: 28rpx;
+  color: #333;
+}
+.popup_win-content-btn_wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 40rpx auto;
+}
+.popup_win-content-btn_wrap text {
+  font-size: 28rpx;
+  color: #fff;
+  padding: 15rpx 30rpx;
+  border-radius: 10rpx;
+  background-color: #e21918;
+}
+.popup_win-content-btn_wrap text:last-child {
+  margin-left: 40rpx;
+  background-color: #000;
+}
+/* 模板弹窗样式结束*/

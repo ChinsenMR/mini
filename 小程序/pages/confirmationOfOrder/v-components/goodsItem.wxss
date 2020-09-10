@@ -1,0 +1,53 @@
+@import "../../../app.wxss";
+
+.shopGoodListBox {
+  display: flex;
+  padding: 30rpx;
+  border-bottom: 1rpx solid #F7F7F7;
+}
+.goodImg{
+  width: 128rpx;
+  height: 128rpx;
+}
+.goodmsgBox {
+  flex: 1;
+  /* background: yellow; */
+  padding-left: 14rpx;
+}
+.goodTip{
+  /* width:200px; */
+	word-break:break-all;
+	/* display:-webkit-box; */
+	-webkit-line-clamp:1;
+  font-size: 24rpx;
+  color: #333;
+	-webkit-box-orient:vertical;
+  overflow:hidden;
+  /* height: 60rpx;
+  margin-bottom: 10rpx; */
+}
+.goodSizeBox {
+  background: #FFEEEE;
+  padding:5rpx 15rpx;
+  font-size: 22rpx;
+  display: inline-block;
+  color: #FF2222;
+  /* margin-top: 10rpx; */
+}
+
+
+.unitPriceBox{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10rpx;
+}
+.unitPrice{
+  font-size: 26rpx;
+  color: var(--theme-red);
+}
+
+.goodnumber{
+  color: #999999;
+  font-size: 22rpx;
+}

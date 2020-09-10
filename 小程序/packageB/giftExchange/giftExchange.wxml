@@ -1,0 +1,88 @@
+<view class="exchange">
+  <view class="header">
+    <swiper autoplay circular
+      class="header-swiper"
+      indicator-dots indicator-color="rgba(175, 173, 173)" 
+      indicator-active-color="#fff"
+      >
+      <block wx:for="{{imgList}}" wx:key="*this">
+        <swiper-item>
+          <image src="{{item}}" mode="widthFix"></image>
+        </swiper-item>
+      </block>
+    </swiper>
+    <view class="header-good_name">{{goods.Name}}</view>
+    <view class="header-price_wrap">
+      <text>￥</text>
+      <text>{{goods.MarketPrice}}</text>
+      <text>市场参考价</text>
+    </view>
+  </view>
+
+  <!-- 收货地址 -->
+  <view class="tip_address" bindtap="handleAdderss">
+    <view class="tip_address-wrap" >
+      <text wx:if="{{!addresDefault.FullAddress}}">选择地址</text>
+      <text wx:else>{{addresDefault.FullAddress}}</text>
+    </view>
+    <image src="{{imgUrl+'more_02@2x.png'}}"></image>
+  </view>
+
+  <view class="content">
+    <view class="content-title_wrap">
+      <view class="content-title_wrap-title">商品图文详情</view>
+      <!-- <view class="content-title_wrap-imgs">
+        <image src="{{imgUrl+'pz-icons.png'}}"></image>
+      </view> -->
+    </view>
+  </view>
+
+  <!-- 详情图片 -->
+  <view class="details">
+    <!-- <block wx:for="{{imgList}}" wx:key="index">
+      <image src="{{item}}" mode="widthFix"></image>
+    </block> -->
+    <rich-text class="" nodes="{{goods.LongDescription}}"></rich-text>
+  </view>
+
+  <view class="exchange_btn" bindtap="handleConvert">立即兑换</view>
+</view>
+
+<!-- 选择地址 -->
+<view class="address_wrap">
+  <van-popup show="{{ show }}" round 
+    custom-class="van_popup"
+    position="bottom" custom-style="height: 55%" bind:close="onClose">
+    <view class="address-title" >
+      <text>选择地址</text>
+      <image src="{{imgUrl+'chahca.png'}}" catchtap="handleOff"></image>
+    </view>
+    <view class="address">
+      <view class="address-icon">
+        <image src="{{imgUrl+'address00.png'}}"></image>
+      </view>
+      <view class="address-main">
+        <view class="address-main-title">
+          <text>{{addresDefault.ShipTo}}</text>
+          <text>{{addresDefault.CellPhone}}</text>
+        </view>
+        <view class="address-main-content">{{addresDefault.FullAddress}}</view>
+      </view>
+    </view>
+
+    <view class="choose_other" catchtap="handleSelect">
+      <text>选择其他地址</text>
+      <image src="{{imgUrl+'xia_icon432.png'}}"></image>
+    </view>
+
+    <view class="goods_content">
+      <image src="{{goods.ImageUrl}}"></image>
+      <view class="goods_content-right">
+        <text>{{goods.Name}}</text>
+        <text>￥{{goods.MarketPrice}}</text>
+      </view>
+    </view>
+
+    <view class="address_btn" catchtap="handleGetAddress" data-shippingid="{{addresDefault.ShippingId}}"><text>确认地址</text></view>
+  </van-popup>
+</view>

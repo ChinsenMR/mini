@@ -1,0 +1,33 @@
+<template name="member">
+
+    <!-- 代理模块 需要的功能按钮-->
+    <view class='myorderBox' wx:if="{{userInfo.IsReferral || userInfo.KjCustomId>0}}">
+        <view class='myorderBox2'>
+            <view class='myorderListBox wxj_active'>
+                <navigator url="{{item.url}}" class="myorderList addActive" hover-class="none" wx:for="{{memberCenter}}"
+                    wx:key="index" wx:if="{{item.status}}">
+                    <image src='{{item.imgurl}}' />
+                    <text>{{item.text}}</text>
+                    <view class="agency_num" wx:if="{{item.type =='sendGoods' && item.num !=0 || item.type =='afterSale' && item.num !=0}}">{{item.num}}</view>
+                </navigator>
+                <!-- <view class="myorderList" hover-class="hover" bindtap="showCode" wx:if="{{ userInfo.IsReferral }}">
+                    <image src='{{imgUrl+"erweima@2x.png"}}' />
+                    <text>店铺推广码</text>
+                </view> -->
+            </view>
+        </view>
+    </view>
+    <!-- 会员和游客的模块功能按钮 -->
+    <view class='myorderBox margin-t-20' >
+        <view class='myorderBox2'>
+            <view class='myorderListBox wxj_active'>
+                <block wx:for="{{memberCenter2}}"  wx:key="index">
+                    <navigator url="{{item.url}}" class="myorderList addActive" hover-class="none" wx:if="{{item.status}}">
+                        <image src='{{item.imgurl}}' />
+                        <text>{{item.text}}</text>
+                    </navigator>
+                </block>
+            </view>
+        </view>
+    </view>
+</template>

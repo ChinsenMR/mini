@@ -1,0 +1,58 @@
+<import src="./template/point.wxml"></import>
+<import src="./template/goods.wxml"></import>
+<import src="./template/gift.wxml"></import>
+
+<!-- 搜索框 -->
+<view class="order-container-search">
+	<view class="input-wrap">
+		<input type="text" value="{{searchVal}}" class="search-input" placeholder="请输入搜索内容" bindinput="handleVal" />
+	</view>
+
+	<view class="search-btn" bindtap="handleSearch">搜索</view>
+</view>
+<van-tabs swipeable sticky bind:change='selectTabbar' active='{{activeItem}}'>
+	<van-tab wx:for='{{tabbar}}' wx:key="item" title="{{item}}">
+		<!-- 内容区 -->
+		<view class='content-ul' wx:if='{{item.length}}'>
+			<view class='content-li' wx:for="{{list}}" wx:for-item="item" wx:key="index">
+				<!-- 订单头部 -->
+				<view class='content-liH dbc' data-id='{{item.OrderId}}' bindtap='toOrderDetail'>
+					<text class='liH-L df ais'>订单号：{{item.OrderId}}{{item.activityType}}</text>
+					<!-- 订单号 -->
+					<text class='liH-R'>{{item.StatusText}}</text>
+				</view>
+				<!-- <view class="padding-b-20 font-30 color-333" data-id="{{item.OrderId}}" bindtap="toOrderDetail">
+					订单类型：{{item.ShipperName}} 
+				</view> -->
+
+				<!-- 积分商品列表 -->
+				<block wx:if="{{item.Gifts.length}}">
+					<template is="point" data="{{ pointGoodsList: item.Gifts, item }}"></template>
+				</block>
+
+				<!-- 礼包商品列表 -->
+				<block wx:if="{{item.ProductGiftBagList.length}}">
+					<template is="point" data="{{ giftGoodsList: item.ProductGiftBagList, item }}"></template>
+				</block>
+
+				<!-- 普通商品 -->
+				<block wx:if="{{item.LineItems.length}}">
+					<template is="goods"
+						data="{{ goodsList: item.LineItems, item,isShow:item.isShow, IS_ALLOW_USER_APPLY_AFTER_SALE }}"></template>
+				</block>
+				<view class='totalPrice da-e'>
+					<text>共 {{item.Quantity}} 件商品</text>
+					<text>合计：￥{{item.Amount}}</text>
+				</view>
+			</view>
+			<view class="text-center font-28" wx:if="{{list.length}}">没有更多了</view>
+		</view>
+		<!-- 无数据 -->
+		<view class='empty ddc-v' wx:if='{{list.length == 0 && isEmpty}}'>
+			<image src='{{imgUrl+"icon_zanwudingdan@2x.png"}}' mode='widthFix' />
+			<view>暂无订单～</view>
+		</view>
+	</van-tab>
+</van-tabs>
+
+<base-code-dialog show="{{displayDialog}}" bind:close="closeDialog" wechat="{{wechat}}" />

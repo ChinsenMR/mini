@@ -1,0 +1,66 @@
+<view class="cu-bar search bg-white df">
+	<view class="search-form round">
+		<image
+		 class="icon"
+		 src="{{searchIcon}}"
+		 mode="widthFix"
+		 lazy-load="false"
+		 binderror=""
+		 bindload=""
+		/>
+		<input
+		 type="text"
+		 placeholder="请输入关键字搜索"
+		 confirm-type="search"
+		 placeholder-class="input-placeholder"
+		 bindinput="inputText"
+		 value="{{keyword}}"
+		/>
+		<image
+		 bindtap="claerContent"
+		 wx:if="{{keyword}}"
+		 style="width: 35rpx"
+		 src="{{closeIcon}}"
+		 mode="widthFix"
+		/>
+	</view>
+	<view class="action">
+		<button class="cu-btn" bindtap="search">搜索</button>
+	</view>
+</view>
+
+<view class="base-title">
+	<view class="line" />
+	热卖商品
+</view>
+<view class="goods-wrap" wx:if="{{list.length}}">
+	<view 
+		class="item {{item.IsWelfareProduct && 'is-welfare-goods'}}" 
+		wx:for="{{list}}" 
+		wx:key="index">
+		<view
+		 class="cover"
+		 style="background:url({{item.ImageUrl1}})center center / cover no-repeat"
+		 bindtap="seeDetail"
+		 data-id="{{item.ProductId }}"
+		/>
+		<view class="content">
+			<view class="title" bindtap="seeDetail" data-id="{{item.ProductId }}">
+				{{item.ProductName}}
+			</view>
+			<view class="price-box">
+				<view class="price" bindtap="seeDetail" data-id="{{item.ProductId }}">
+					<text class="bold">￥</text>
+					{{item.DefaultSku.SalePrice || 0}}
+				</view>
+				<view class="old-price" bindtap="seeDetail" data-id="{{item.ProductId }}">
+					￥{{item.MarketPrice || 0}}
+				</view>
+			</view>
+		</view>
+	</view>
+</view>
+
+<view class="no-data" wx:else>暂无数据</view>
+
+<tabBar></tabBar>

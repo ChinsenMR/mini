@@ -1,0 +1,32 @@
+/* component/YDelete/YDelete.wxss */
+.y-delete {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+.y-delete__content {
+  flex: 1;
+  transition: all 0.3s;
+}
+.y-delete__btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 0;
+  height: 100%;
+  overflow: hidden;
+  transition: all 0.3s;
+  color: #fff;
+  background:linear-gradient(90deg,rgba(251,119,117,1) 0%,rgba(241,92,101,1) 100%);
+}
+.y-delete__btn text {
+  min-width: 150rpx;
+  text-align: center;
+}
+.actvie {
+  transform: translateX(-192rpx);
+}
+.delete {
+  width: 192rpx;
+}

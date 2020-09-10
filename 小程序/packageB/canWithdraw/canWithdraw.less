@@ -1,0 +1,129 @@
+.withdraw {
+  .content_wrap {
+    box-sizing: border-box;
+    padding: 20rpx;
+    border-top: 1rpx solid #eee;
+
+    .content {
+      width: 690rpx;
+      height: 188rpx;
+      margin: 0 auto;
+      background: url('http://hmqy.oss-cn-hangzhou.aliyuncs.com/hmeshop_jxy/images/ktxian-icon1.png') no-repeat;
+      background-size: 690rpx 188rpx;
+      display: flex;
+      // align-items: center;
+      justify-content: space-between;
+      box-sizing: border-box;
+      padding: 30rpx;
+
+      &-left {
+        display: flex;
+        flex-direction: column;
+        // justify-content: center;
+        margin-top: 15rpx;
+
+        text {
+          font-size: 28rpx;
+          color: #FFF;
+        }
+
+        text:last-child {
+          font-weight: 600;
+          font-size: 32rpx;
+        }
+      }
+
+      &-right {
+        width: 150rpx;
+        height: 60rpx;
+        font-size: 30rpx;
+        color: #6277EF;
+        line-height: 60rpx;
+        border-radius: 10rpx;
+        background-color: #fff;
+        text-align: center;
+        margin-top: 20rpx;
+      }
+    }
+
+    .active {
+      background: url('http://hmqy.oss-cn-hangzhou.aliyuncs.com/hmeshop_jxy/images/ktxian-cion2.png') no-repeat;
+      background-size: 690rpx 188rpx;
+    }
+  }
+
+  .explain {
+    box-sizing: border-box;
+    padding: 0 30rpx;
+
+    &-title {
+      font-size: 30rpx;
+      font-weight: 600;
+      color: #000;
+    }
+
+    &-wrap {
+      text {
+        font-size: 26rpx;
+        color: #666666;
+        line-height: 30rpx;
+      }
+    }
+  }
+}
+
+// 实名认证弹窗
+.real_name_wrap{
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background:rgba(0,0,0,.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+  .real_name{
+    width: 610rpx;
+    height: 320rpx;
+    border-radius: 10rpx;
+    background-color: #fff;
+    &-title{
+      font-size: 32rpx;
+      color:#000000;
+      font-weight: 600;
+      text-align: center;
+      padding: 30rpx 0;
+    }
+    &-texts{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 50rpx;
+      text{
+        font-size: 26rpx;
+        color:#333333;
+        margin-bottom: 10rpx;
+      }
+    }
+    &-btn{
+      display: flex;
+      align-items: center;
+      padding: 20rpx 0;
+      border-top:1rpx solid #eee;
+      text{
+        flex:1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 30rpx;
+        color:#333333;
+      }
+      text:last-child{
+        color:var(--theme-red);
+      }
+    }
+  }
+}

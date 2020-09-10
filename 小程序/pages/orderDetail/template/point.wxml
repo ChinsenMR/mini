@@ -1,0 +1,21 @@
+<wxs src="../../../utils/wxs/common.wxs" module="common"></wxs>
+<template name="point">
+    <view class='goodsList df ais' wx:for='{{pointGoodsList}}' wx:key="index">
+        <view class="custom-image">
+            <custom-image  src="{{item.ImageUrl}}"></custom-image>
+        </view>
+        <view class='flex'>
+            <view class='goodsName to-line'>{{item.GiftName}}</view>
+            <view class='goodsType'>
+                <text> {{gift.SkuId || '默认规格'}}</text>
+                <!-- <text>尺寸：24cm</text> -->
+            </view>
+            <view class='df ais jct-between goodsPrice'>
+
+                <text>{{item.NeedPoint}}积分</text>
+
+                <text class="count">x {{item.Quantity}}</text>
+            </view>
+        </view>
+    </view>
+</template>

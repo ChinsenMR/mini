@@ -1,0 +1,115 @@
+.commission .header-title {
+  height: 230rpx;
+  background: linear-gradient(0deg, #e7483f 0%, #ea706b 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.commission .header-title text {
+  font-size: 72rpx;
+  color: #fff;
+  font-weight: 600;
+}
+.commission .header-title text:last-child {
+  font-size: 36rpx;
+}
+.commission .header-bottom {
+  height: 110rpx;
+  background-color: #E7483F;
+  display: flex;
+  align-items: center;
+  border-top: 1rpx solid #ee5953;
+}
+.commission .header-bottom-left {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+.commission .header-bottom-left text {
+  font-size: 24rpx;
+  color: #fff;
+}
+.commission .header-bottom-left text:last-child {
+  font-size: 30rpx;
+  margin-left: 10rpx;
+}
+.commission .header-bottom-left::before {
+  content: '';
+  width: 3rpx;
+  height: 50rpx;
+  background-color: #ee5953;
+  position: absolute;
+  top: -1%;
+  right: 1%;
+}
+.commission .header-bottom-left:last-child::before {
+  content: '';
+  width: 0;
+  height: 0;
+}
+.commission .content-title {
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 20rpx;
+}
+.commission .content-title text {
+  font-size: 30rpx;
+  color: #666666;
+}
+.commission .content-title image {
+  width: 32rpx;
+  height: 32rpx;
+  margin-left: 30rpx;
+}
+.commission .content .no_data {
+  font-size: 28rpx;
+  color: #999;
+  text-align: center;
+  margin: 100rpx auto;
+}
+.commission .content-list {
+  background-color: #fff;
+  margin-bottom: 20rpx;
+}
+.commission .content-list-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+  padding: 20rpx;
+  border-bottom: 1rpx solid #eee;
+}
+.commission .content-list-title-left {
+  font-size: 30rpx;
+  color: #000000;
+}
+.commission .content-list-title-right {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.commission .content-list-title-right text {
+  font-size: 30rpx;
+  color: var(--theme-red);
+}
+.commission .content-list-title-right image {
+  width: 13rpx;
+  height: 25rpx;
+  margin-left: 10rpx;
+}
+.commission .content-list-list_wrap {
+  box-sizing: border-box;
+  padding: 20rpx;
+}
+.commission .content-list-list_wrap-main text {
+  font-size: 24rpx;
+  color: #666666;
+}
+.commission .content-list-list_wrap-main text:last-child {
+  color: #000000;
+  margin-left: 10rpx;
+}

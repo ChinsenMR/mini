@@ -1,0 +1,19 @@
+<template name="nav">
+  <view class="navBar df ais" bindtap="selectNav">
+    <text class="{{ activeItem === 0 ? 'active' : '' }}" data-id="{{ 0 }}"
+      >全部({{ allOrderNum }})</text
+    >
+    <text class="{{ activeItem === 2 ? 'active' : '' }}" data-id="{{ 2 }}"
+      >待发货({{ BuyerAlreadyPaid }})</text
+    >
+    <text class="{{ activeItem === 3 ? 'active' : '' }}" data-id="{{ 3 }}"
+      >待收货({{ WaitReceivedCount }})</text
+    >
+    <text class="{{ activeItem === 5 ? 'active' : '' }}" data-id="{{ 5 }}"
+      >已完成({{ completeOrderNum }})</text
+    >
+    <text class="{{ activeItem === 98 ? 'active' : '' }}" data-id="{{ 98 }}"
+      >售后({{ AfterSaleCount }})</text
+    >
+  </view>
+</template>

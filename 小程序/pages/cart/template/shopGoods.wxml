@@ -1,0 +1,74 @@
+<template name="shopGoods">
+  <view class="content-ul">
+    <view class="content-li">
+      <view class="li-header flex-center jct-between">
+        <view class="li-headerL flex-center">
+          <icon class="iconfont flex-content-center {{isSelectAll? 'iconxuanze':'iconweixuanze'}}"
+            bindtap="checkAllGoodsByType" data-type="1">
+          </icon>
+          <view class="flex-center flex-col-1">
+            <!-- <image src="{{cartList.ThumbnailUrl100}}" mode="widthFix"></image> -->
+            <text>自营商品</text>
+          </view>
+          <view class="theme-red font-28 margin-r-30" bindtap="handleArrowOrder" data-type="1">
+            {{ !showShopOrder ? '展开' : '收起'}}</view>
+        </view>
+        <!-- <view class="li-headerR" bindtap="handleShowCouponModal">领券</view> -->
+      </view>
+      <!-- 商品列表 -->
+      <view class="li-inner" wx:if="{{ showShopOrder }}">
+        <block wx:for="{{ shopGoods }}" wx:key="index">
+          <view class="li-innerTop flex-center" wx:if="{{ item.KjProductId == 0 }}" data-id="{{ item.SkuID }}" >
+            <icon class="iconfont flex-content-center {{ item.status ? 'iconxuanze' : 'iconweixuanze' }}"
+              data-id="{{ item.SkuID }}" bindtap="checkGoodsItem" hidden="{{ item.clearStatus }}">
+            </icon>
+            <view class="li-innerR">
+              <!-- 商品 -->
+              <view class="wh-100 flex-center flex">
+                <image src="{{ item.ThumbnailUrl100 }}" mode="widthFix"></image>
+                <view class="flex">
+                  <view class="title">{{ item.Name }}</view>
+                  <view class="goodsPer">
+                    <text>{{ item.SkuContent }}</text>
+                  </view>
+                  <view class="flex-center jct-between">
+                    <view class="goodsPrice">￥{{ item.MemberPrice }}</view>
+                    <view class="flex-center">
+                      <text class="reduce flex-content-center" data-id="{{ item.SkuID }}" data-num="{{ item.Quantity }}"
+                        data-type="reduce" bindtap="editGoodsCount">-</text>
+                      <text class="num flex-content-center">{{ item.Quantity }}</text>
+                      <text class="add flex-content-center" data-id="{{ item.SkuID }}" data-num="{{ item.Quantity }}"
+                        data-type="add" bindtap="editGoodsCount">+</text>
+                    </view>
+                  </view>
+                </view>
+              </view>
+              <!-- 满减优惠 -->
+              <block wx:if="{{item.PromotionDesStr.length}}">
+                <!-- <view class="full-item font-26 theme-red margin-t-15 overflow-eps-1" wx:for="{{item.PromotionDesStr}}"
+                  wx:key="index" bindtap="handleSpecial">
+                  {{item}}
+                </view> -->
+                <view class="enough_list">
+                  <block wx:for="{{item.PromotionDesStr}}" wx:key="index">
+                    <text class="scroll_main overflow-eps-1">{{item}}</text>
+                  </block>
+                </view>
+              </block>
+
+            </view>
+            <view 
+              class="clear" 
+              hidden="{{ !item.clearStatus }}" 
+              bindtap="removeGoods" 
+              data-id="{{ item.SkuID }}"
+              data-num="{{ item.Quantity }}"
+            >删除</view>
+          </view>
+
+        </block>
+      </view>
+    </view>
+  </view>
+
+</template>

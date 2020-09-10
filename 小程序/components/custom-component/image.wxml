@@ -1,0 +1,9 @@
+<image
+  class="{{ className }}"
+  src="{{ src }}"
+  mode="{{ mode }}"
+  lazy-load="{{ true }}"
+  binderror="loadImageError"
+  style="background-color: {{ bgColor }};"
+>
+</image>

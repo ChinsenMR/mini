@@ -1,0 +1,42 @@
+<!-- 优惠券modal -->
+<cover-view class="cModal" hidden="{{ hiddenModal }}">
+  <cover-view class="content {{ !hiddenModal ? 'show-content' : '' }}">
+    <cover-view class="header df ais jct">
+      <cover-view>可用优惠券</cover-view>
+      <cover-view class="close df ais jct" bindtap="showModal">+</cover-view>
+    </cover-view>
+    <!-- 可用优惠券 -->
+    <cover-view class="content-ul">
+      <cover-view class="content-li" wx:for="{{ coupons }}" wx:key="index">
+        <cover-image class="content_image" src="{{ imgUrl + 'pic_coupon_1@2x.png' }}"></cover-image>
+        <cover-view class="content-inner df ais jct-between">
+          <cover-view class="content-innerL df ais">
+            <cover-view class="cou-price df fdc jct ais">
+              <cover-view class="df ais-end wh-100">
+                <cover-view>¥</cover-view>
+                <cover-view class="df ais-end wh-100">{{ item.Price }}</cover-view>
+              </cover-view>
+              <cover-view class="font-22 margin-t-10 wh-100">{{ item.LimitText }}</cover-view>
+            </cover-view>
+            <cover-view class="cou-title df fdc jct">
+              <cover-view class="line1 font-32 margin-r-20 wh-100">{{ item.CouponName }}</cover-view>
+              <cover-view class="font-22 wh-100">{{ item.StartTimeText }} 至 {{ item.ClosingTimeText }}</cover-view>
+            </cover-view>
+          </cover-view>
+          <cover-view class="content-innerR df ais jct" data-id="{{ item.CouponId }}" data-name="{{ item.CouponName }}"
+            data-Price="{{ item.Price }}" data-index="{{ index }}" data-code="{{ item.ClaimCode }}"
+            catchtap="selectCoupon">
+            <cover-view class="select {{ index + 1 == nums ? 'selectAdd' : '' }}">
+              <cover-image 
+                src="{{ index + 1 == nums ? '../../images/gou_red.png' : '' }}" 
+                mode="widthFix" 
+                class="gouzi"
+                wx:if="{{ index + 1 == nums }}">
+              </cover-image>
+            </cover-view>
+          </cover-view>
+        </cover-view>
+      </cover-view>
+    </cover-view>
+  </cover-view>
+</cover-view>

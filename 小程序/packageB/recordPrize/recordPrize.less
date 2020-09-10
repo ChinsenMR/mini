@@ -1,0 +1,106 @@
+.record {
+  padding: 30rpx;
+  box-sizing: border-box;
+
+  .content {
+    background-color: #fff;
+    border-radius: 10rpx;
+    margin-bottom: 20rpx;
+
+    &-title {
+      font-size: 28rpx;
+      color: #000000;
+      box-sizing: border-box;
+      padding: 20rpx 10rpx;
+      border-bottom: 1rpx solid #eee;
+    }
+
+    &-main {
+      box-sizing: border-box;
+      padding: 20rpx;
+      display: flex;
+      align-items: center;
+      position: relative;
+
+      &-img_wrap {
+        width: 200rpx;
+        height: 200rpx;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        image {
+          width: 100%;
+          height: 100%;
+        }
+
+        .integral {
+          width: 100%;
+          height: 100%;
+          border-radius: 50%;
+          background: url('http://hmqy.oss-cn-hangzhou.aliyuncs.com/hmeshop_jxy/images/icon_integral2@2x.png') no-repeat;
+          background-size: 200rpx 200rpx;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+
+          text {
+            font-size: 32rpx;
+            color: #fff;
+          }
+        }
+      }
+
+      &-right_wrap {
+        flex: 1;
+        height: 200rpx;
+        position: relative;
+        margin-left: 20rpx;
+
+        &-title {
+          font-size: 28rpx;
+          color: #000;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+
+          >text:last-child {
+            font-size: 24rpx;
+            color: #999999;
+            margin-top: 10rpx;
+          }
+        }
+
+        &-btn {
+          width: 250rpx;
+          font-size: 30rpx;
+          color: #fff;
+          position: absolute;
+          left: 0;
+          bottom: 0;
+          border-radius: 30rpx;
+          background-color: #ff484a;
+          text-align: center;
+          line-height: 0rpx;
+          height: 60rpx;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          box-sizing: border-box;
+          padding: 10rpx 0;
+        }
+
+        .active {
+          background-color: #cdcbce;
+        }
+      }
+    }
+  }
+
+  .no_data {
+    font-size: 28rpx;
+    color: #999;
+    text-align: center;
+    padding: 20rpx;
+  }
+}

@@ -1,0 +1,61 @@
+page {
+  background-color: #fff;
+}
+
+.binding-container {
+  padding: 190rpx 84rpx;
+}
+
+.binding-container-title {
+  font-size: 44rpx;
+  font-family: PingFangSC-Medium, PingFang SC;
+  font-weight: 500;
+  color: #333333;
+  line-height: 62rpx;
+}
+
+.binding-container-desc {
+  font-size: 24rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: #999999;
+  line-height: 33rpx;
+  margin-top: 14rpx;
+}
+
+.binding-container-input-box {
+  margin: 130rpx 0 117rpx 0;
+  padding: 15rpx 0;
+  border-bottom: 1px solid #eee;
+}
+
+.binding-container-input-box input, .binding-container-input-box-input-placeholder {
+  font-size: 32rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: #999999;
+  line-height: 45rpx;
+  width: 450rpx;
+}
+
+.binding-container-submit {
+  background: #eeeeee;
+  border-radius: 40rpx;
+  font-size: 32rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: #999999;
+}
+
+.binding-container-send-code {
+  font-size: 24rpx;
+}
+
+.binding-container .text-active {
+  color: #ff4444;
+}
+
+.binding-container .active {
+  background: #ff4444;
+  color: #fff;
+}

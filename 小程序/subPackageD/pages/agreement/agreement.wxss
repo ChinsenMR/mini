@@ -1,0 +1,6 @@
+page{
+  background-color: #fff
+}
+.wxParse-p image{
+  width: 100%!important;
+}

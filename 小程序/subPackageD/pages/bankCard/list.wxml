@@ -1,0 +1,20 @@
+<!-- pages/bankCard/bankCard.wxml -->
+<view class="bank-card">
+
+  <view class="bank-list__item flex-center" wx:for="{{list}}" wx:key="{{index}}" >
+    <!-- <y-delete binddelete="bindDelete" id="rrr" data-index="{{index}}" wx:if="{{!fromType}}">
+      <view class="bank-list__item-box {{delete ? 'actvie' : ''}}">
+        <image src="{{item.Image}}"></image>
+        <text>{{item.bankName}} {{item.strCardType}}({{item.smallId}})</text>
+      </view>
+    </y-delete> -->
+    <view class="bank-list__item-box flex-center"  bindtap="selectBankCardItem" data-item="{{item}}">
+      <image src="{{item.Image}}"></image>
+      <text>{{item.bankName}} {{item.strCardType}}({{item.smallId}})</text>
+    </view>
+
+    <view class="remove" bindtap="bindDelete" wx:if="{{showBtn}}" data-index="{{index}}">解除绑定</view>
+  </view>
+  <view class="add-bank" bindtap="goAddBank">+ 添加银行卡</view>
+  <view class="add-bank red-border" bindtap="showRemoveBtn" wx:if="{{list.length > 0}}">{{showBtn ? '完成' : '- 解绑银行卡'}}</view>
+</view>

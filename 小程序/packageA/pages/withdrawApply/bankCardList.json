@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "我的银行卡",
+  "usingComponents": {
+    "y-delete": "../../../components/YDelete/YDelete"
+  },
+  "enablePullDownRefresh": true
+}

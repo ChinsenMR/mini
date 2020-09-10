@@ -1,0 +1,29 @@
+<view class="tradeGoods-wrap padding-l-30 padding-r-30">
+  <view class="node-bar flex-center margin-t-40 margin-b-40 font-26">
+    <view class="node-bar-item-left flex-col-1">兑换码</view>
+    <view
+      class="node-bar-item-right text-right theme-yellow"
+      bindtap="seeTradeHistory"
+    >
+      兑换记录
+    </view>
+  </view>
+  <view
+    class="container-bar padding-l-25 padding-t-20 padding-r-25 padding-b-25 flex-center"
+  >
+    <view class="container-bar-icon margin-r-15 font-28">
+      <custom-image src="{{ iconUrl }}"></custom-image>
+    </view>
+    <input
+      type="text"
+      placeholder="请输入或粘贴兑换码"
+      class="container-bar-input font-28"
+      placeholder-class="font-28 theme-gray"
+      value="{{ tradeCode }}"
+      bind:input="inputTradeCode"
+    />
+  </view>
+  <button bind:tap="handleTrade" class="trade-button font-28 color-fff">
+    确认兑换
+  </button>
+</view>

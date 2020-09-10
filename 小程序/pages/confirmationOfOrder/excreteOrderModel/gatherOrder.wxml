@@ -1,0 +1,42 @@
+<template name="gatherOrder">
+    <view class='order-container'>
+		<!-- 商品标题 -->
+		<view class='shopTitle'>
+			<view class='shopName'>{{ type == 1 ? '自营商品' : '代理商品'}}</view>
+		</view>
+		<view class='shopGoodBox'>
+			<!-- 商品列表 -->
+			<block  wx:for='{{orderInfo.goodsList}}' wx:key="index">
+				<v-goods-item item="{{item}}"></v-goods-item>
+			</block>
+			<!-- 优惠模块 -->
+			<view 
+				class='flex-center jct-between attrList' 
+				bindtap='showCouponModal' 
+				data-type="{{ type }}" 
+				wx:if="{{ orderInfo.couponList.length }}"
+			>
+				<view>优惠券</view>
+				<view class='flex-center'>
+					<text class='attrList-R'>{{ orderInfo.currentCoupon.name || '请选择优惠券'}}</text>
+					<image src="{{imgurl + 'more_2@2x.png'}}" mode="widthFix" />
+				</view>
+			</view>
+			<!-- 满减模块 -->
+			<v-promotion promotion="{{ orderInfo.promotionList }}"></v-promotion>
+			<!-- 运费 -->
+			<view class="yunfei flex-center jct-between attrList" wx:if="{{!orderStatus}}">
+				<view>运费</view>
+				<view wx:if="{{ orderInfo.OrderFreight > 0}}">￥{{orderInfo.OrderFreight}}</view>
+				<view wx:else>包邮</view>
+			</view>
+			<!-- 总计 -->
+			<view class='allnumberBox'>
+				共 {{orderInfo.totalCount}} 件 合计:
+				<text>￥ {{orderInfo.totalPrice}}</text>
+			</view>
+		</view>
+	</view>
+	
+</template>
+

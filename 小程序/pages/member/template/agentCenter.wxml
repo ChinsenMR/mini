@@ -1,0 +1,14 @@
+<template name="agentCenter">
+    <view class='agencyCenter' wx:if="{{true}}">
+        <view class='agencyCenter2'>
+            <view class='agencyCenterTitle'>代理模块</view>
+            <view class='agencyCenterListBox '>
+                <navigator class="agencyCenterList" wx:for="{{agencyCenter}}" url="{{item.url+'?kcj='+KjCustomId}}"
+                    wx:key="index" hover-class="none" wx:if="{{item.status}}">
+                    <image src='{{item.imgurl}}' />
+                    <view class='agenc_text'>{{item.text}}</view>
+                </navigator>
+            </view>
+        </view>
+    </view>
+</template>

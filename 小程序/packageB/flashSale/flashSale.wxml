@@ -1,0 +1,55 @@
+<view class="layout">
+  <view class="header">
+    <image src="{{imgUrl+'banner1-icon@2x.png'}}"></image>
+    <view class="header-right_btn" bindtap="handleClick" data-type="{{ 1 }}" wx:if="{{false}}">活动规则</view>
+  </view>
+
+  <view class="content">
+    <block wx:for="{{limitList}}" wx:key="index">
+      <view class="group"  data-pagetype="6">
+        <view class="group-title_wrap">
+          <text>距离结束</text>
+          <view class="group-title_wrap-times">
+            <text hidden="{{item.timeVal.day=='00'}}">{{item.timeVal.day || '00'}}天</text>
+            <view class="group-title_wrap-times-child">
+              <text>{{item.timeVal.hours || '00'}}</text>:
+              <text>{{item.timeVal.minutes || '00'}}</text>:
+              <text>{{item.timeVal.seconds || '00'}}</text>
+            </view>
+          </view>
+          <view class="new_type" wx:if="{{item.IsNewUser==1}}">新人专享</view>
+        </view>
+        <block wx:for="{{item.timeLimit}}" wx:for-item="subItem" wx:for-index="subIndex" wx:key="subIndex">
+          <view class="group-main">
+            <image src="{{subItem.ThumbnailUrl40}}"></image>
+            <view class="group-main-right_wrap">
+              <view class="group-main-right_wrap-title line2">{{subItem.ProductName}}</view>
+              <view class="group-main-right_wrap-counts">
+                剩余库存：<text>{{subItem.BoughtCount || 0}}</text>/{{subItem.TotalCount}}
+              </view>
+              <view class="group-main-right_wrap-price">
+                <view class="group-main-right_wrap-price-text">
+                  <text>￥{{subItem.CountDownPrice}}</text>
+                  <!-- <text>{{subItem.JoinNumber}}人团</text> -->
+                </view>
+                <view class="group-main-right_wrap-price-text2 sc">单买价￥{{subItem.SalePrice || 0}}</view>
+              </view>
+              <view class="group-main-right_wrap-btn" data-productid="{{subItem.ProductId}}" bindtap="handlDetai">去抢购</view>
+            </view>
+          </view>
+        </block>
+          
+      </view>
+    </block>
+    <view class="no_data" wx:if="{{limitList.length==0}}">暂无活动~</view>
+  </view>
+</view>
+<!-- 规则弹窗 -->
+<view class="rule_wrap" wx:if="{{ruleShow}}">
+  <view class="rule_title">活动规则</view>
+  <view class="rule_main">
+    <rich-text class="" nodes="{{richObj}}"></rich-text>
+  </view>
+  <image class="rule_img" catchtap="handleClick" data-type="{{ 2 }}" src="{{imgUrl+'icon-close.png'}}"></image>
+</view>
+<view class="zezhao" wx:if="{{ruleShow}}"></view>

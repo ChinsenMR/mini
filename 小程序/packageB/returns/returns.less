@@ -1,0 +1,116 @@
+.returns {
+  .seach_wrap {
+    background-color: #fff;
+    padding: 20rpx;
+    box-sizing: border-box;
+    border-top: 1rpx solid #eee;
+    border-bottom: 1rpx solid #eee;
+    .seach {
+      display: flex;
+      align-items: center;
+
+      &-input {
+        flex: 1;
+        padding: 10rpx 20rpx;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #f3f3f3;
+        border-radius: 10rpx;
+
+        image {
+          width: 23rpx;
+          height: 23rpx;
+          margin-right: 20rpx;
+        }
+
+        input {
+          flex: 1;
+        }
+      }
+
+      text {
+        font-size: 30rpx;
+        color: #333333;
+        margin-left: 20rpx;
+      }
+    }
+  }
+
+  .profitDetail {
+    border-top: 1rpx solid #eee;
+
+    .content {
+      &-list {
+        background-color: #fff;
+        margin-bottom: 20rpx;
+
+        &-title {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          box-sizing: border-box;
+          padding: 20rpx;
+          border-bottom: 1rpx solid #eee;
+
+          &-left {
+            font-size: 30rpx;
+            color: #000000;
+          }
+
+          &-right {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            text {
+              font-size: 30rpx;
+              color: var(--theme-red);
+            }
+
+            image {
+              width: 13rpx;
+              height: 25rpx;
+              margin-left: 10rpx;
+            }
+          }
+        }
+
+        &-list_wrap {
+          box-sizing: border-box;
+          padding: 20rpx;
+
+          &-main {
+            text {
+              font-size: 24rpx;
+              color: #666666;
+            }
+
+            text:last-child {
+              color: #000000;
+              margin-left: 10rpx;
+            }
+          }
+        }
+      }
+    }
+
+    .no_data {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 200rpx auto;
+
+      image {
+        width: 493rpx;
+        height: 238rpx;
+        margin-bottom: 30rpx;
+      }
+
+      text {
+        font-size: 30rpx;
+        color: #999999;
+      }
+    }
+  }
+}

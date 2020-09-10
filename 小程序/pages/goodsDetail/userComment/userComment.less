@@ -1,0 +1,132 @@
+@import '../../../assets/wxss/other.wxss';
+@import '../../../assets//wxss/clear.wxss';
+@import '../../../assets//wxss/main.wxss';
+
+.layout {
+  background-color: #f7f7f7;
+  padding-top: 128rpx;
+  height: 100%;
+  box-sizing: border-box;
+
+  .layout_nav {
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+    // padding: 0 20rpx 20rpx 20rpx;
+    padding: 30rpx 20rpx;
+    border-top: 1rpx solid #eee;
+    border-bottom: 1rpx solid #eee;
+    background-color: #fff;
+
+    .nav {
+      width: 190rpx;
+      height: 49rpx;
+      border-radius: 25rpx;
+      border: 1rpx solid #ff4343;
+      font-size: 24rpx;
+      color: #ff4343;
+      text-align: center;
+      line-height: 49rpx;
+      margin-right: 20rpx;
+      max-width: 220rpx;
+    }
+
+    .active {
+      color: #fff;
+      background-color: #ff4343;
+    }
+  }
+
+  .goods-comment {
+    background-color: #fff;
+    padding: 30rpx 30rpx 15rpx 30rpx;
+    margin-bottom: 20rpx;
+
+    .userInfo {
+      .userInfoImg {
+        width: 76rpx;
+        height: 76rpx;
+        border-radius: 50%;
+        margin-right: 20rpx;
+      }
+
+      .userInfo-inner {
+        display: flex;
+        flex-direction: column;
+
+        .userInfo-innerT {
+          .user_wrap {
+            .userName {
+              color: #333;
+              font-size: 26rpx;
+            }
+          }
+
+          .buyTime {
+            color: #999;
+            font-size: 20rpx;
+          }
+        }
+
+        .userInfo-gradeStar {
+          image {
+            width: 19rpx;
+            margin-right: 9rpx;
+          }
+        }
+      }
+    }
+
+
+    .commoentInfo {
+      color: #666;
+      font-size: 24rpx;
+      margin-top: 20rpx;
+    }
+
+    .commoentImg {
+      margin-top: 20rpx;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      // justify-content: space-between;
+
+      .video_wrap {
+        width: 220rpx;
+        height: 230rpx;
+
+        .myVideo {
+          width: 100%;
+          height: 100%;
+        }
+      }
+
+      image {
+        width: 220rpx;
+        height: 220rpx;
+        border: 1rpx solid #eee;
+        border-radius: 10rpx;
+      }
+    }
+    .reply{
+      font-size: 30rpx;
+      color:#333;
+      padding: 20rpx 0;
+      border-top:1rpx solid #eee;
+      text{
+        font-size: 24rpx;
+        color:#999;
+      }
+    }
+  }
+  .nav_nodata{
+    font-size: 28rpx;
+    color:#999;
+    text-align: center;
+    margin: 100rpx auto;
+  }
+}
+
+.userComment {
+  background-color: #f7f7f7;
+}

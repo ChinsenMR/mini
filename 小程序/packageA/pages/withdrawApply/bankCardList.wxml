@@ -1,0 +1,23 @@
+<!-- pages/bankCard/bankCard.wxml -->
+<view class="bank-card">
+
+  <view class="bank-list__item flex-center" wx:for="{{list}}" wx:key="index" >
+    <view class="bank-list__item-box flex-center"  bindtap="selectBankCardItem" data-item="{{item}}">
+      <image src="{{item.BankImage}}"></image>
+      <view class="bank-list__item-box-main">
+        <view class="bank_name">
+          <text>{{item.BankName}}</text>
+          <!-- 是否默认选择的银行卡 -->
+          <text class="default" wx:if="{{item.IsDefault}}">默认</text>
+        </view>
+        <text>{{item.AccountNo}}</text>
+      </view>
+      <!-- 是否默认选择的银行卡 -->
+      <!-- <view class="default" wx:if="{{item.IsDefault}}">默认</view> -->
+    </view>
+    <view class="remove" bindtap="bindDelete" wx:if="{{showBtn}}" data-name="{{item.BankName}}" data-id="{{item.Id}}">解除绑定</view>
+  </view>
+  <view class="no_data" hidden="{{isShow}}">没有更多了</view>
+  <view class="add-bank" bindtap="goAddBank">+ 添加银行卡</view>
+  <view class="add-bank red-border" bindtap="showRemoveBtn" wx:if="{{list.length > 0}}">{{showBtn ? '完成' : '- 解绑银行卡'}}</view>
+</view>

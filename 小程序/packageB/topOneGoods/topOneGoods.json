@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "镇店之宝",
+  "enablePullDownRefresh": true,
+  "navigationBarTextStyle": "black",
+  "navigationBarBackgroundColor": "#fff",
+  "usingComponents": {}
+}

@@ -1,0 +1,79 @@
+<!-- pages/withdraw/withdraw.wxml -->
+<view class='top'>
+	到账银行卡
+	<text>(只能提现到银行卡)</text>
+</view>
+<view class='content' bindtap="handleSelect">
+	<view class="content-left">
+		<block wx:if="{{ bankDefault }}">
+			<label class="" for="">到账银行卡</label>
+			<view class="content-bank">
+				<text>{{bankDefault.BankName}}({{bankDefault.newAccountNo}})</text>
+				<text>{{bankDefault.BankType==0?'个人账户':'对公账户'}}</text>
+			</view>
+		</block>
+		<block wx:else>请选择银行卡</block>
+	</view>
+	<view>
+		<image src="http://img.hmeshop.cn/hmeshop_jxy/images/arrowRight.png" mode="widthFix" style="width: 30rpx" />
+	</view>
+</view>
+<!-- 提现数据 -->
+<view class='tixian'>
+	<view class='tixianFont'>提现金额</view>
+	<view class="tixian-center">
+
+		<view class="tixian-center__left" wx:if="{{withdrawalType=='commission'}}">
+			¥<input type="digit" bindinput="bindInput1" value="{{amount1}}" />
+		</view>
+		<view class="tixian-center__left" wx:else>
+			¥<input type="digit" bindinput="bindInput2" value="{{amount2}}" />
+		</view>
+
+		<view class="tixian-center__right">
+			<view bindtap="empty" wx:if="{{amount}}">
+				<image src="https://img.hmeshop.cn/hmeshopV3/Storage/master/202005132002031983540.png" />
+			</view>
+			<text bindtap="selectAllAmount">全部提现</text>
+		</view>
+	</view>
+	<view class="info" wx:if="{{withdrawalType=='commission'}}">
+		<text>单次最少提现 {{commissionObj.MinAmount}}元（手续费{{commissionObj.CommissiondrawCharge}}%）</text>
+		<text>当前最大可提现 {{commissionObj.MaxAmount}}元（手续费{{commissionObj.CommissiondrawCharge}}%）</text>
+		<text>{{totalScaleResult}}</text>
+	</view>
+	<view class="info" wx:else>
+		<text>单次最少提现 {{balanceObj.MinBanlance}}元（手续费{{balanceObj.WithdrawCharge}}%）</text>
+		<text>当前最大可提现 {{balanceObj.Balance}}元（手续费{{balanceObj.WithdrawCharge}}%）</text>
+		<text>{{totalScaleResult}}</text>
+	</view>
+
+	<!-- <view class="info" wx:if="{{amount1}}">{{totalScaleResult}}</view> -->
+</view>
+
+<view class='btn {{btnShow?"":"activeBg"}}' bindtap="{{btnShow?'submit1':''}}" wx:if="{{withdrawalType=='commission'}}">提现</view>
+<view class='btn {{btnShow?"":"activeBg"}}' bindtap="{{btnShow?'submit2':''}}" wx:else>提现</view>
+
+
+
+
+
+<!-- 输入密码弹窗 -->
+<view class="dialog" wx:if="{{ false }}">
+	<view class="filter" bindtap="showDialog" data-type="close" />
+	<view class="container" style="background: url({{codeBackgroundUrl}})center center / 539rpx 678rpx no-repeat">
+		<view class="title">请输入支付密码</view>
+		<view class="wechat">
+			<text>输入六位数密码</text>
+		</view>
+		<input
+		 type="password"
+		 class="password"
+		 bindinput="inputPassword"
+		 maxlength="6"
+		 value="{{password}}"
+		/>
+		<button bindtap="submit" class="sub-btn">立即提现</button>
+	</view>
+</view>
+

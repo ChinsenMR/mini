@@ -1,0 +1,9 @@
+<!--component/YDelete/YDelete.wxml-->
+<view class="y-delete" bindtouchstart="bindStart" bindtouchend="bindEnd">
+  <view class="y-delete__content {{delete ? 'actvie' : ''}}">
+    <slot></slot>
+  </view>
+  <view bindtap="delete" class="y-delete__btn {{delete ? 'delete' : ''}}">
+    <text>解除绑定</text>
+  </view>
+</view>

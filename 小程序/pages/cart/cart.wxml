@@ -1,0 +1,52 @@
+<import src="./template/agentGoods.wxml"></import>
+<import src="./template/shopGoods.wxml"></import>
+<!-- 购物车列表 -->
+<view class="layout" wx:if="{{cartList.CartItemInfo.length}}">
+  <view class="allSelect flex-center">
+    <icon class="iconfont flex-center jct {{isCheckAll? 'iconxuanze':'iconweixuanze'}}" bindtap="checkAllGoods"></icon>
+    <text>全选</text>
+    <view class="flex-col-1"></view>
+    <text class="margin-r-30 theme-color-999 theme-red" bindtap="handleEdit">{{ isEdit ? '完成' : '编辑'}}</text>
+  </view>
+
+
+
+  <!-- 自营商品列表 -->
+  <template 
+    wx:if="{{ showShopTemplate }}"
+    is="shopGoods" 
+    data="{{ shopGoods: cartList.CartItemInfo, showShopOrder, isSelectAll: isSelectedAllShopGoods }}">
+  </template>
+  <!-- 代理商品列表 -->
+  <template 
+    wx:if="{{ showAgentTemplate }}"
+    is="agentGoods" 
+    data="{{ agentGoods: cartList.CartItemInfo, showAgentOrder, isSelectAll:  isSelectedAllAgentGoods }}">
+  </template>
+  <view class="badding-b-200 margin-b-200"></view>
+  <!-- 优惠券 -->
+  <Coupon id="coupon" />
+  <!-- 底部tab -->
+  <Custom-tab goodsTotal="{{cartCount}}" totalPrice="{{totalPrice}}" cartList="{{cartList}}"
+    magnitude="{{magnitudeObj}}" hidden="{{!cartList.CartItemInfo.length}}"  isEdit="{{ isEdit }}" bind:remove="removeGoodsList"/>
+
+</view>
+
+<!-- 购物车无数据 -->
+<view class="emptyCart flex-center fdc" hidden="{{cartList.CartItemInfo.length > 0}}">
+  <image src="{{imgUrl+'icon_gouwuche-t@2x.png'}}" mode="widthFix"></image>
+  <view class="emptyCart-item1">购物车空空如也～</view>
+  <view bindtap="handleGoIndex">
+    <view class="emptyCart-item2">去逛逛</view>
+  </view>
+</view>
+
+<!-- 底部导航 -->
+
+<view class="tab-bar">
+  <tabBar curActive="{{tabIndex}}" />
+</view>
+
+
+<!-- <custom-uploader bind:callback="callback"/> -->
+<!-- <custom-image src="xxx" /> -->

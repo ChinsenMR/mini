@@ -1,0 +1,43 @@
+<wxs module="calculate">
+  var totalize = function(num1,num2){
+  num1 = Number(num1*1000);
+  num2 = Number(num2*1000);
+  return ((num1+num2)/1000).toFixed(2);
+  }
+  module.exports.totalize = totalize;
+</wxs>
+
+<view class="balance">
+  <view class="header">
+    <view class="header-title">账户余额</view>
+    <view class="header-price">
+      <text>{{calculate.totalize(priceSum.balance,priceSum.commission) || 0}}</text>
+      <text bindtap="handleGo" data-type="{{1}}">提现</text>
+    </view>
+  </view>
+
+  <view class="content">
+    <block wx:for="{{navList}}" wx:key="index">
+      <view class="content-list" bindtap="handleGo" data-type="{{2}}" data-url="{{item.url}}">
+        <image class="content-list-img1" src="{{item.icon}}"></image>
+        <text>{{item.name}}</text>
+        <image class="content-list-img2" src="{{imgUrl+'more_02@2x.png'}}"></image>
+      </view>
+    </block>
+  </view>
+</view>
+
+<!-- 实名认证 -->
+<view class="real_name_wrap" wx:if="{{realShow}}">
+  <view class="real_name">
+    <view class="real_name-title">实名认证</view>
+    <view class="real_name-texts">
+      <text>依据平台运营要求</text>
+      <text>请完善实名认证后才能申请提现!</text>
+    </view>
+    <view class="real_name-btn">
+      <text catchtap="handleChange" data-type="{{1}}">稍后处理</text>
+      <text catchtap="handleChange" data-type="{{2}}">立即实名</text>
+    </view>
+  </view>
+</view>

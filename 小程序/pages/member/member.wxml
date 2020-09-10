@@ -1,0 +1,75 @@
+<import src="./template/promotion.wxml"></import>
+<import src="./template/member.wxml"></import>
+<import src="./template/upgrade.wxml"></import>
+<import src="./template/userInfo.wxml"></import>
+<import src="./template/agentCenter.wxml"></import>
+<import src="./template/order.wxml"></import>
+<import src="./template/amount.wxml"></import>
+
+
+<view class="member_all_box">
+	<van-notice-bar wrapable scrollable="false" text="友情提示:亲爱的代理用户,请尽快完善门店资质信息" wx:if="{{ userInfo.qualification == -2 || userInfo.qualification == 2}}"/>
+	<!-- 用户信息模块 -->
+	<template is="userInfo" data="{{ userInfo, IsBindUser, vipcardInfo, showcard,imgUrl }}"></template>
+	
+	<!-- 账户模块 -->
+	<template is="amount" data="{{ userRepository  }}"></template>
+	
+	<!-- 订单列表 -->
+	<template is="order" data="{{ myorderBox }}"></template>
+	
+	<!-- 升级模块 -->
+	<template is="upgrade" data="{{ userInfo }}" wx:if="{{userInfo && userInfo.KjCustomId==0 || !userInfo}}"></template>
+	
+	<!-- 个人中心模块 -->
+	<template is="member" data="{{ memberCenter,memberCenter2, imgUrl, userInfo}}"></template>
+	
+	<!-- 推广模块 -->
+	<template is="promotion" data="{{ userInfo }}" wx:if="{{false}}"></template>
+	
+	<!-- 代理中心 -->
+	<template is="agentCenter" data="{{ agencyCenter, KjCustomId }}" wx:if="{{false}}"></template>
+	
+	<!-- 回滚按钮 -->
+	<btn-to-top show="{{showToTop}}" />
+	
+	<!--专属二维码-->
+	<code show="{{ show}}" swiper="{{swiper}}" bindtabShow="tabShow" />
+	
+	<!--底部导航-->
+	<tabBar curActive="{{tabIndex}}" />
+	
+	<!-- 签到弹窗 -->
+	<view class="smarker" wx:if="{{SignInmask}}">
+		<view class="debox">
+			<view class="deboxtop">签到成功</view>
+			<view class="deboxbt">
+				<image class="jifenimng" src="{{imgurl}}star.png" alt="" />
+				<span class="jifenadd">积分+{{SignInpoints}}</span>
+			</view>
+		</view>
+		<image class="closeq" src="{{imgurl}}icon_close@2x.png" path="{{path}}" alt="" bindtap="colseSignin" />
+	</view>
+</view>
+
+<!-- 神州项目需要的代理清除提示框 -->
+<view class="agent_box" wx:if="{{userInfo.IsRepeled && showAgent}}">
+	<view class="agent_win">
+		<view class="agent-title">您的代理已被清退!</view>
+		<view class="agent-times">清退时间:{{userInfo.RepelTime}}</view>
+		<view class="agent-times">限制:被清退的代理无法获得分享权限和下级单归属上级发货</view>
+		<view class="agent-cause">清退原因:{{userInfo.RepelReason || '无'}}</view>
+		<view class="agent-btn" catchtap="handleClose">关闭</view>
+	</view>
+</view>
+
+
+<!-- 客服按钮 -->
+	<view class="nav-custom background-auto">
+		<button open-type="contact" plain="true" class="wh-100"></button>
+	</view>
+	
+
+
+<!-- 撑开高度 -->
+<view class="padding-b-200"></view>

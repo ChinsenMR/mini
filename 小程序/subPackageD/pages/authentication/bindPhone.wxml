@@ -1,0 +1,38 @@
+<view class="binding-container">
+  <view class="binding-container-title">绑定手机</view>
+  <view class="binding-container-desc">您还未绑定手机号码</view>
+  <view class="binding-container-input-box flex-box">
+    <input
+      type="number"
+      placeholder="请输入手机号"
+      value="{{ form.phone }}"
+      bindinput="inputText"
+      maxlength="11"
+      data-field="phone"
+      placeholder-class="binding-container-input-placeholder"
+    />
+  </view>
+  <view class="binding-container-input-box flex-box">
+    <input
+      type="text"
+      placeholder="请输入验证码"
+      value="{{ form.verifyCode }}"
+      bindinput="inputText"
+      maxlength="6"
+      data-field="verifyCode"
+      placeholder-class="input-placeholder"
+    />
+    <view
+      class="binding-container-send-code {{ (form.message == '发送验证码' || form.message == '重新发送') && 'text-active' }}"
+      bindtap="sendVerifySms"
+    >
+      {{ form.message }}
+    </view>
+  </view>
+  <button
+    class="binding-container-submit {{ form.phone.length == 11 && form.verifyCode.length == 6 && 'active' }}"
+    bindtap="bindPhone"
+  >
+    绑定
+  </button>
+</view>

@@ -1,0 +1,144 @@
+.commission {
+  .header {
+    &-title {
+      height: 230rpx;
+      background: linear-gradient(0deg, rgba(231, 72, 63, 1) 0%, rgba(234, 112, 107, 1) 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+      text {
+        font-size: 72rpx;
+        color: #fff;
+        font-weight: 600;
+      }
+
+      text:last-child {
+        font-size: 36rpx;
+      }
+    }
+
+    &-bottom {
+      height: 110rpx;
+      background-color: #E7483F;
+      display: flex;
+      align-items: center;
+      border-top: 1rpx solid #ee5953;
+
+      &-left {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+
+        text {
+          font-size: 24rpx;
+          color: #fff;
+        }
+
+        text:last-child {
+          font-size: 30rpx;
+          margin-left: 10rpx;
+        }
+
+        &::before {
+          content: '';
+          width: 3rpx;
+          height: 50rpx;
+          background-color: #ee5953;
+          position: absolute;
+          top: -1%;
+          right: 1%;
+        }
+      }
+
+      &-left:last-child {
+        &::before {
+          content: '';
+          width: 0;
+          height: 0;
+        }
+      }
+    }
+  }
+
+  .content {
+    &-title {
+      display: flex;
+      align-items: center;
+      box-sizing: border-box;
+      padding: 20rpx;
+
+      text {
+        font-size: 30rpx;
+        color: #666666;
+      }
+
+      image {
+        width: 32rpx;
+        height: 32rpx;
+        margin-left: 30rpx;
+      }
+    }
+    .no_data{
+      font-size: 28rpx;
+      color:#999;
+      text-align: center;
+      margin: 100rpx auto;
+    }
+    &-list {
+      background-color: #fff;
+      margin-bottom: 20rpx;
+
+      &-title {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        box-sizing: border-box;
+        padding: 20rpx;
+        border-bottom: 1rpx solid #eee;
+
+        &-left {
+          font-size: 30rpx;
+          color: #000000;
+        }
+
+        &-right {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+
+          text {
+            font-size: 30rpx;
+            color: var(--theme-red);
+          }
+
+          image {
+            width: 13rpx;
+            height: 25rpx;
+            margin-left: 10rpx;
+          }
+        }
+      }
+
+      &-list_wrap {
+        box-sizing: border-box;
+        padding: 20rpx;
+
+        &-main {
+          text {
+            font-size: 24rpx;
+            color: #666666;
+          }
+
+          text:last-child {
+            color: #000000;
+            margin-left: 10rpx;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,59 @@
+.friend .header {
+  background-color: #fff;
+  border-top: 1rpx solid #eee;
+  margin-bottom: 20rpx;
+  box-sizing: border-box;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.friend .header-nav {
+  padding: 20rpx;
+  font-size: 30rpx;
+  color: #333;
+  display: inline-block;
+}
+.friend .header .active {
+  color: red;
+  position: relative;
+}
+.friend .header .active::before {
+  content: '';
+  width: 80%;
+  height: 5rpx;
+  background-color: red;
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  bottom: 0;
+}
+.friend .content {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 20rpx;
+  background-color: #fff;
+}
+.friend .content-main {
+  width: calc(calc(100% / 4) - 10rpx);
+  margin: 20rpx 5rpx;
+  box-sizing: border-box;
+}
+.friend .content-main-img {
+  width: 100%;
+  height: 160rpx;
+}
+.friend .content-main-text {
+  font-size: 26rpx;
+  color: #333333;
+  text-align: center;
+  padding: 10rpx 0;
+}
+.friend .content .no_data {
+  font-size: 30rpx;
+  color: #999;
+  text-align: center;
+  margin: 100rpx auto;
+}

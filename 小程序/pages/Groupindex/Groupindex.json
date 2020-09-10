@@ -1,0 +1,10 @@
+{
+  
+  "enablePullDownRefresh": true,
+  "navigationBarTitleText": "拼团翻倍",
+  "navigationBarBackgroundColor": "#fff",
+  "navigationBarTextStyle": "black",
+  "usingComponents": {
+    
+  }
+}

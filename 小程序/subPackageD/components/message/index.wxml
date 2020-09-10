@@ -1,0 +1,21 @@
+<view class="message_wrap" catchtouchmove="catch" wx:if="{{ show }}">
+  <view class="message_wrap-content" catchtouchmove="catch">
+    <view class="message_wrap-content-picture" src="" mode="widthFix"
+      >账户类型</view
+    >
+    <view class="message_wrap-content-list">
+      <block wx:for="{{ noticeList }}" wx:key="index">
+        <view class="message_wrap-content-list-title">{{ item.title }}</view>
+        <view class="message_wrap-content-list-text">{{ item.text }}</view>
+      </block>
+    </view>
+    <image
+      class="message_wrap-content-close"
+      src="{{ closeIcon }}"
+      mode="widthFix"
+      bind:tap="close"
+    >
+    </image>
+  </view>
+  <view class="message_wrap-filter" catchtouchmove="catch"></view>
+</view>

@@ -1,0 +1,22 @@
+<view class="jct-between attrList" >
+  <view class="margin-b-30">自提信息</view>
+  <view class="pick-up-info">
+    <view class="pick-up-item margin-b-30 flex-box">
+      <view class="name">联系人</view>
+      <view class="value flex-col-1">{{pickUpInfo.Name || '-'}}</view>
+    </view>
+    <view class="pick-up-item margin-b-30 flex-box">
+      <view class="name">手机号</view>
+      <view class="value flex-col-1">{{pickUpInfo.Phone || '-'}}</view>
+    </view>
+    <view class="pick-up-item margin-b-30 flex-box">
+      <view class="name">地区</view>
+      <view class="value flex-col-1">{{pickUpInfo.Address || '-'}}</view>
+    </view>
+    <view class="pick-up-item margin-b-10 flex-box">
+      <view class="name">详细地址</view>
+      <view class="value flex-col-1">{{pickUpInfo.AddressDetail || '-'}}</view>
+    </view>
+    
+  </view>
+</view>

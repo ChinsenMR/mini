@@ -1,0 +1,197 @@
+<wxs module="afterSale">
+	var totalPrice = function(val, count){
+	val = Number(val*1000);
+	count = Number(count*1000);
+	return (val - count)/1000;
+	}
+	module.exports.totalPrice = totalPrice;
+</wxs>
+
+<import src="./excreteOrderModel/gatherOrder.wxml"></import>
+<import src="./excreteOrderModel/handleBar.wxml"></import>
+
+
+
+<scroll-view scroll-y="{{ true }}"  id="box" >
+	<!--start 收货地址 -->
+	<view class="address-container" bindtap="goSelectAddress">
+		<image src="{{imgurl + 'icon_address@2x.png'}}" class="location" mode="widthFix" />
+		<view class="addressTip">
+			<view class="addresstipone" wx:if="{{defaultAddressData=='['}}">请选择一个收货地址</view>
+			<view wx:else>
+				<view class="userNameBox">
+					<view class="userName">{{defaultAddressData.ShipTo}}</view>
+					<view class="userPhone">{{defaultAddressData.CellPhone}}</view>
+				</view>
+				<view class="address">
+					{{defaultAddressData.FullRegionName}} {{defaultAddressData.Address}}
+				</view>
+			</view>
+		</view>
+		<view class="addressRight">
+			<view class="lineOne" />
+			<view class="lineTwo" />
+		</view>
+	</view>
+	<!--end 收货地址 -->
+	
+	<!-- 非合拆单商品，正常在详情购买的商品，或者在购物车只勾选了一个类别（代理商品 || 自营商品） -->
+	<view class="order-container" wx:if="{{orderInfo && !isGather}}">
+		<view class="shopTitle" wx:if="{{orderInfo.StoreName}}">
+			<image src="{{item.logo}}" class="shoplogo" />
+			<view class="shopName">{{orderInfo.StoreName}}</view>
+		</view>
+		<view class="shopTitle" wx:if="{{orderInfo.PromotionDesStr}}">
+			<view class="shopName">{{orderInfo.PromotionDesStr}}</view>
+		</view>
+
+			<!-- 商品列表 -->
+		<view class="shopGoodBox">
+			<block wx:for="{{orderInfo}}" wx:key="index">
+				<!-- 普通商品 -->
+				<v-goods-item item="{{ item }}"></v-goods-item>
+				<!-- 普通商品下的礼包商品 -->
+				<block wx:for="{{item.ProductGiftBagList}}" wx:key="index" wx:for-item="giftBagItem">
+					<v-goods-item item="{{giftBagItem}}" type="giftBag"></v-goods-item>
+				</block>
+			</block>
+		
+			<!-- 选择配送方式 -->
+			<picker range="{{expressList}}" bindchange="selectExpress" wx:if="{{false}}">
+				<view class="flex-center jct-between attrList">
+					<view>配送方式</view>
+					<view class="flex-center">
+						<text class="attrList-R">{{currentExpress}}</text>
+						<image src="{{imgurl + 'more_2@2x.png'}}" mode="widthFix" />
+					</view>
+				</view>
+			</picker>
+
+			<!-- 优惠券 -->
+			<view class="flex-center jct-between attrList" bindtap="selectCoupons" wx:if="{{ couponList.length }}">
+				<view>优惠券</view>
+				<view class="flex-center">
+					<text class="attrList-R" wx:if="{{!couponData.name}}">请选择优惠券</text>
+					<text class="attrList-R" wx:else>{{couponData.name}}</text>
+					<image src="{{imgurl + 'more_2@2x.png'}}" mode="widthFix" />
+				</view>
+			</view>
+
+			<!-- 余额抵扣 {{ afterSale.totalPrice(initData.SkuInfo[0].ItemAdjustedPrice, count)}}-->
+			<view class="balance_wrap flex-center jct-between attrList" wx:if="{{ IS_OPEN_BALANCE_DEDUCTION }}">
+				<!-- <view>余额抵扣（可用{{Balance - BalanceAmount || 0}}）</view> -->
+				<view>余额抵扣（可用{{afterSale.totalPrice(Balance, BalanceAmount) || 0}}）</view>
+				<view class="ff" wx:if="{{ BalanceAmount }}">已抵扣{{BalanceAmount}}</view>
+				<switch 
+					bindchange="handleOpenDeduction" 
+					disabled="{{Balance == 0}}" 
+					checked="{{isUseDeduction}}" 
+				/>
+			</view>
+
+			<!-- 上门自提 -->
+			<view class="doorTo flex-center jct-between attrList" wx:if="{{ IS_ARROW_USER_PICK_UP }}">
+				<view>上门自提</view>
+				<switch bindchange="handlePickUp" checked="{{ extractType == -2}}"/>
+			</view>
+
+			<!-- 自提信息 -->
+			<v-pick-up-info pickUpInfo="{{pickUpInfo}}" wx:if="{{ orderStatus }}"></v-pick-up-info>
+
+			<!-- 满减优惠 -->
+			<v-promotion promotion="{{promotionList}}"></v-promotion>
+
+			<!-- 运费 -->
+			<view class="flex-box ais jct-between attrList" wx:if="{{!orderStatus}}">
+				<view>运费</view>
+				<view wx:if="{{ OrderFreight > 0}}">￥{{OrderFreight}}</view>
+				<view wx:else>包邮</view>
+			</view>
+
+			<!-- 备注 -->
+			<view class="flex-box jct-between attrList {{showText ? 'padding-b-200' : ''}}" id="remark-nav">
+				<view>备注</view>
+				<!-- <view class="remark_show" wx:if="{{!showText}}" bindtap="handleChange">{{remark}}</view> -->
+				<view class="flex-box ais">
+					<textarea 
+						class="remark-box" 
+						placeholder="选填，请先和商家协商" 
+						selection-start="{{2}}"
+						value="{{remark}}"
+						bindinput="handleEditRemark"
+						bindblur="handleBlur"
+						bindfocus="handleFocus"
+						maxlength="300" >
+					</textarea>
+				</view>
+			</view>
+			
+			<!-- 总计 -->
+			<view class="allnumberBox">
+				共 {{goodsCountTotal}} 件 合计:
+				<text>￥ {{goodsPriceTotal}}</text>
+			</view>
+		</view>
+	</view>
+
+	<!-- 拆单模式 拆单商品显示 主要从购物车进来 -->
+	<block wx:else>
+		<!-- 商城订单 -->
+		<template is="gatherOrder" data="{{ orderInfo: shopOrderInfo, type: 1, imgurl }}"></template>
+		<!-- 代理订单 -->
+		<template is="gatherOrder" data="{{ orderInfo: agentOrderInfo, type: 2, imgurl }}"></template>
+		<!-- 操作栏 -->
+		<template is="handleBar" data="{{ Balance, BalanceAmount, isUseDeduction, remark, orderStatus, isEdit, pickUpInfo, IS_ARROW_USER_PICK_UP, IS_OPEN_BALANCE_DEDUCTION, showText }}"></template>
+	</block> 
+
+	<!-- 默认tab -->
+	<cover-view class="handle-bar flex-center" wx:if="{{isDefault}}">
+		<cover-view class="sum_all" scroll-top="0">共 {{goodsCountTotal || '0'}} 件 合计: ￥{{goodsPriceTotal || '0.00'}}</cover-view>
+		<cover-view class="surebtn flex-center" bindtap="handleOpenPayModal">确认订单</cover-view>
+	</cover-view>
+
+	<!-- 自定义tab -->
+
+	<cover-view class="handle-bar-total da" wx:else>
+		<cover-view class="ct-num">共 {{goodsCountTotal || '0.00'}} 件</cover-view>
+		<cover-view class="ct-account flex flex-center">
+			<cover-view style="width: 100%;">
+				合计 : ￥{{goodsPriceTotal || '0.00'}} 
+			</cover-view>	  
+		</cover-view>
+		<cover-view class="ct-btn" bindtap="handleOpenPayModal">确认订单</cover-view>
+	</cover-view>
+</scroll-view>
+
+<!-- 支付modal -->
+<view 
+	class="payModal" 
+	hidden="{{hiddenPay}}" 
+	bindtap="handleOpenPayModal"
+>
+	<view class="payModal-ul" catchtap="catchStop">
+		<view class="payModal-li flex-center jct-between" bindtap="selectPayType">
+			<view class="flex-center payModal-liL">
+				<image src="{{imgurl + 'pic_wechat@2x.png' }}" mode="widthFix" ></image>
+				<text>微信支付</text>
+			</view>
+			<view class="flex-center payModal-liR">
+				<text hidden="{{payType}}" />
+        <image src="{{imgurl + 'icon_xuanzhong@2x (1).png'}}" mode="widthFix" class="payModal-liR" hidden="{{!payType}}" />
+      </view>
+    </view>
+  </view>
+</view>
+
+<!-- 普通订单 优惠券组件 -->
+<coupon-modal coupons="{{couponList}}" id="coupon" bindselectedValue="getCouponData" />
+
+<!-- 自营订单 优惠券组件 -->
+<coupon-modal coupons="{{shopOrderInfo.couponList}}" id="shopOrderCoupon" bindselectedValue="getGatherCoupon" data-type="{{ 1 }}"/>
+
+<!-- 代理订单订单 优惠券组件 -->
+<coupon-modal coupons="{{agentOrderInfo.couponList}}" id="agentOrderCoupon" bindselectedValue="getGatherCoupon" data-type="{{ 2 }}" />
+
+
+
+

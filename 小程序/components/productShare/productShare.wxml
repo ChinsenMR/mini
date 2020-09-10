@@ -1,0 +1,49 @@
+<!--component/productShare.wxml-->
+<view class="maskStyle" catchtouchmove="disableScroll">
+  <view class="canvasBox">
+    <!-- <view class="content" data-mode="mask" catchtap="closeMask">
+      <canvas class="canvasStyle" style="{{ratio==0.7?'width:224px;height:336px':ratio==0.8?'width:256px;height:384px':''}}" canvas-id="qrCanvas" data-mode="content"></canvas>
+    </view> -->
+    <view class="content" data-mode="mask" catchtap="closeMask">
+      <swiper
+        class="canvasStyle margin-t-100"
+        indicator-dots="false"
+        indicator-color="rgba(0,0,0,.3)"
+        autoplay="false"
+        interval="5000"
+        duration="1000"
+        next-margin="0px"
+        display-multiple-items="1"
+        skip-hidden-item-layout="false"
+        bindchange=""
+        bindanimationfinish=""
+      >
+        <swiper-item class="wh-100" wx:for="{{ shareInfo }}" bindlongtap="saveImage" data-src="{{ item.url }}">
+          <custom-image src="{{ item.url }}"></custom-image>
+        </swiper-item>
+      </swiper>
+    </view>
+    <view class="full-bottom text-center flex-content-center padding-30">
+      <image
+        class="margin-r-30"
+        src="http://img.hmeshop.cn/hmeshop_jxy/images/icon_xiazai@2x.png"
+        mode="widthFix"
+      ></image>
+      长按二维码保存图片
+    </view>
+    <!-- <view class="bottomShare">
+   
+    
+        
+      <view class="shareLeft">
+        <button open-type="share" class="opacity"></button>
+        <image src="http://img.hmeshop.cn/hmeshop_jxy/images/icon_wechat@2x.png"></image>
+        <view>分享好友</view>
+      </view>
+      <view class="shareRight" bindtap="checkAuthority">
+        <image src="http://img.hmeshop.cn/hmeshop_jxy/images/icon_xiazai@2x.png"></image>
+        <view>保存图片</view>
+      </view>
+    </view> -->
+  </view>
+</view>

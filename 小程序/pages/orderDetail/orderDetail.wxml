@@ -1,0 +1,133 @@
+<import  src="./template/point.wxml"></import>
+<import  src="./template/goods.wxml"></import>
+<view class='layout'>
+	<view class='header'>
+		<image src='{{imgUrl+"bg_order@2x.png"}}' mode='widthFix' />
+		<view class='header-c flex-center'>
+			<image src='{{imgUrl+"icon_order_01@2x.png"}}' mode='widthFix' />
+			<text>{{data.StatusText}}</text>
+			<text wx:if="{{data.ItemStatusText}}">（{{data.ItemStatusText}}）</text>
+		</view>
+	</view>
+
+	<!-- 用户信息 -->
+	<view class='userInfo flex-center'>
+		<image src='{{imgUrl+"icon_address@2x.png"}}' mode='widthFix' />
+		<view class='userInfo-inner flex'>
+			<view class='userInfo-innerT df ais-end'>
+				<text>{{data.ShipTo}}</text>
+				<text>{{data.Cellphone}}</text>
+			</view>
+			<view class='userInfo-innerB'>{{data.Address}}</view>
+		</view>
+	</view>
+
+	<!-- 商店列表 -->
+	<view class='storeList' bindtap="handleDetail">
+		<view class='storeName flex-center' wx:if="{{ data.Suppliers[0] }}">
+			<!-- <image src='{{imgUrl+"touxiang_03@2x.png"}}' mode='widthFix'></image> -->
+			<text>{{data.Suppliers[0].SupplierName}}</text>
+		</view>
+
+			<!-- 积分商品列表 -->
+			<block wx:if="{{data.Gifts.length !=0}}">
+				<template is="point"  data="{{ pointGoodsList: data.Gifts }}"></template>
+			</block>
+		
+			
+			<!-- 普通商品 -->
+			<block wx:if="{{data.Suppliers[0].LineItems.length}}">
+				<template is="goods"  data="{{ goodsList: data.Suppliers[0].LineItems, IS_ALLOW_USER_APPLY_AFTER_SALE, orderDetail: data }}"></template>
+			</block>	 
+			
+		
+		<!-- 操作按钮 -->
+		<!-- 如果是代理查看订单或从收益列表进来则隐藏所有按钮 -->
+		<view class='handler-bar' wx:if="{{ params.fromType !== 'agent' && IS_SHIELDING_BUTTON}}">
+			<!-- start 如果系统允许用户退款 -->
+			<!-- <block wx:if="{{IS_ALLOW_USER_APPLY_AFTER_SALE}}"> -->
+			<button
+				class="handle-btn"
+				wx:if="{{data.IsAllowRefund && IS_SHIELDING_BUTTON}}"
+				bindtap="applyAfterSale"
+				data-params="{{ {type: 0, orderId: data.OrderId} }}"
+			>申请退款
+			</button>
+			<!-- </block> -->
+			<!-- 不允许用户退款，只允许联系卖家申请，并由代理申请售后、退款 -->
+			<button
+			 class="handle-btn black"
+			 bindtap="showContactCode"
+			 data-items="{{ data }}"
+			 wx:if="{{IS_SHIELDING_BUTTON}}"
+			>联系卖家
+			</button>
+			<!-- 用户没有申请退款的权限，但是有权限查看详情 -->
+			<button
+			 class="handle-btn black"
+			 wx:if="{{data.RefundInfo && IS_SHIELDING_BUTTON}}"
+			 bindtap="seeAfterSaleDetail"
+			 data-params="{{ {type: 2, refundId: data.RefundInfo.RefundId, orderId: data.OrderId} }}"
+			>退款详情
+			</button>
+			<button
+			 class="handle-btn black"
+			 wx:if="{{data.Status == 3}}"
+			 bindtap="seeExpressStep"
+			 data-orderId="{{data.OrderId}}"
+			>查看物流
+			</button>
+			<button
+			 class="handle-btn"
+			 wx:if="{{data.Status == 3 && IS_SHIELDING_BUTTON}}"
+			 data-id="{{data.OrderId}}"
+			 bindtap="handleFinishOrder"
+			>确认收货
+			</button>
+			<navigator
+			 class="handle-btn"
+			 wx:if="{{data.Status == 5 && data.isCanComment && IS_SHIELDING_BUTTON}}"
+			 url="/packageA/pages/evaluate/evaluate?id={{data.OrderId}}"
+			 br
+			>去评价
+			</navigator>
+		</view>
+		<view class='realityPrice df ais jct-end'>
+			<text>实付款： </text>
+			<text>￥ {{data.OrderTotal}}</text>
+			<text>( 运费：￥ {{data.Freight}} )</text>
+		</view>
+	</view>
+
+	<!-- 订单信息 -->
+	<view class='orderInfo'>
+		<view class='df ais orderInfo-title'>订单信息</view>
+		<view class='df ais jct-between orderInfo-code'>
+			<view>订单编号</view>
+			<view class='df ais jct-end'>
+				<text>{{data.OrderId}}</text>
+				<text data-code='{{data.OrderId}}' bindtap='_setClipboard'>复制编号</text>
+			</view>
+		</view>
+		<view class='flex-box orderInfo-time' wx:if="{{data.PromotionDesStr}}">
+			<view class="font- color-999">满减优惠</view>
+			<view class="margin-l-30">
+				<view class='flex-center jct-end  padding-b-20' wx:for="{{ data.PromotionDesStr }}" wx:key="index">
+					<text class="theme-red">{{ item }}</text>
+				</view>
+			
+			</view>
+		  
+		</view>
+		<view class='df ais jct-between orderInfo-time'>
+			<view>创建时间</view>
+			<view>
+				<text>{{data.OrderDate}}</text>
+				<!-- <text>15:20:53</text> -->
+			</view>
+		</view>
+	</view>
+</view>
+
+<base-code-dialog show="{{displayDialog}}" bind:close="closeDialog" wechat="{{wechat}}" />
+

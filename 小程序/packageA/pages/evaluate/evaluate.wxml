@@ -1,0 +1,105 @@
+<block wx:for="{{Produtinfo}}" wx:key="index">
+  <view class="evaluatetop" wx:if="{{index==changeIndex}}" bindtap="handleCheck" data-type="{{3}}">
+    <image class="proimg" src="{{item.Image}}"></image>
+    <view class="proname">{{item.Name}}</view>
+  </view>
+</block>
+
+<view class="rate">
+  <view class="commte">
+    <text class="de">描述相符</text>
+    <van-rate value="{{ desvalue }}" bind:change="onChange1" />
+    <text class="moede">{{comment1}}</text>
+  </view>
+</view>
+<view class="inputbox">
+  <van-cell-group  class="field_input">
+    <van-field 
+      value="{{ message }}" type="textarea"
+      placeholder="宝贝满足你的期待吗？说说它的优点和美中不足的地方吧!" 
+      border="{{ false }}" 
+      bind:change="onChange"
+      bind:input="handleInput"
+      show-word-limit
+      maxlength="500" 
+      >
+    </van-field>
+    <view class="sum_num">{{amount}}/500</view>
+  </van-cell-group>
+
+  <view class="pictbox" >
+    <view class="pictbox-title">添加照片({{photoList.length}}/5)</view>
+    <view class="pictbox-upload">
+      <view class="evalteimg" wx:for="{{photoList}}" wx:key="index">
+        <image class="tu" src="{{item}}"></image>
+        <image class="close" src="{{imgurl}}btn_close.png" data-index="{{index}}" data-type="1" bindtap="Deleted"></image>
+      </view>
+      <!-- 图片 -->
+      <view class="takepic" bindtap="postImg" wx:if="{{photoList.length !=5}}">
+        <image class="pict" src="{{imgurl+'add_01@2x.png'}}"></image>
+      </view>
+      <!-- 视频 -->
+      <view class="takepic" bindtap="postVideo" wx:if="{{videoArr.length ==0 && videoStatus}}">
+        <image class="pict" src="{{imgurl+'add_02@2x.png'}}"></image>
+      </view>
+      <view class="video_wrap" wx:if="{{videoArr.length !=0 && videoStatus}}">
+        <video id="myVideo" 
+          src="{{videoArr[0]}}"
+          enable-play-gesture
+          play-btn-position="center"
+          show-fullscreen-btn="{{false}}"
+          show-center-play-btn='{{false}}' 
+          show-play-btn="{{false}}"
+        ></video>
+        <image class="closeVideo" src="{{imgurl}}btn_close.png" data-index="{{0}}" data-type="2" bindtap="Deleted"></image>
+      </view>
+    </view>
+
+  </view>
+</view>
+
+<view class="evaluation">
+  <view class="evaluation-title">服务评价</view>
+  <view class="evaluation-rate">
+    <view class="commte">
+      <text class="de">物流服务</text>
+      <van-rate value="{{ logisticsvalue }}" bind:change="onChange2" />
+      <text class="moede">{{comment2}}</text>
+    </view>
+    
+    <view class="commte">
+      <text class="de">服务态度</text>
+      <van-rate value="{{ atituvalue }}" bind:change="onChange3" class="wjxxuanz" />
+      <text class="moede">{{comment3}}</text>
+    </view>
+  </view>
+ 
+</view>
+
+<view class="submit" bindtap="Submit">提交评价</view>
+
+
+<view class="popup_win" wx:if="{{popupShow && Produtinfo.length >=2}}">
+    <view class="popup_win-content">
+      <view class="popup_win-content-tip">*如果未选择,则默认评论首个商品!</view>
+      <view class="popup_win-content-list_wrap">
+        <block wx:for="{{Produtinfo}}" wx:key="index">
+          <view class="popup_win-content-list_wrap-list" catchtap="handleChange" data-index="{{index}}"
+            data-sku-id="{{item.Id}}" wx:if="{{item.ReviewId==0}}">
+            <view class="popup_win-content-list_wrap-list-left_img">
+              <image src="{{imgurl+'yunq-icon2.png'}}" wx:if="{{!item.isCheck}}"></image>
+              <image src="{{imgurl+'icon_success2@2x.png'}}" wx:else></image>
+            </view>
+            <view class="popup_win-content-list_wrap-list-main">
+              <image src="{{item.Image}}"></image>
+              <text class="line2">{{item.Name}}</text>
+            </view>
+          </view>
+        </block>
+      </view>
+      <view class="popup_win-content-btn_wrap">
+        <text catchtap="handleCheck" data-type="{{1}}" data-checkedid="{{checkedid}}">确定</text>
+        <text catchtap="handleCheck" data-type="{{2}}">默认</text>
+      </view>
+    </view>
+</view>

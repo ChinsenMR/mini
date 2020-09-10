@@ -1,0 +1,23 @@
+<wxs src="../../../utils/wxs/common.wxs" module="common"></wxs>
+<template name="point">
+    <view
+        class='goodsInfo df ais-start'
+        wx:for='{{pointGoodsList}}'
+        wx:for-item='point'
+        wx:key="index"
+    >
+    <view class="image">
+        <custom-image src="{{ point.Image }}"></custom-image>
+    </view>
+    <view class='goodsInfo-inner flex'>
+        <view class='df ais-start jct-between goods-title'>
+            <text>{{point.GiftName}}</text>
+            <text>x{{point.Quantity}}</text>
+        </view>
+        <view class="sku-text margin-t-15">{{point.SkuText || '默认规格'}}</view>
+        <view class="font-28 margin-t-20 color-333">{{point.Points || 0}}积分</view>
+    </view>
+    </view>
+    <!-- 按钮组，针对整个订单 -->
+   
+</template>

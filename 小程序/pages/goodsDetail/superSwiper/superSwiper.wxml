@@ -1,0 +1,64 @@
+<view class="video-swiper-wrap">
+  <!-- 视频type==1 -->
+  <video
+    id="myVideo"
+    class="wh-100"
+    initial-time="0"
+    direction="0"
+    autoplay
+    wx:if="{{selectType == 1 && videoSrc}}"
+    src="{{ videoSrc }}"
+    bindfullscreenchange="changeFullScreen"
+    controls="{{ options.controls }}"
+    loop="{{ true }}"
+    muted="{{ options.muted }}"
+    show-center-play-btn="{{ true }}"
+
+  ></video>
+
+  <!-- 轮播type==2 -->
+  
+  <swiper 
+    class="wh-100"
+    indicator-dots="{{ bannerList.length > 1 }}"
+    circular 
+    wx:if="{{ selectType == 2 }}"
+  >
+    <swiper-item 
+      class="banner-item" 
+      wx:for="{{ bannerList }}" 
+      wx:key="index"
+    >
+    <view class="banner-img wh-100">
+      <custom-image src="{{ item }}" mode="aspectFill"></custom-image>
+    </view>
+    </swiper-item>
+  </swiper>
+</view>
+
+<!-- 控制栏 -->
+<cover-view 
+  style="margin-top: {{ top }}rpx" 
+  class="handle-bar absolute flex-content-center" 
+  wx:if="{{ !options.fullScreen && (videoSrc && bannerList.length) }}"
+>
+  <cover-view 
+    class="handle-bar-item margin-r-25 {{ selectType == 1 ? 'handle-bar-item-active' : '' }}" 
+    bindtap="changeShowType" 
+    data-type="{{ 1 }}"
+  >视频</cover-view>
+  <cover-view 
+    class="handle-bar-item {{ selectType == 2 ? 'handle-bar-item-active' : '' }}" 
+    bindtap="changeShowType"  
+    data-type="{{ 2 }}"
+  >图片</cover-view>
+</cover-view>
+<!-- 全屏播放按钮 -->
+<!-- <cover-image 
+  wx:if="{{ !options.play }}"
+  class="handle-scale absolute" 
+  bind:tap="changeFullScreen"
+  style="margin-top: {{ top }}rpx"  
+  src="https://img.hmeshop.cn/hmeshopV3/Storage/master/202008201359219267203.png">
+  
+</cover-image> -->

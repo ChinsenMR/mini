@@ -1,0 +1,11 @@
+button::after {
+    border: none !important;
+}
+button[plain] {
+    border: none !important;
+}
+input {
+    outline: none;
+    border: none;
+    list-style: none;
+}

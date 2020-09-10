@@ -1,0 +1,12 @@
+<view class="yunfei jct-between attrList" wx:if="{{ promotion.length }}">
+  <view class="margin-b-30">满减优惠(最终会以满减额度最大的满减规则生成订单)</view>
+  <view class="pick-up-info">
+    <view 
+      class="pick-up-item {{ index === promotion.length -1 ? '' : 'margin-b-30'}} flex-box" 
+      wx:for="{{ promotion }}" 
+      wx:key="index"
+    >
+      <view class="flex-col-1 theme-red">【{{index + 1}}】{{ item }}</view>
+    </view>
+  </view>
+</view>

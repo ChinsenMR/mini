@@ -1,0 +1,34 @@
+<template name="handleBar">
+    <view class="order-container">
+        <view class='shopGoodBox'>
+            <!-- 余额抵扣 -->
+            <view class="balance_wrap df ais jct-between attrList" wx:if="{{IS_OPEN_BALANCE_DEDUCTION}}">
+                <view>余额抵扣</view> 
+                <view wx:if="{{!isUseDeduction}}" class="balance_price1">可用{{Balance}}元</view>
+                <view wx:else class="balance_price">共{{Balance}}元,使用{{BalanceAmount}}元</view>
+                <switch bindchange="handleOpenDeductionByGather" disabled="{{Balance == 0}}" checked="{{isUseDeduction}}" />
+            </view>
+            <!-- 上门自提 -->
+            <!-- <view class="doorTo df ais jct-between attrList" wx:if="{{ IS_ARROW_USER_PICK_UP }}">
+                <view>上门自提</view>
+                <switch bindchange="handlePickUpByGather" checked="{{extractType == -2}}"/>
+            </view> -->
+            <v-pick-up-info wx:if="{{ orderStatus }}" pickUpInfo="{{ pickUpInfo }}"></v-pick-up-info>
+            <view class="flex-box jct-between attrList {{showText ? 'padding-b-200' : ''}}">
+				<view>备注</view>
+				<view class="flex-box ais">
+                    <textarea 
+                        class="remark-box" 
+                        placeholder="选填，请先和商家协商" 
+                        selection-start="{{2}}"
+                        value="{{remark}}" 
+                        bindinput="handleEditRemark"
+                        bindblur="handleBlur"
+                        bindfocus="handleFocus"
+                        maxlength="300" >
+                    </textarea>
+				</view>
+			</view>
+        </view>
+    </view>
+</template>

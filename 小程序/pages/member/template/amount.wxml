@@ -1,0 +1,22 @@
+<template name="amount">
+  <view class='userRepositoryBox'>
+    <view class='userRepository'>
+      <block wx:for='{{userRepository}}' wx:key="index">
+        <view class='userRepositoryminiBox' data-index="{{index}}" bindtap="Todetali" wx:if="{{item.status && item.text !='提现'}}">
+          <navigator url="{{item.url}}" hover-class="none" class="user_active">
+            <view class='userRepositorynum'>
+              <text>￥</text>
+              <text>{{item.num || 0}}</text>
+            </view>
+            <view class='userRepositorytext'>{{item.text}}</view>
+          </navigator>
+        </view>
+        <view class='userRepositoryminiBox' data-index="{{index}}" bindtap="Todetali" wx:else>
+          <navigator url="{{item.url}}" hover-class="none" class="user_active">
+            <view class="amount_btn">{{item.text}}</view>
+          </navigator>
+        </view>
+      </block>
+    </view>
+  </view>
+</template>

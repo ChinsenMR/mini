@@ -1,0 +1,6 @@
+<view class="box_image" style="width: 100vw;">
+  <rich-text class="" nodes="{{imgStr}}">
+    
+  </rich-text>
+    
+</view>

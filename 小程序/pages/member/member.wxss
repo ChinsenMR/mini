@@ -1,0 +1,745 @@
+.member_all_box {
+  /* 签到 */
+}
+.member_all_box .box {
+  position: relative;
+  width: 100%;
+  height: 315rpx;
+  background: url('http://hmqy.oss-cn-hangzhou.aliyuncs.com/hmeshop_jxy/images/bg-new-icon@2x.png') no-repeat;
+  background-size: 100% 315rpx;
+}
+.member_all_box .box .content {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 260rpx;
+  font-size: 24rpx;
+  color: #fff;
+  /*login按钮*/
+}
+.member_all_box .box .content .content-top-box {
+  width: 100%;
+  box-sizing: border-box;
+  /* background: yellow; */
+  /* height: 1rem; */
+  margin-top: 30.2rpx;
+  display: flex;
+  padding: 0rpx 40rpx;
+  align-items: center;
+}
+.member_all_box .box .content .content-top-box .content-jifen-wrap {
+  display: flex;
+  align-items: center;
+  padding: 10rpx 0;
+}
+.member_all_box .box .content .c_top {
+  display: flex;
+  width: 96%;
+  height: 140rpx;
+  position: relative;
+  margin-top: 89.7rpx auto;
+}
+.member_all_box .box .content .c_top .info_head {
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+  margin-left: 30rpx;
+}
+.member_all_box .box .content .c_top .c_t_center {
+  display: flex;
+  padding: 12rpx 28rpx;
+  /* width: 48%; */
+  width: 70%;
+  flex-direction: column;
+}
+.member_all_box .box .content .c_top .c_t_center .username {
+  display: flex;
+  text-transform: capitalize;
+  font-size: 29.9rpx;
+}
+.member_all_box .box .content .c_top .c_t_center .username .userlevelbox {
+  margin-left: 30rpx;
+  padding: 5rpx 10rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(#333333 0%, #1b1b1b 100%);
+  border-radius: 35rpx;
+  max-width: 60%;
+  min-width: 15%;
+}
+.member_all_box .box .content .c_top .c_t_center .username .userlevelbox > view {
+  display: flex;
+  font-size: 22rpx;
+  color: #ffddbc;
+  align-items: center;
+}
+.member_all_box .box .content .c_top .c_t_center .username .userlevelbox > image {
+  width: 20rpx;
+  height: 18rpx;
+}
+.member_all_box .box .content .c_top .c_t_center #userId {
+  font-size: 25.3rpx;
+  color: #fff;
+}
+.member_all_box .box .content .c_top .c_t_center #userTime {
+  font-size: 25.3rpx;
+  color: #fff;
+}
+.member_all_box .box .content .c_top .Edit {
+  position: absolute;
+  /* top: 12rpx; */
+  top: 51rpx;
+  right: 20rpx;
+}
+.member_all_box .box .content .login_btn {
+  margin-top: 50rpx;
+  /* z-index: 1000; */
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+  position: relative;
+}
+.member_all_box .box .content .login_btn .login_wrap_img {
+  width: 100rpx;
+  height: 100rpx;
+  margin: 0 15rpx 0 40rpx;
+}
+.member_all_box .box .content .login_btn .login_wrap_img image {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+.member_all_box .box .content .login_btn .login_wrap {
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+  justify-content: center;
+}
+.member_all_box .box .content .login_btn .jiantou_wrap {
+  width: 20rpx;
+  height: 25rpx;
+  position: absolute;
+  top: 15rpx;
+  right: 60rpx;
+}
+.member_all_box .box .content .c_bottom {
+  display: flex;
+  text-align: center;
+  width: 100%;
+}
+.member_all_box .box .content .c_bottom .text1 {
+  width: 20%;
+  text-align: right;
+}
+.member_all_box .box .content .c_bottom .text2 {
+  width: 40%;
+  margin-left: 40rpx;
+}
+.member_all_box .box .content .c_bottom view {
+  position: relative;
+  display: flex;
+  width: 40%;
+  text-indent: 4em;
+}
+.member_all_box .box .content .c_bottom view image {
+  position: absolute;
+  margin-right: 10rpx;
+  width: 46rpx;
+  height: 46rpx;
+  top: -8rpx;
+  left: 40rpx;
+}
+.member_all_box .box .card_wrap .vipCarBox {
+  width: 100%;
+  box-sizing: border-box;
+  position: absolute;
+  bottom: 0rpx;
+  padding: 0rpx 24rpx;
+}
+.member_all_box .box .card_wrap .vipCarBox .vipCarimgbox {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  height: 64.4rpx;
+  position: relative;
+  transition: 1s;
+  opacity: 1;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.member_all_box .box .card_wrap .vipCarBox .vipCarimgbox .viptip {
+  color: #ffddbc;
+  font-size: 25rpx;
+  padding-left: 73rpx;
+  flex: 1;
+  letter-spacing: 2rpx;
+  font-family: "PingFangSC-Medium";
+}
+.member_all_box .box .card_wrap .vipCarBox .vipCarimgbox .vipdetali {
+  padding-right: 50rpx;
+  font-size: 20rpx;
+  letter-spacing: 2rpx;
+  color: #fff;
+}
+.member_all_box .box .card_wrap .vipCarBox .vipCarimgbox2 {
+  width: 100%;
+  transition: 1s;
+  height: 0rpx;
+  position: relative;
+  box-sizing: border-box;
+  border-radius: 4px 4px 0px 0px;
+}
+.member_all_box .box .card_wrap .vipCarBox .vipCarimgbox2 .vipcbox {
+  display: flex;
+  justify-content: space-between;
+  padding-left: 47rpx;
+  padding-right: 20rpx;
+  box-sizing: border-box;
+}
+.member_all_box .box .card_wrap .vipCarBox .vipCarimgbox2 .vipcbox .vipboxl {
+  display: flex;
+  align-items: center;
+  font-size: 31rpx;
+  color: yellow;
+}
+.member_all_box .box .card_wrap .vipCarBox .vipCarimgbox2 .vipcbox .vipboxl image {
+  width: 53rpx;
+  height: 53rpx;
+  border-radius: 50%;
+  background: red;
+  margin-right: 10rpx;
+}
+.member_all_box .box .card_wrap .vipCarBox .vipCarimgbox2 .vipcbox .vipboxr {
+  color: yellow;
+}
+.member_all_box .box .card_wrap .vipCarBox .vipCarimgbox2 .gradcart {
+  position: absolute;
+  top: 165rpx;
+  right: 117rpx;
+  font-size: 39rpx;
+  color: yellow;
+}
+.member_all_box .box .card_wrap .vipCarBox .vipCarimgbox2 .cancelcarBtn {
+  width: 46rpx;
+  height: 46rpx;
+  border-radius: 50%;
+  background: #ccc;
+  position: absolute;
+  right: 28rpx;
+  top: -55rpx;
+}
+.member_all_box .box .card_wrap .vipCarBox .vipCarimgbox2 .cancelcarBtn .leftline {
+  width: 3rpx;
+  height: 60%;
+  background: #fff;
+  position: absolute;
+  left: 24rpx;
+  transform: rotate(45deg);
+  top: 10rpx;
+}
+.member_all_box .box .card_wrap .vipCarBox .vipCarimgbox2 .cancelcarBtn .rightline {
+  width: 3rpx;
+  height: 60%;
+  background: #fff;
+  position: absolute;
+  left: 24rpx;
+  transform: rotate(135deg);
+  top: 10rpx;
+}
+.member_all_box .box .card_wrap .vipCarBox .incard {
+  z-index: -1;
+  transition: 0.5s;
+  opacity: 0;
+}
+.member_all_box .box .member {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: absolute;
+  bottom: 0;
+  left: 20rpx;
+  right: 20rpx;
+  box-sizing: border-box;
+  padding: 18rpx 50rpx;
+  border-radius: 10rpx 10rpx 0 0;
+  color: #E8D18C;
+  background: linear-gradient(-82deg, #333333 0%, #221a1a 100%);
+}
+.member_all_box .box .member .member_left .member_left-top {
+  font-size: 32rpx;
+}
+.member_all_box .box .member .member_left .member_left-bottom {
+  font-size: 22rpx;
+}
+.member_all_box .box .member .member_right {
+  position: relative;
+  padding: 14rpx 18rpx;
+  font-size: 24rpx;
+  border: 2rpx solid #E9D28C;
+  border-radius: 4rpx;
+}
+.member_all_box .box .member .member_right .member_btn {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+}
+.member_all_box .box .member .member_right::after {
+  position: absolute;
+  top: -16rpx;
+  right: -16rpx;
+  content: '+';
+  height: 32rpx;
+  width: 32rpx;
+  border-radius: 50%;
+  line-height: 30rpx;
+  text-align: center;
+  background-color: #E4444E;
+}
+.member_all_box .agencyCenter {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30rpx 40rpx;
+  box-sizing: border-box;
+}
+.member_all_box .agencyCenter .agencyCenter2 {
+  width: 100%;
+  box-sizing: border-box;
+  border-radius: 10rpx;
+  overflow: hidden;
+  background: #fff;
+}
+.member_all_box .agencyCenter .agencyCenter2 .agencyCenterTitle {
+  box-sizing: border-box;
+  color: #333;
+  font-size: 26rpx;
+  border-bottom: 1rpx solid #e5e5e5;
+  padding: 18rpx 24rpx 24rpx 18rpx;
+}
+.member_all_box .agencyCenter .agencyCenter2 .agencyCenterListBox {
+  color: #333;
+  font-size: 26rpx;
+  border-bottom: 1px solid #e5e5e5;
+  padding: 18rpx 24rpx 24rpx 18rpx;
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  border-radius: 10rpx;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.member_all_box .agencyCenter .agencyCenter2 .agencyCenterListBox .agencyCenterList {
+  width: 25%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20rpx;
+}
+.member_all_box .agencyCenter .agencyCenter2 .agencyCenterListBox .agencyCenterList image {
+  width: 55.2rpx;
+  height: 55.2rpx;
+}
+.member_all_box .agencyCenter .agencyCenter2 .agencyCenterListBox .agencyCenterList .agenc_text {
+  margin-top: 13.8rpx;
+  font-size: 23rpx;
+  color: #333;
+}
+.member_all_box .userRepositoryBox {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 30rpx 20rpx;
+  background-color: #fff;
+}
+.member_all_box .userRepositoryBox .userRepository {
+  width: 100%;
+  display: flex;
+  border-radius: 10rpx;
+  overflow: hidden;
+  position: relative;
+}
+.member_all_box .userRepositoryBox .userRepository .userRepositoryminiBox {
+  width: 25%;
+  position: relative;
+}
+.member_all_box .userRepositoryBox .userRepository .userRepositoryminiBox .user_active {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.member_all_box .userRepositoryBox .userRepository .userRepositoryminiBox .user_active .userRepositorynum {
+  font-size: 26rpx;
+  font-weight: bold;
+  color: #333;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.member_all_box .userRepositoryBox .userRepository .userRepositoryminiBox .user_active .userRepositorynum text {
+  font-size: 24rpx;
+  color: #666666;
+}
+.member_all_box .userRepositoryBox .userRepository .userRepositoryminiBox .user_active .userRepositorynum text:last-child {
+  font-size: 30rpx;
+}
+.member_all_box .userRepositoryBox .userRepository .userRepositoryminiBox .user_active .userRepositorytext {
+  margin-top: 15rpx;
+  font-size: 24rpx;
+  color: #999;
+}
+.member_all_box .userRepositoryBox .userRepository .userRepositoryminiBox .user_active .amount_btn {
+  width: 113rpx;
+  height: 47rpx;
+  font-size: 30rpx;
+  color: #fff;
+  border-radius: 25rpx;
+  line-height: 47rpx;
+  text-align: center;
+  background-color: #fd4543;
+  margin-top: 15%;
+}
+.member_all_box .myorderBox {
+  width: 100%;
+  padding: 0rpx 20rpx 20rpx;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20rpx;
+}
+.member_all_box .myorderBox .myorderBox2 {
+  width: 100%;
+  background: #fff;
+  border-radius: 8rpx;
+  /* height: 20rpx; */
+}
+.member_all_box .myorderBox .myorderBox2 .myorderListBox {
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+}
+.member_all_box .myorderBox .myorderBox2 .myorderListBox .myorderList {
+  width: 25%;
+  display: flex;
+  padding: 25rpx 0rpx;
+  flex-direction: column;
+  align-items: center;
+}
+.member_all_box .myorderBox .myorderBox2 .myorderListBox .myorderList image {
+  width: 50rpx;
+  height: 50rpx;
+  padding-bottom: 15rpx;
+}
+.member_all_box .myorderBox .myorderBox2 .myorderListBox .myorderList text {
+  font-size: 23rpx;
+  color: #333;
+}
+.member_all_box .myorderBox .myorderBox2 .myorderListBox .myorderList .quantity {
+  position: absolute;
+  width: 40rpx;
+  height: 30rpx;
+  line-height: 30rpx;
+  right: 35rpx;
+  top: 15rpx;
+  background: #ff3333;
+  border: 2rpx solid #ffffff;
+  border-radius: 25rpx;
+  font-size: 22rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  text-align: center;
+  color: #fff;
+}
+.member_all_box .myorderBox .myorderBox2 .myorderListBox .wjx_nums {
+  position: relative;
+}
+.member_all_box .myorderBox .myorderBox2 .myorderListBox .addActive {
+  position: relative;
+}
+.member_all_box .myorderBox .myorderBox2 .myorderListBox .addActive .service {
+  width: 100rpx;
+  height: 100rpx;
+  background-color: pink;
+  position: absolute;
+  top: 25rpx;
+  left: 25rpx;
+}
+.member_all_box .myorderBox .myorderBox2 .myorderListBox .addActive .agency_num {
+  width: 40rpx;
+  height: 40rpx;
+  border-radius: 50%;
+  font-size: 20rpx;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 3%;
+  right: 25%;
+  background-color: red;
+}
+.member_all_box .myorderBox .myorderBox2 .add_active {
+  flex-wrap: wrap;
+}
+.member_all_box .myorderBox .myorderBox2 .wxj_active {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.member_all_box .myorderBox .basic {
+  padding-bottom: 0;
+  border: 1rpx solid #eee;
+  margin-top: 20rpx;
+}
+.member_all_box .myorderBox {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20rpx;
+  padding: 30rpx 20rpx 20rpx 20rpx;
+  background-color: #fff;
+}
+.member_all_box .myorderBox .myorderBox3 {
+  width: 100%;
+  padding: 20rpx;
+  border: 1rpx solid #eee;
+  border-radius: 10rpx;
+  box-shadow: 1rpx 1rpx 1rpx #999;
+}
+.member_all_box .myorderBox .myorderBox3 .myorderTitle {
+  box-sizing: border-box;
+  color: #333;
+  font-size: 27.6rpx;
+  border-bottom: 1rpx solid #e5e5e5;
+  padding: 18rpx 24rpx 24rpx 18rpx;
+}
+.member_all_box .myorderBox .myorderBox3 .myorderListBox {
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+}
+.member_all_box .myorderBox .myorderBox3 .myorderListBox .myorderList2 {
+  position: relative;
+  width: 25%;
+  display: flex;
+  padding: 25rpx 0rpx;
+  flex-direction: column;
+  align-items: center;
+}
+.member_all_box .myorderBox .myorderBox3 .myorderListBox .myorderList2 .myordernum {
+  position: absolute;
+  min-width: 20rpx;
+  line-height: 30rpx;
+  right: 32rpx;
+  top: 2rpx;
+  background: #ff3333;
+  border: 2rpx solid #ffffff;
+  border-radius: 25rpx;
+  font-size: 22rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  text-align: center;
+  color: #fff;
+  padding: 3rpx 8rpx;
+}
+.member_all_box .myorderBox .myorderBox3 .myorderListBox .myorderList2 image {
+  width: 43.7rpx;
+  height: 39rpx;
+  padding-bottom: 15rpx;
+}
+.member_all_box .myorderBox .myorderBox3 .myorderListBox .myorderList2 text {
+  font-size: 23rpx;
+  color: #333;
+}
+.member_all_box .upgrade {
+  padding: 10rpx 20rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #fff;
+  margin: 20rpx auto;
+  width: 100%;
+  box-sizing: border-box;
+}
+.member_all_box .upgrade > view {
+  padding: 20rpx 0 20rpx 27rpx;
+  flex: 1;
+  border-radius: 8rpx;
+}
+.member_all_box .upgrade .upgrade_left,
+.member_all_box .upgrade .upgrade_right {
+  font-size: 20rpx;
+  margin-right: 20rpx;
+  background: linear-gradient(51deg, #db5772 0%, #e07f9a 100%);
+}
+.member_all_box .upgrade .upgrade_left .upgrade_title,
+.member_all_box .upgrade .upgrade_right .upgrade_title {
+  font-size: 36rpx;
+}
+.member_all_box .upgrade .upgrade_left .upgrade_text,
+.member_all_box .upgrade .upgrade_right .upgrade_text {
+  margin: 10rpx 0;
+  display: inline-block;
+  padding: 5rpx 15rpx;
+  border-radius: 20rpx;
+  border: 2rpx solid #fff;
+}
+.member_all_box .upgrade .upgrade_left .upgrade_btn,
+.member_all_box .upgrade .upgrade_right .upgrade_btn {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 110rpx;
+  padding: 9rpx;
+  font-size: 20rpx;
+  border-radius: 4rpx;
+  background: linear-gradient(104deg, #d5365a 0%, #e04554 52%, #d3345b 99%);
+}
+.member_all_box .upgrade .upgrade_left .upgrade_btn::after,
+.member_all_box .upgrade .upgrade_right .upgrade_btn::after {
+  position: absolute;
+  right: 0rpx;
+  content: '';
+  height: 0;
+  width: 0;
+  display: inline-block;
+  border: 10rpx solid #fff;
+  border-right-color: transparent;
+  border-top-color: transparent;
+  border-bottom-color: transparent;
+}
+.member_all_box .upgrade .upgrade_right {
+  background: linear-gradient(-72deg, #424141 0%, #272125 100%);
+  margin-right: 0;
+}
+.member_all_box .smarker {
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.75);
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  z-index: 99999;
+  flex-direction: column;
+}
+.member_all_box .smarker .debox {
+  width: 436rpx;
+  height: 447rpx;
+  display: flex;
+  border-radius: 4rpx;
+  flex-direction: column;
+}
+.member_all_box .smarker .debox .deboxtop {
+  width: 436rpx;
+  height: 189rpx;
+  background: linear-gradient(52deg, #ff5656 0%, #ff483d 100%);
+  border-radius: 0.4rem 0.5rem 0 0;
+  font-weight: 500;
+  color: #ffffff;
+  font-size: 55rpx;
+  text-align: center;
+  line-height: 81rpx;
+}
+.member_all_box .smarker .debox .deboxbt {
+  height: 80%;
+  background: #ffffff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-bottom-left-radius: 12rpx;
+  border-bottom-right-radius: 12rpx;
+}
+.member_all_box .smarker .debox .deboxbt .jifenimng {
+  width: 114rpx;
+  height: 114rpx;
+}
+.member_all_box .smarker .debox .deboxbt .jifenadd {
+  color: #000000;
+  font-size: 55rpx;
+}
+.member_all_box .smarker .closeq {
+  width: 39rpx;
+  height: 39rpx;
+  margin-top: 129rpx;
+}
+.agent_box {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+.agent_box .agent_win {
+  z-index: 1001;
+  width: 60%;
+  height: 40vh;
+  background-color: #fff;
+  border-radius: 20rpx;
+  box-sizing: border-box;
+  padding: 20rpx;
+  position: relative;
+}
+.agent_box .agent_win .agent-title {
+  font-size: 30rpx;
+  color: #000;
+  text-align: center;
+  font-weight: 700;
+  padding: 20rpx 0;
+}
+.agent_box .agent_win .agent-times {
+  font-size: 28rpx;
+  color: #333;
+  margin-bottom: 20rpx;
+}
+.agent_box .agent_win .agent-cause {
+  font-size: 26rpx;
+  color: #999;
+}
+.agent_box .agent_win .agent-btn {
+  font-size: 30rpx;
+  color: #fff;
+  width: 100rpx;
+  height: 60rpx;
+  border-radius: 10rpx;
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  bottom: 30rpx;
+  background-color: #007acc;
+  text-align: center;
+  line-height: 60rpx;
+}
+.nav-custom {
+  width: 90rpx;
+  height: 90rpx;
+  position: fixed;
+  bottom: 150rpx;
+  right: 40rpx;
+  border-radius: 50%;
+  background-color: #fff;
+  background-image: url('http://hmqy.oss-cn-hangzhou.aliyuncs.com/hmeshop_jxy/images/weixin_icon.png');
+  z-index: 10;
+  color: #333;
+}

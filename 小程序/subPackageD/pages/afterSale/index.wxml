@@ -1,0 +1,44 @@
+<!-- <van-nav-bar right-text="{{!edit ? '编辑' : '完成'}}" bind:click-right="onClickRight" custom-style="color: rgb(255,68,68)" /> -->
+<view class="colect" wx:if="{{afterSaleList.length}}">
+	<block wx:for="{{afterSaleList}}" wx:key="index">
+		<view class="flex-center">
+			<van-checkbox
+			 value="{{ item.checked }}"
+			 bind:change="checkItem"
+			 data-index="{{index}}"
+			 checked-color="rgb(255,68,68)"
+		
+			/>
+			<view class="containt" data-productid="{{item.ProductId}}" bindtap="seeDetail">
+				<image src="{{item.Image}}" mode="aspectFill" />
+				<view class="contr">
+					<view class="name">{{item.Name}}</view>
+					<view class="sku" >{{item.SkuText || '默认规格'}}</view>
+					<view class="pricebox">
+						<view class="price" >￥{{item.Price || '0.00'}}</view>
+					
+						<view class="active" >共{{item.Amount || 0}}件</view>
+					</view>
+				</view>
+			</view>
+		</view>
+	</block>
+</view>
+<view class="emity" wx:if="{{!afterSaleList.length}}">暂无商品</view>
+<van-submit-bar
+ button-text="申请售后"
+ bind:submit="navigoToAfterSale"
+ tip="{{ true }}"
+>
+	<view class="handle-box flex-center">
+		<van-checkbox value="{{ checked }}" bind:change="onChange" checked-color="rgb(255,68,68)">
+			全选
+		</van-checkbox>
+		
+		  
+	</view>
+	<!-- <view class="total">
+		已选5件
+	</view> -->
+</van-submit-bar>
+

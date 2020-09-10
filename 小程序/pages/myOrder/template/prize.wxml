@@ -1,0 +1,42 @@
+<template name="prize">
+    <block wx:for="{{prizeGoodsList}}" wx:for-item="gift">
+        <view class='goodsList df ais-start' >
+            <image src='{{gift.Image}}' mode='aspectFill' data-id='{{item.OrderId}}' bindtap='toOrderDetail' />
+            <view class='glist-R flex'>
+                <view class='dbc overflow-eps-2' data-id='{{item.OrderId}}' bindtap='toOrderDetail'>
+                    {{gift.GiftName}}
+                </view>
+                <view class='dbc goodsSpecs' data-id='{{item.OrderId}}' bindtap='toOrderDetail' hidden="{{!gift.SkuId}}}">
+                    {{gift.SkuId || '默认规格'}}
+                </view>
+                <view class='price dbc'>
+                    <text data-id='{{item.OrderId}}' bindtap='toOrderDetail'>{{gift.Points}}积分</text>
+                    <text data-id='{{item.OrderId}}' bindtap='toOrderDetail'>x {{gift.Quantity}}</text>
+                </view>
+            </view>
+        </view>
+    </block>
+    
+    <!-- <view class='totalPrice da-e'>
+        <text>共 {{item.Quantity}} 件商品</text>
+        <text>合计：{{item.Amount}}积分</text>
+    </view> -->
+    <!-- 根据订单状态 显示 相应的底部 按钮 -->
+    <view class='o-footer da-e'>
+        <button class="handle-btn" bindtap="showContactCode" data-items="{{ item }}">
+            联系卖家
+        </button>
+        <block wx:if='{{item.Status === 3}}'>
+            <button class="handle-btn" bindtap="seeExpressStep" data-orderId="{{item.OrderId}}">
+                查看物流
+            </button>
+            <button class='handle-btn' data-id="{{item.OrderId}}" bindtap="handleFinishOrder" wx:if="{{item.Status === 3}}">
+                确认收货
+            </button>
+        </block>
+        <navigator class="handle-btn" url="/packageA/pages/evaluate/evaluate?id={{item.OrderId}}"
+            wx:if='{{item.Status === 5}}'>
+            去评价
+        </navigator>
+    </view>
+</template>

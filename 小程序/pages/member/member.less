@@ -1,0 +1,868 @@
+.member_all_box {
+  // background-color: pink;
+
+  // 头部
+  .box {
+    position: relative;
+    width: 100%;
+    height: 315rpx;
+    // background: linear-gradient(104deg, rgba(232, 84, 72, 1) 0%, rgba(228, 68, 78, 1) 41%, rgba(228, 62, 81, 1) 100%);
+    background: url('http://hmqy.oss-cn-hangzhou.aliyuncs.com/hmeshop_jxy/images/bg-new-icon@2x.png') no-repeat;
+    background-size: 100% 315rpx;
+
+    .content {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 260rpx;
+      font-size: 24rpx;
+      color: #fff;
+
+      .content-top-box {
+        width: 100%;
+        box-sizing: border-box;
+        /* background: yellow; */
+        /* height: 1rem; */
+        margin-top: 30.2rpx;
+        display: flex;
+        padding: 0rpx 40rpx;
+        align-items: center;
+
+        .content-jifen-wrap {
+          display: flex;
+          align-items: center;
+          padding: 10rpx 0;
+        }
+      }
+
+      .c_top {
+        display: flex;
+        width: 96%;
+        height: 140rpx;
+        position: relative;
+        margin-top: 89.7rpx auto;
+
+        .info_head {
+          width: 100rpx;
+          height: 100rpx;
+          border-radius: 50%;
+          margin-left: 30rpx;
+        }
+
+        .c_t_center {
+          display: flex;
+          padding: 12rpx 28rpx;
+          /* width: 48%; */
+          width: 70%;
+          flex-direction: column;
+
+          .username {
+            display: flex;
+            text-transform: capitalize;
+            font-size: 29.9rpx;
+
+            .userlevelbox {
+              margin-left: 30rpx;
+              padding: 5rpx 10rpx;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              background: linear-gradient(rgba(51, 51, 51, 1) 0%, rgba(27, 27, 27, 1) 100%);
+              border-radius: 35rpx;
+              max-width: 60%;
+              min-width: 15%;
+
+              >view {
+                display: flex;
+                font-size: 22rpx;
+                color: #ffddbc;
+                align-items: center;
+              }
+
+              >image {
+                width: 20rpx;
+                height: 18rpx;
+              }
+            }
+          }
+
+          #userId {
+            font-size: 25.3rpx;
+            color: #fff;
+          }
+
+          #userTime {
+            font-size: 25.3rpx;
+            color: #fff;
+          }
+        }
+
+        .Edit {
+          position: absolute;
+          /* top: 12rpx; */
+          top: 51rpx;
+          right: 20rpx;
+        }
+      }
+
+      /*login按钮*/
+      .login_btn {
+        margin-top: 50rpx;
+        /* z-index: 1000; */
+        display: flex;
+        /* justify-content: center; */
+        align-items: center;
+        position: relative;
+
+        .login_wrap_img {
+          width: 100rpx;
+          height: 100rpx;
+          margin: 0 15rpx 0 40rpx;
+
+          image {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+          }
+        }
+
+        .login_wrap {
+          display: flex;
+          flex-direction: column;
+          /* align-items: center; */
+          justify-content: center;
+        }
+
+        .jiantou_wrap {
+          width: 20rpx;
+          height: 25rpx;
+          position: absolute;
+          top: 15rpx;
+          right: 60rpx;
+        }
+      }
+
+      .c_bottom {
+        display: flex;
+        text-align: center;
+        width: 100%;
+
+        .text1 {
+          width: 20%;
+          text-align: right;
+        }
+
+        .text2 {
+          width: 40%;
+          margin-left: 40rpx;
+        }
+
+        view {
+          position: relative;
+          display: flex;
+          width: 40%;
+          text-indent: 4em;
+
+          image {
+            position: absolute;
+            margin-right: 10rpx;
+            width: 46rpx;
+            height: 46rpx;
+            top: -8rpx;
+            left: 40rpx;
+          }
+        }
+      }
+    }
+
+    .card_wrap {
+      .vipCarBox {
+        width: 100%;
+        box-sizing: border-box;
+        position: absolute;
+        bottom: 0rpx;
+        padding: 0rpx 24rpx;
+
+        .vipCarimgbox {
+          width: 100%;
+          display: flex;
+          align-items: center;
+          height: 64.4rpx;
+          position: relative;
+          transition: 1s;
+          opacity: 1;
+          background-repeat: no-repeat;
+          background-size: cover;
+
+          .viptip {
+            color: #ffddbc;
+            font-size: 25rpx;
+            padding-left: 73rpx;
+            flex: 1;
+            letter-spacing: 2rpx;
+            font-family: "PingFangSC-Medium";
+          }
+
+          .vipdetali {
+            padding-right: 50rpx;
+            font-size: 20rpx;
+            letter-spacing: 2rpx;
+            color: #fff;
+          }
+        }
+
+        .vipCarimgbox2 {
+          width: 100%;
+          transition: 1s;
+          height: 0rpx;
+          position: relative;
+          box-sizing: border-box;
+          border-radius: 4px 4px 0px 0px;
+
+          .vipcbox {
+            display: flex;
+            justify-content: space-between;
+            padding-left: 47rpx;
+            padding-right: 20rpx;
+            box-sizing: border-box;
+
+            .vipboxl {
+              display: flex;
+              align-items: center;
+              font-size: 31rpx;
+              color: yellow;
+
+              image {
+                width: 53rpx;
+                height: 53rpx;
+                border-radius: 50%;
+                background: red;
+                margin-right: 10rpx;
+              }
+            }
+
+            .vipboxr {
+              color: yellow;
+            }
+          }
+
+          .gradcart {
+            position: absolute;
+            top: 165rpx;
+            right: 117rpx;
+            font-size: 39rpx;
+            color: yellow;
+          }
+
+          .cancelcarBtn {
+            width: 46rpx;
+            height: 46rpx;
+            border-radius: 50%;
+            background: #ccc;
+            position: absolute;
+            right: 28rpx;
+            top: -55rpx;
+
+            .leftline {
+              width: 3rpx;
+              height: 60%;
+              background: #fff;
+              position: absolute;
+              left: 24rpx;
+              transform: rotate(45deg);
+              top: 10rpx;
+            }
+
+            .rightline {
+              width: 3rpx;
+              height: 60%;
+              background: #fff;
+              position: absolute;
+              left: 24rpx;
+              transform: rotate(135deg);
+              top: 10rpx;
+            }
+          }
+        }
+
+        .incard {
+          z-index: -1;
+          transition: 0.5s;
+          opacity: 0;
+        }
+      }
+    }
+
+    .member {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: absolute;
+      bottom: 0;
+      left: 20rpx;
+      right: 20rpx;
+      box-sizing: border-box;
+      padding: 18rpx 50rpx;
+      border-radius: 10rpx 10rpx 0 0;
+      color: #E8D18C;
+      background: linear-gradient(-82deg, rgba(51, 51, 51, 1) 0%, rgba(34, 26, 26, 1) 100%);
+
+      .member_left {
+        .member_left-top {
+          font-size: 32rpx;
+        }
+
+        .member_left-bottom {
+          font-size: 22rpx;
+        }
+      }
+
+      .member_right {
+        position: relative;
+        padding: 14rpx 18rpx;
+        font-size: 24rpx;
+        border: 2rpx solid #E9D28C;
+        border-radius: 4rpx;
+
+        .member_btn {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          opacity: 0;
+        }
+
+        &::after {
+          position: absolute;
+          top: -16rpx;
+          right: -16rpx;
+          content: '+';
+          height: 32rpx;
+          width: 32rpx;
+          border-radius: 50%;
+          line-height: 30rpx;
+          text-align: center;
+          background-color: #E4444E;
+        }
+      }
+    }
+  }
+
+  // 1代理模块
+  .agencyCenter {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30rpx 40rpx;
+    box-sizing: border-box;
+
+    .agencyCenter2 {
+      width: 100%;
+      box-sizing: border-box;
+      border-radius: 10rpx;
+      overflow: hidden;
+      background: #fff;
+
+      .agencyCenterTitle {
+        box-sizing: border-box;
+        color: #333;
+        font-size: 26rpx;
+        border-bottom: 1rpx solid #e5e5e5;
+        padding: 18rpx 24rpx 24rpx 18rpx;
+      }
+
+      .agencyCenterListBox {
+        box-sizing: border-box;
+        color: #333;
+        font-size: 26rpx;
+        border-bottom: 1px solid #e5e5e5;
+        padding: 18rpx 24rpx 24rpx 18rpx;
+        width: 100%;
+        box-sizing: border-box;
+        display: flex;
+        border-radius: 10rpx;
+        flex-wrap: wrap;
+        align-items: center;
+
+        .agencyCenterList {
+          width: 25%;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          margin-bottom: 20rpx;
+
+          image {
+            width: 55.2rpx;
+            height: 55.2rpx;
+          }
+
+          .agenc_text {
+            margin-top: 13.8rpx;
+            font-size: 23rpx;
+            color: #333;
+          }
+        }
+      }
+    }
+  }
+
+  //2
+  .userRepositoryBox {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 30rpx 20rpx;
+    background-color: #fff;
+
+    .userRepository {
+      width: 100%;
+      display: flex;
+      border-radius: 10rpx;
+      overflow: hidden;
+      position: relative;
+
+      .userRepositoryminiBox {
+        width: 25%;
+        // padding: 18rpx 16rpx;
+        position: relative;
+
+        .user_active {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+
+          .userRepositorynum {
+            font-size: 26rpx;
+            font-weight: bold;
+            color: #333;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            text {
+              font-size: 24rpx;
+              color: #666666;
+            }
+
+            text:last-child {
+              font-size: 30rpx;
+            }
+          }
+
+          .userRepositorytext {
+            margin-top: 15rpx;
+            font-size: 24rpx;
+            color: #999;
+          }
+
+          .amount_btn {
+            width: 113rpx;
+            height: 47rpx;
+            font-size: 30rpx;
+            color: #fff;
+            border-radius: 25rpx;
+            line-height: 47rpx;
+            text-align: center;
+            background-color: #fd4543;
+            margin-top: 15%;
+          }
+        }
+      }
+    }
+  }
+
+  //3
+  .myorderBox {
+    width: 100%;
+    padding: 0rpx 20rpx 20rpx;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20rpx;
+
+    .myorderBox2 {
+      width: 100%;
+      background: #fff;
+      border-radius: 8rpx;
+
+      /* height: 20rpx; */
+      .myorderListBox {
+        width: 100%;
+        box-sizing: border-box;
+        display: flex;
+
+        .myorderList {
+          width: 25%;
+          display: flex;
+          padding: 25rpx 0rpx;
+          flex-direction: column;
+          align-items: center;
+
+          image {
+            width: 50rpx;
+            height: 50rpx;
+            padding-bottom: 15rpx;
+          }
+
+          text {
+            font-size: 23rpx;
+            color: #333;
+          }
+
+          .quantity {
+            position: absolute;
+            width: 40rpx;
+            height: 30rpx;
+            line-height: 30rpx;
+            right: 35rpx;
+            top: 15rpx;
+            background: rgba(255, 51, 51, 1);
+            border: 2rpx solid rgba(255, 255, 255, 1);
+            border-radius: 25rpx;
+            font-size: 22rpx;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            text-align: center;
+            color: #fff;
+          }
+        }
+
+        .wjx_nums {
+          position: relative;
+        }
+
+        .addActive {
+          position: relative;
+
+          .service {
+            width: 100rpx;
+            height: 100rpx;
+            background-color: pink;
+            position: absolute;
+            top: 25rpx;
+            left: 25rpx;
+          }
+
+          .agency_num {
+            width: 40rpx;
+            height: 40rpx;
+            border-radius: 50%;
+            font-size: 20rpx;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: absolute;
+            top: 3%;
+            right: 25%;
+            background-color: red;
+          }
+        }
+      }
+
+      .add_active {
+        flex-wrap: wrap;
+      }
+
+      .wxj_active {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+      }
+    }
+
+    .basic {
+      padding-bottom: 0;
+      border: 1rpx solid #eee;
+      margin-top: 20rpx;
+    }
+  }
+
+  //4基础模块
+  .myorderBox {
+    width: 100%;
+    // padding: 0rpx 20rpx 20rpx;
+    // box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20rpx;
+    padding: 30rpx 20rpx 20rpx 20rpx;
+    background-color: #fff;
+    // margin: 20rpx 0;
+
+    .myorderBox3 {
+      width: 100%;
+      // background: #fff;
+      // border-radius: 10rpx 10rpx 0rpx 0rpx;
+      padding: 20rpx;
+      border: 1rpx solid #eee;
+      border-radius: 10rpx;
+      box-shadow: 1rpx 1rpx 1rpx #999;
+
+      .myorderTitle {
+        box-sizing: border-box;
+        color: #333;
+        font-size: 27.6rpx;
+        border-bottom: 1rpx solid #e5e5e5;
+        padding: 18rpx 24rpx 24rpx 18rpx;
+      }
+
+      .myorderListBox {
+        width: 100%;
+        box-sizing: border-box;
+        display: flex;
+
+        .myorderList2 {
+          position: relative;
+          width: 25%;
+          display: flex;
+          padding: 25rpx 0rpx;
+          flex-direction: column;
+          align-items: center;
+
+          .myordernum {
+            position: absolute;
+            min-width: 20rpx;
+            // height: 30rpx;
+            line-height: 30rpx;
+            right: 32rpx;
+            top: 2rpx;
+            background: rgba(255, 51, 51, 1);
+            border: 2rpx solid rgba(255, 255, 255, 1);
+            border-radius: 25rpx;
+            font-size: 22rpx;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            text-align: center;
+            color: #fff;
+            padding: 3rpx 8rpx;
+          }
+
+          image {
+            width: 43.7rpx;
+            height: 39rpx;
+            padding-bottom: 15rpx;
+          }
+
+          text {
+            font-size: 23rpx;
+            color: #333;
+          }
+        }
+      }
+    }
+  }
+
+  //5
+  .upgrade {
+    padding: 10rpx 20rpx;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: #fff;
+    margin: 20rpx auto;
+    width: 100%;
+    box-sizing: border-box;
+
+    >view {
+      padding: 20rpx 0 20rpx 27rpx;
+      flex: 1;
+      border-radius: 8rpx;
+    }
+
+    .upgrade_left,
+    .upgrade_right {
+      font-size: 20rpx;
+      margin-right: 20rpx;
+      background: linear-gradient(51deg, rgba(219, 87, 114, 1) 0%, rgba(224, 127, 154, 1) 100%);
+
+      .upgrade_title {
+        font-size: 36rpx;
+      }
+
+      .upgrade_text {
+        margin: 10rpx 0;
+        display: inline-block;
+        padding: 5rpx 15rpx;
+        border-radius: 20rpx;
+        border: 2rpx solid #fff;
+      }
+
+      .upgrade_btn {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 110rpx;
+        padding: 9rpx;
+        font-size: 20rpx;
+        border-radius: 4rpx;
+        background: linear-gradient(104deg, rgba(213, 54, 90, 1) 0%, rgba(224, 69, 84, 1) 52%, rgba(211, 52, 91, 1) 99%);
+
+        &::after {
+          position: absolute;
+          right: 0rpx;
+          content: '';
+          height: 0;
+          width: 0;
+          display: inline-block;
+          border: 10rpx solid #fff;
+          border-right-color: transparent;
+          border-top-color: transparent;
+          border-bottom-color: transparent;
+        }
+      }
+    }
+
+    .upgrade_right {
+      background: linear-gradient(-72deg, rgba(66, 65, 65, 1) 0%, rgba(39, 33, 37, 1) 100%);
+      margin-right: 0;
+    }
+  }
+
+  //6签到弹窗
+  /* 签到 */
+  .smarker {
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.75);
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    z-index: 99999;
+    flex-direction: column;
+
+    .debox {
+      width: 436rpx;
+      height: 447rpx;
+      display: flex;
+      border-radius: 4rpx;
+      flex-direction: column;
+
+      .deboxtop {
+        width: 436rpx;
+        height: 189rpx;
+        background: linear-gradient(52deg, rgba(255, 86, 86, 1) 0%, rgba(255, 72, 61, 1) 100%);
+        border-radius: 0.4rem 0.5rem 0 0;
+        font-weight: 500;
+        color: rgba(255, 255, 255, 1);
+        font-size: 55rpx;
+        text-align: center;
+        line-height: 81rpx;
+      }
+
+      .deboxbt {
+        height: 80%;
+        background: rgba(255, 255, 255, 1);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        border-bottom-left-radius: 12rpx;
+        border-bottom-right-radius: 12rpx;
+
+        .jifenimng {
+          width: 114rpx;
+          height: 114rpx;
+        }
+
+        .jifenadd {
+          color: rgba(0, 0, 0, 1);
+          font-size: 55rpx;
+        }
+      }
+    }
+
+    .closeq {
+      width: 39rpx;
+      height: 39rpx;
+      margin-top: 129rpx;
+    }
+  }
+}
+
+// 神州项目需要的代理清除提示框
+.agent_box {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, .6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+
+  .agent_win {
+    z-index: 1001;
+    width: 60%;
+    height: 40vh;
+    background-color: #fff;
+    border-radius: 20rpx;
+    box-sizing: border-box;
+    padding: 20rpx;
+    position: relative;
+
+    .agent-title {
+      font-size: 30rpx;
+      color: #000;
+      text-align: center;
+      font-weight: 700;
+      padding: 20rpx 0;
+    }
+
+    .agent-times {
+      font-size: 28rpx;
+      color: #333;
+      margin-bottom: 20rpx;
+    }
+
+    .agent-cause {
+      font-size: 26rpx;
+      color: #999;
+    }
+
+    .agent-btn {
+      font-size: 30rpx;
+      color: #fff;
+      width: 100rpx;
+      height: 60rpx;
+      border-radius: 10rpx;
+      position: absolute;
+      left: 0;
+      right: 0;
+      margin-left: auto;
+      margin-right: auto;
+      bottom: 30rpx;
+      background-color: #007acc;
+      text-align: center;
+      line-height: 60rpx;
+    }
+  }
+}
+
+// 客服按钮
+.nav-custom {
+  width: 90rpx;
+  height: 90rpx;
+  position: fixed;
+  bottom: 150rpx;
+  right: 40rpx;
+  border-radius: 50%;
+  background-color: #fff;
+  background-image: url('http://hmqy.oss-cn-hangzhou.aliyuncs.com/hmeshop_jxy/images/weixin_icon.png');
+  z-index: 10;
+  color: #333;
+}

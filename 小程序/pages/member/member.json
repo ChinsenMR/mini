@@ -1,0 +1,12 @@
+{
+  "navigationBarTitleText": "我的",
+   "navigationBarBackgroundColor": "#f5f5f5",
+   "navigationBarTextStyle": "black",
+   "enablePullDownRefresh": true,
+   "backgroundTextStyle": "dark",
+  "usingComponents":{
+    "btn-to-top": "/components/btnToTop/btnToTop",
+    "code":"./code/code",
+    "tabBar": "/components/tabBar/tabBar"
+  }
+}

@@ -1,0 +1,15 @@
+<template name="order">
+    <view class='myorderBox'>
+        <view class='myorderBox3'>
+            <!-- <view class='myorderTitle' catchtap='gomyorder'>基础模块</view> -->
+            <view class='myorderListBox'>
+                <view class='myorderList2' wx:for="{{myorderBox}}" wx:key="index" data-index="{{index}}"
+                    bindtap='Tomyorder'>
+                    <view class="myordernum" wx:if="{{index!=4&&item.num}}">{{item.num}}</view>
+                    <image src='{{item.imgurl}}' />
+                    <text style="color:{{item.color}}">{{item.text}}</text>
+                </view>
+            </view>
+        </view>
+    </view>
+</template>

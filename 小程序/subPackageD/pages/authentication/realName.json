@@ -1,0 +1,10 @@
+{
+  "usingComponents": {
+    "van-popup": "/miniprogram_npm/vant-weapp/popup/index",
+    "van-radio": "/miniprogram_npm/vant-weapp/radio/index",
+    "message-dialog": "../../components/message/index"
+  },
+  "navigationBarBackgroundColor": "#fff",
+  "navigationBarTextStyle": "black",
+  "navigationBarTitleText": "实名认证"
+}

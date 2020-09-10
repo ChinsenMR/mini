@@ -1,0 +1,71 @@
+<wxs module="calculate">
+   var totalize = function(num1,num2){
+     num1 = Number(num1*1000);
+     num2 = Number(num2*1000);
+     return ((num1+num2)/1000).toFixed(2);
+   }
+    module.exports.totalize = totalize;
+</wxs>
+
+
+<view class="commission">
+  <view class="header">
+    <view class="header-title">
+      <!-- <text>{{earnings.sum}}</text> -->
+      <text>{{calculate.totalize(earnings.balance,earnings.commission) || 0}}</text>
+      <text>累计收益(元)</text>
+    </view>
+    <view class="header-bottom">
+      <view class="header-bottom-left">
+        <text>零售收入:</text>
+        <text>￥{{earnings.commission}}</text>
+      </view>
+      <view class="header-bottom-left">
+        <text>奖励收入:</text>
+        <text>￥{{earnings.balance}}</text>
+      </view>
+    </view>
+  </view>
+  <view class="content">
+    <view class="content-title" bindtap="handleGo" data-type="{{1}}">
+      <text>收益明细</text>
+      <image src="{{imgUrl+'icon_search73@2x.png'}}"></image>
+    </view>
+    <block wx:for="{{list}}" wx:key="index">
+      <view class="content-list" bindtap="handleGo" data-order="{{item.OrderId}}" data-type="{{2}}">
+        <view class="content-list-title">
+          <view class="content-list-title-left">{{item.TradeName}}</view>
+          <view class="content-list-title-right">
+            <text>￥{{item.Amount}}</text>
+            <!-- <image src="{{imgUrl+'more_02@2x.png'}}"></image> -->
+          </view>
+        </view>
+    
+        <view class="content-list-list_wrap">
+          <block wx:for="{{item.csList}}" wx:for-item="subItem" wx:for-index="subIndex" wx:key="subIndex">
+            <view class="content-list-list_wrap-main">
+              <text>{{subItem.name}}:</text>
+              <text>{{subItem.val}}</text>
+            </view>
+          </block>
+        </view>
+      </view>
+    </block>
+    <view class="no_data" wx:if="{{list.length == 0}}">暂无数据~</view>
+  </view>
+</view>
+
+<!-- 协议弹窗 -->
+<view class="win_wrap" catchtouchmove="ture" wx:if="{{isWin}}">
+  <view class="win_main">
+    <template is="wxParse" data="{{wxParseData:article.nodes}}" />
+    <view class="btn_wrap" catchtap="handleTY" data-status="1">
+      <view class="search_btn">
+        <view class="btn_img" wx:if="{{isShow}}"></view>
+      </view>
+      <view class="search_title">我已阅读该协议</view>
+    </view>
+  </view>
+  <view class="win_style" catchtap="handleAgree">同意</view>
+</view>
+<view class="zhezhao" catchtouchmove="ture" wx:if="{{isWin}}"></view>

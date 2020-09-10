@@ -1,0 +1,19 @@
+<template name="upgrade">
+    <view class="upgrade">
+        <view class="upgrade_left" bindtap="handleGo" data-type="1" >
+            <view class="upgrade_title">升级会员</view>
+            <view class="upgrade_text">头一次·就这么优惠</view>
+            <view class="upgrade_btn">点击升级</view>
+        </view>
+        <view class="upgrade_right" bindtap="handleGo" data-type="2" wx:if="{{userInfo.KjCustomId === 0}}">
+            <view class="upgrade_title">成为代理</view>
+            <view class="upgrade_text">轻创业·好赚钱</view>
+            <view class="upgrade_btn">点击升级</view>
+        </view>
+        <view class="upgrade_right" bindtap="goAgentCenter" wx:else>
+            <view class="upgrade_title">代理中心</view>
+            <view class="upgrade_text">轻创业·好赚钱</view>
+            <view class="upgrade_btn">点击进入</view>
+        </view>
+    </view>
+</template>

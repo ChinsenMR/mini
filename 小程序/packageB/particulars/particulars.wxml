@@ -1,0 +1,52 @@
+<view class="particulars">
+  <view class="nav_wrap">
+    <block wx:for="{{navList}}" wx:key="index">
+      <view class="nav {{index==nums?'active':''}}" bindtap="handleChange" data-index="{{index}}">{{item}}</view>
+    </block>
+  </view>
+
+  <view class="content">
+    <block wx:for="{{list}}" wx:key="index">
+      <view class="content-list" wx:if="{{nums==0}}">
+        <view class="content-list-left">
+          <text>{{item.TradeTypeName}}</text>
+          <text>{{item.TradeDate}}</text>
+          <text>备注:{{item.Remark || '无'}}</text>
+        </view>
+        <view class="content-list-right">￥{{item.Amount}}</view>
+      </view>
+    </block>
+
+    <block wx:for="{{darwList}}" wx:key="index">
+      <view class="content-record" wx:if="{{nums==1}}">
+        <view class="content-record-title">
+          <text>{{item.BankName}}({{item.newAccount}})</text>
+          <text>￥{{item.Amount}}</text>
+        </view>
+        <view class="content-record-main">
+          <view class="content-record-main-main_wrap">
+            <text>申请提现时间:</text>
+            <text>{{item.CreateTime}}</text>
+          </view>
+          <view class="content-record-main-main_wrap">
+            <text>提现金额:</text>
+            <text>￥{{item.WithDrawBalance}}</text>
+          </view>
+          <view class="content-record-main-main_wrap">
+            <text>服务手续费:</text>
+            <text>{{item.WithDrawCharge}}%</text>
+          </view>
+          <view class="content-record-main-main_wrap">
+            <text>提现状态:</text>
+            <text wx:if="{{true}}" style="color:#F28161;">{{item.StatusStr || '审核中'}}</text>
+            <text wx:elif="{{true}}" style="color:#3399FF;">已到账</text>
+            <text wx:else style="color:var(--theme-red);">驳回</text>
+          </view>
+        </view>
+      </view>
+    </block>
+  </view>
+  
+  <view class="no_data">没有更多了~</view>
+</view>
+

@@ -1,0 +1,23 @@
+<swiper
+  class="{{ className }}"
+  indicator-dots="false"
+  indicator-color="rgba(0,0,0,.3)"
+  autoplay="false"
+  current="0"
+  current-item-id=""
+  interval="5000"
+  duration="1000"
+  circular="false"
+  vertical="false"
+  previous-margin="false"
+  next-margin="0px"
+  display-multiple-items="1"
+  skip-hidden-item-layout="false"
+  bindchange=""
+  bindanimationfinish=""
+>
+  <swiper-item class="" item-id="" wx:for="{{ imageList }}" wx:key="index">
+    
+  </swiper-item>
+    
+</swiper>

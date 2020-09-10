@@ -1,0 +1,87 @@
+<!-- pages/addBank/addBank.wxml -->
+<view class="add-bank">
+  <view class="form-content flex-center" >
+    <view class="flex-center flex">
+      <label >账户类型</label>
+      <radio-group bindchange="radioChange" class="radio_wrap" >
+        <block class="weui-cell weui-check__label" wx:for="{{navList}}" wx:key="index">
+          <view class="select_radio">
+            <view class="weui-cell__hd">
+              <radio value="{{item.id}}" checked="{{index==accountType}}" color="#e21918"/>
+            </view>
+            <view class="weui-cell__bd">{{item.name}}</view>
+          </view>
+        </block>
+      </radio-group>
+    </view>
+  </view>
+  
+  <!-- ----------------------------------- -->
+  <form catchsubmit="formSubmit">
+    <view class="form-content flex-center">
+      <view class="flex-center flex">
+        <label>真实姓名</label>
+        <view class="flex-center">
+          <input type="text"
+            bindinput="handleInpout"
+            placeholder="请真实姓名" 
+            value="{{ nameVal }}"
+            maxlength="10"
+            name="nameVal"
+            class="flex-col-1" />
+        </view>
+      </view>
+    </view>
+    <view class="form-content flex-center">
+      <view class="flex-center flex">
+        <label>开户银行</label>
+        <picker range="{{ bankList }}" bindchange="onChange" class="flex-col-1" range-key="text">
+          <view class="flex-center">
+            <input placeholder="请选择开户银行" value="{{ bankList[form.bankCardKey].text }}" maxlength="18" disabled
+              class="flex-col-1" />
+            <image class="arrow-right" src="{{ imgUrl + 'arrowRight.png' }}" mode="widthFix" />
+          </view>
+        </picker>
+      </view>
+    </view>
+    <view class="form-content flex-center">
+      <view class="flex-center flex">
+        <label>银行卡号</label>
+        <input
+          data-type="{{2}}" 
+          type="number" 
+          data-name="bankCardId"
+          placeholder="请输入银行卡号"
+          value="{{ bankCode }}"
+          name="bankCode"
+          maxlength="21" />
+      </view>
+    </view>
+
+    <view class="form-content flex-center add_active" wx:if="{{accountType==1}}">
+      <view class="flex-center flex">
+        <label class="flex-center">
+          联行行号
+          <image class="icon margin-l-20" src="{{ tipIcon }}" mode="widthFix" catchtap="handleShowTip" />
+        </label>
+        <input data-type="{{2}}" type="text" data-name="bankCardId" placeholder="请输入12位联行号" value="{{ bankCode }}"
+          name="jonesLangLasalle" maxlength="12" bindfocus="handleOffTip" />
+      </view>
+      <view class="pop-up" wx:if="{{showTip}}" catchtap="handleOffTip">银行联行号也叫开户行代码、开户行行号、开户网点代码。可通过百度网站进行查询。</view>
+    </view>
+
+    <view class="form-content flex-center">
+      <view class="flex-center flex">
+        <label>是否选为默认</label>
+        <switch checked="{{switchChecked}}" bindchange="switchChange" />
+      </view>
+    </view>
+    
+    <view class="btn-area">
+      <button class="btn active" type="warn" formType="submit">添加</button>
+    </view>
+  </form>
+  <!-- ----------------------------------- -->
+
+</view>
+

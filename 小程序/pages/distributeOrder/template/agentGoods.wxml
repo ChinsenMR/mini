@@ -1,0 +1,64 @@
+<template name="agent-goods">
+  <block wx:for="{{ goodsList }}" wx:for-item="goods" wx:key="goods">
+    <view class="goodsInfo df ais-start">
+      <view class="image">
+        <custom-image src="{{ goods.Image }}"></custom-image>
+      </view>
+      <view class="goodsInfo-inner flex">
+        <view class="df ais-start jct-between goods-title">
+          <text class="line2">{{ goods.Name }}</text>
+          <view class="nums_wrap">
+            <text>发货数量x{{ goods.ShipmentQuantity }}</text>
+            <text>购买数量x{{ goods.Amount }}</text>
+          </view>
+        </view>
+        <view class="sku-text margin-t-15">{{ goods.SkuText || "默认规格" }}</view>
+        <view class="price theme-red margin-t-15">￥{{goods.Price}}</view>
+        <!-- 关于代理申请售后 -->
+        <block>
+          <!-- 代理申请售后 -->
+          <view
+            wx:if="{{ goods.IsAllowReturn }}"
+            class="apply-btn"
+            bindtap="applyAfterSale"
+            data-item="{{ item }}"
+            data-goods="{{ goods }}"
+            data-type="{{ 1 }}"
+            >申请售后
+          </view>
+
+          <!-- 售后中查看售后状态 -->
+          <view
+            bindtap="reviewAftarSaleStatus"
+            data-item="{{ item }}"
+            data-goods="{{ goods }}"
+            data-type="{{ 1 }}"
+            wx:if="{{ goods.ReturnInfo }}"
+            class="apply-btn apply-ing"
+            >{{ goods.Status === 24 ? "售后完成" : "售后详情" }}
+          </view>
+        </block>
+      </view>
+    </view>
+    <!-- 礼品商品 -->
+    <view
+      class="goodsInfo df ais-start"
+      wx:for="{{ goods.ProductGiftBagList }}"
+      wx:key="index"
+      wx:for-item="giftBagItem"
+    >
+      <view class="image">
+        <custom-image src="{{ giftBagItem.Image }}"></custom-image>
+      </view>
+      <view class="goodsInfo-inner flex">
+        <view class="df ais-start jct-between goods-title">
+          <text class="line2">【礼包商品】{{ giftBagItem.ItemDescription }}</text>
+          <text class="buy_nums">x{{ giftBagItem.Quantity }}</text>
+         
+        </view>
+
+        <view class="sku-text"> {{ giftBagItem.Attribute || "默认规格" }}</view>
+      </view>
+    </view>
+  </block>
+</template>

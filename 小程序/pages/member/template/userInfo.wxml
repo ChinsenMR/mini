@@ -1,0 +1,95 @@
+<template name="userInfo">
+    <view class='box '>
+        <!-- <view class='box {{userInfo.gradeId==80?"yangtop":""}}'> -->
+        <view class='content'>
+            <view class='content-top-box'>
+                <view class="content-jifen-wrap" bindtap='handleOnSign' wx:if="{{false}}">
+                    <image src='http://hmqy.oss-cn-hangzhou.aliyuncs.com/hmeshop_jxy/images/icon_qiandao.png'
+                        class='topdate' />
+                    <view class='toptip'>签到领积分</view>
+                </view>
+            </view>
+    
+            <view class='c_top da' wx:if="{{userInfo && IsBindUser==true}}">
+                <!-- 头像 -->
+                <image class="info_head" src='{{userInfo.picture}}' mode="aspectFill" />
+                <view class='c_t_center'>
+                    <view class='username'>
+                        {{userInfo.NickName || '-'}}
+                        <view class='userlevelbox'>
+                            <image src='http://img.hmeshop.cn/hmeshop_jxy/images/icon_putong.png' />
+                            <view class="line1">{{userInfo.GradeName}}</view>
+                        </view>
+                    </view>
+                    <text id='userId'>ID:{{userInfo.UserId}} </text>
+                    <text id='userTime'>注册时间 :{{userInfo.CreateDate}}</text>
+                </view>
+                <navigator url="/packageA/pages/editUserInfo/editUserInfo" class='Edit' hover-class="none">
+                    <view class="redact_inof">编辑资料 ></view>
+                </navigator>
+            </view>
+            <!-- 登录按钮 -->
+            <view class="login_btn" wx:if="{{userInfo=='' || IsBindUser==false}}" bindtap="handleLogin">
+                <view class="login_wrap_img">
+                    <image src="{{imgUrl+'head@2x.png'}}" />
+                </view>
+                <view class="login_wrap">
+                    <view class="login_in">登录/注册</view>
+                    <text class="login_status">当前状态未登录</text>
+                </view>
+                <!-- <view class="jiantou_wrap">
+                    <image src="{{imgUrl+'more2@2x.png'}}" />
+                </view> -->
+            </view>
+    
+            <view class='c_bottom' wx:if="{{false}}">
+                <text class='text1'>{{userData.UserGradeName}}</text>
+                <text class='text2'>消费金额：￥{{userData.Expenditure}}</text>
+                <view bindtap='onSignIn'>
+                    <image src='https://hmeshop-1256233971.cos.ap-guangzhou.myqcloud.com/wxapp/images/sign.png' />
+                    <text>{{signIn}}</text>
+                </view>
+            </view>
+    
+        </view>
+    
+        <!-- 会员卡片不需要了 需要使用时,需要将在外层view删除-->
+        <view class="card_wrap" wx:if="{{false}}">
+            <view class='vipCarBox' wx:if="{{userInfo.gradeId==77 || userInfo.gradeId==78}}">
+                <view class='vipCarimgbox {{showcard ? "incard" :""}}' animation="{{animationData}}" catchtap='cardshow'
+                    style="background-image: url('http://img.hmeshop.cn/hmeshop_jxy/images/bg_huiyuantequan.png')">
+                    <view class='viptip'>VIP会员特权</view>
+                    <view class='vipdetali'>查看详情 </view>
+                </view>
+                <view
+                    class='vipCarimgbox2  {{ userInfo.gradeId==77?"golad":"bojin"}} {{showcard ? "showcard" :"showcardnone" }}'
+                    wx:if="{{userInfo.gradeId==77 || userInfo.gradeId==78}}">
+                    <view class="vipcbox">
+                        <view class="vipboxl">
+                            <image src="{{vipcardInfo.SiteLogo}}" />
+                            {{vipcardInfo.SiteName}}
+                        </view>
+                        <view class="vipboxr">NO：{{userInfo.UserId}}</view>
+                    </view>
+                    <view class="gradcart">{{userInfo.GradeName}}卡</view>
+                    <view class='cancelcarBtn' bindtap='canclecard' wx:if='{{showcard}}'>
+                        <view class='leftline' />
+                        <view class='rightline' />
+                    </view>
+                </view>
+            </view>
+        </view>
+    
+        <view class="member">
+            <view class="member_left">
+                <view class="member_left-top">轻创业·好赚钱</view>
+                <view class="member_left-bottom">购物省的多·分享有补贴</view>
+            </view>
+            <view class="member_right" bindtap="showCode">
+                分享邀好友
+                <!-- <button bindtap="showCode" class="member_btn"></button> -->
+            </view>
+        </view>
+    </view>
+    
+</template>

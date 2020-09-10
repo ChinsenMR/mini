@@ -1,0 +1,90 @@
+<!-- 信息列表 -->
+<image style="width: 100%" src="{{ statusIconUrls[status] }}" mode="widthFix" wx:if="{{ status != -1 }}"/>
+<van-notice-bar wrapable scrollable="false" text="审核备注：{{ remark }}" wx:if="{{ remark }}"/>
+
+<!-- 输入用户数据 -->
+<block>
+	<view class="form-content flex-center">
+		<view class="flex-center flex">
+			<label>真实姓名</label>
+			<input bindinput="inputForm" data-name="name" placeholder="请输入真实姓名" value="{{ form.name }}" maxlength="21" />
+		</view>
+	</view>
+	<view class="form-content flex-center">
+		<view class="flex-center flex">
+			<label>手机号</label>
+			<input bindinput="inputForm" type="number" data-name="phone" placeholder="请输入手机号" value="{{ form.phone }}"
+				maxlength="11" />
+		</view>
+	</view>
+	<view class="form-content flex-center">
+		<view class="flex-center flex">
+			<label>身份证号</label>
+			<input bindinput="inputForm" type="idcard" data-name="idCard" placeholder="请输入身份证号" value="{{ form.idCard }}"
+				maxlength="18" />
+		</view>
+	</view>
+	<view class="form-content flex-center" hidden>
+		<view class="flex-center flex">
+			<label class="flex-center">账户类型
+				<image class="icon margin-l-20" src="{{ tipIcon }}" mode="widthFix" bindtap="showTipDialog" />
+			</label>
+			<van-radio-group value="{{ form.acountType }}" bind:change="onChangeRadio">
+				<view class="flex-center">
+					<van-radio class="margin-r-20" name="0" checked-color='#E5414A' checked>
+						个人账户
+					</van-radio>
+					<van-radio name="1" checked-color='#E5414A' checked>
+						对公账户
+					</van-radio>
+				</view>
+			</van-radio-group>
+		</view>
+	</view>
+	<view class="form-content flex-center" hidden>
+		<view class="flex-center flex">
+			<label>开户银行</label>
+			<picker range="{{ bankList }}" bindchange="onChange" class="flex-col-1" range-key="text">
+				<view class="flex-center">
+					<input placeholder="请选择开户银行" value="{{ bankList[form.bankCardKey].text }}" maxlength="18" disabled
+						class="flex-col-1" />
+					<image class="arrow-right" src="{{ imgurl + 'arrowRight.png' }}" mode="widthFix" />
+				</view>
+			</picker>
+
+		</view>
+	</view>
+	<view class="form-content flex-center" hidden>
+		<view class="flex-center flex">
+			<label>银行卡号</label>
+			<input bindinput="inputForm" type="number" data-name="bankCardId" placeholder="请输入银行卡号"
+				value="{{ form.bankCardId }}" maxlength="21" />
+		</view>
+	</view>
+</block>
+
+
+<!-- 上传 -->
+<view class="about-content">
+	<view class="filed">
+		身份证照
+		<text>（注意：请上传高清晰度的证件照，以免审核失败）</text>
+	</view>
+	<view class="image-wrap">
+		<view class="item background-auto" bindtap="upload" data-type="{{ 1 }}"
+			style="background-image: url({{ form.idCardFront }})">
+			<image class="icon" src="{{iconUrl}}" wx:if="{{ !form.idCardFront }}" />
+			<view class="text" wx:if="{{ !form.idCardFront }}">身份证正面照</view>
+		</view>
+		<view class="item background-auto" bindtap="upload" data-type="{{ 0 }}"
+			style="background-image: url({{ form.idCardBack }})">
+			<image class="icon" src="{{iconUrl}}" wx:if="{{ !form.idCardBack }}" />
+			<view class="text" wx:if="{{ !form.idCardBack }}">身份证背面照</view>
+		</view>
+	</view>
+</view>
+<button class="submit-btn" bind:tap="submitForm">
+	{{status != -1 ? '重新提交' : '提交申请'}}
+</button>
+
+<message-dialog bind:close="showTipDialog" show="{{ showDialog }}"></message-dialog>

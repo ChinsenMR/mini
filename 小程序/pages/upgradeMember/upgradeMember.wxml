@@ -1,0 +1,93 @@
+<view id="vip_list" style="background-color: black;">
+  <!-- 头部 -->
+  <view class="title_wrap">
+    <view class="title">升级会员专享权益</view>
+    <view class="title_img">
+      <image src="{{ imgUrl + 'zhuangshi@3x(1).png' }}"></image>
+      <view class="title_text">
+        <text>购物省的更多</text>
+        <view class="box"></view>
+        <text>分享有奖励</text>
+      </view>
+      <image src="{{ imgUrl + 'zhuangshi@3x(1).png' }}"></image>
+    </view>
+  </view>
+  <!-- 猜你喜欢列表 -->
+  <view class="like_wrap"
+    wx:if="{{ glanceOver.length!=0 }}">
+    <view class="left_right_wrap">
+      <image src="{{ imgUrl + 'zhuangshi@2x_08.png' }}"></image>
+      <text>猜你喜欢</text>
+      <image src="{{ imgUrl + 'zhuangshi@2x_09.png' }}"></image>
+    </view>
+    <!-- 去首页 -->
+    <view class="go_home" wx:if="{{ glanceOver.length == 0 }}">
+      <text>暂无数据</text>
+      <text bindtap="handleGo" data-type="2">去逛逛</text>
+    </view>
+    <scroll-view scroll-x="true" class="scroll_view">
+      <block wx:for="{{ glanceOver }}" wx:key="subIndex" wx:for-item="subItem" wx:for-index="subIndex">
+        <view class="like" bindtap="handleDetail" data-productid="{{ subItem.ProductId }}">
+          <image src="{{ subItem.ImageUrl1 }}"></image>
+          <view class="like_main">
+            <view class="new_title line1">{{ subItem.ProductName }}</view>
+            <view class="like_main-price">
+              <text>￥{{subItem.SalePrice}}</text>
+            </view>
+          </view>
+        </view>
+      </block>
+    </scroll-view>
+  </view>
+  <!-- 动态内容循环列表 -->
+  <view class="level_wrap">
+    <block wx:for="{{ gradeArr }}" wx:key="index">
+      <view class="level_list">
+        <view class="left_right_wrap">
+          <image src="{{ imgUrl + 'zhuangshi@2x_08.png' }}"></image>
+          <text>{{ item.Name }}特权</text>
+          <image src="{{ imgUrl + 'zhuangshi@2x_09.png' }}"></image>
+        </view>
+        <view class="img_wrap1">
+          <image src="{{ item.EquityImage || item.bg_img}}" mode="widthFix"></image>
+        </view>
+        
+        <!-- 升级会员商品 -->
+        <view class="content add_active">
+          <view class="left_right_wrap">
+            <image src="{{ imgUrl + 'zhuangshi@2x_08.png' }}"></image>
+            <text>{{ item.title }}</text>
+            <image src="{{ imgUrl + 'zhuangshi@2x_09.png' }}"></image>
+          </view>
+          <block wx:for="{{ item.gradeList }}" wx:for-item="subItem" wx:for-index="subIndex" wx:key="subIndex">
+            <view class="main_wrap" bindtap="handleDetail" data-productid="{{ subItem.ProductId }}">
+              <image src="{{ subItem.ImageUrl1 }}"></image>
+              <view class="main">
+                <text class="to-2line">{{ subItem.ProductName }}</text>
+                <text>￥{{ subItem.SalePrice }}</text>
+                <view class="main_img" wx:if="{{ false }}">
+                  <image src="{{ imgUrl + 'icon_hy@3x.png' }}"></image>
+                  <view class="img_text">
+                    <text>会员</text>
+                    <text>专享￥{{ subItem.minPrice }}</text>
+                  </view>
+                </view>
+              </view>
+              <view class="tip_see" wx:if="{{ false }}">
+                <image wx:if="{{ false }}" src="{{ imgUrl + 'icon_jinka@2x_05.png' }}"></image>
+                <image wx:else src="{{ imgUrl + 'icon_zs@2x_07.png' }}"></image>
+              </view>
+            </view>
+          </block>
+        </view>
+      </view>
+    </block>
+  </view>
+  <!-- 开通代理 -->
+  <view class="agency_wrap" bindtap="handleGo" data-type="1">
+    <image src="{{ imgUrl + 'bg_dl@2x_04.png' }}"></image>
+  </view>
+</view>
+
+<!-- 底部导航栏 -->
+<tabBar curActive="{{ tabIndex }}"></tabBar>

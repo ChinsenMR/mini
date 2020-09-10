@@ -1,0 +1,41 @@
+<!-- 店家实拍 -->
+<view class='goods-comment'>
+  <view class='goods-commentH df ais jct-between'>
+    <view>买家实拍</view>
+    <view class='df ais' bindtap='onChange'>
+      <text>查看全部</text>
+      <image class='arrowRight' src='{{imgUrl+"icon_more@2x.png"}}' mode='widthFix'></image>
+    </view>
+  </view>
+  <view class='a' wx:for='{{listData}}' wx:for-index='index' wx:key="index" wx:if='{{index < 2}}'>
+    <view class='userInfo df ais'>
+      <image class='userInfoImg' src='{{item.Picture}}'></image>
+      <view class='userInfo-inner flex'>
+        <view class='userInfo-innerT df ais jct-between'>
+          <view class='df ais'>
+            <view class='userName'>{{item.UserName}}</view>
+          </view>
+          <view class='buyTime'>{{item.ReviewDate}}</view>
+        </view>
+        <!-- 星星的数量 -->
+        <view class='userInfo-gradeStar df ais'>
+          <block wx:for="{{item.Score}}" wx:key="index">
+            <image src='{{img1}}' mode='widthFix'></image>
+          </block>
+          <block wx:for="{{item.gray}}" wx:key="index">
+            <image src='{{img2}}' mode='widthFix'></image>
+          </block>
+        </view>
+      </view>
+    </view>
+    <view class='commoentInfo'>{{item.ReviewText}}</view>
+
+    <view class='commoentImg df ais'>
+      <block wx:for='{{item.ImagesList}}' wx:for-item='ImagesList'  wx:key="index" wx:for-index="sindex">
+        <image src='{{ImagesList}}' mode='widthFix' data-pindex="{{index}}" data-sindex="{{sindex}}" bindtap="previewImage">
+        </image>
+      </block>
+    </view>
+    
+  </view>
+</view>

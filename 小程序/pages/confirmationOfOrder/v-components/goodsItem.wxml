@@ -1,0 +1,30 @@
+
+<!-- 默认商品 -->
+<view class='shopGoodListBox' wx:if="{{ type === 'default'}}"> 
+  <image src='{{item.ThumbnailUrl100}}' class='goodImg' mode='aspectFill' />
+  <view class='goodmsgBox'>
+    <view class='goodTip'>{{item.Name}}</view>
+    <view class='goodSizeBox'>{{item.SkuContent || '默认规格'}}</view>
+    <view class='unitPriceBox'>
+      <view class='unitPrice'>￥{{item.AdjustedPrice}}</view>
+      <view class='goodnumber'>X {{item.Quantity}}</view>
+    </view>
+  </view>
+</view>
+
+<!-- 礼包商品 -->
+<view class='shopGoodListBox'wx:if="{{ type === 'giftBag' }}">
+  <view class="goodImg">
+    <custom-image src="{{item.Productinfo.ImageUrl1}}"></custom-image>
+  </view>
+  <view class="goodmsgBox">
+    <view class="goodTip flex-box">
+      【礼包商品】{{item.Productinfo.ProductName}}
+    </view>
+    <view class="goodSizeBox">{{item.SKUText || "默认规格"}}</view>
+    <view class="unitPriceBox">
+      <view class="unitPrice">市场价￥{{item.Productinfo.MarketPrice || '0.00'}}</view>
+      <view class="goodnumber">X {{item.Stock || 0}}</view>
+    </view>
+  </view>
+</view>

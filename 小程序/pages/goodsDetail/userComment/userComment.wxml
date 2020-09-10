@@ -1,0 +1,67 @@
+<!-- 实拍栏 -->
+<view class='layout userComment' hidden="{{currentTab != 2}}" style="padding-top:{{navHeight}}px">
+  <view class="layout_nav">
+    <block wx:for="{{navList}}" wx:key="index">
+      <view class="nav {{navIndex==index?'active':''}}" 
+        bindtap="handleChange" 
+        data-index="{{index}}"
+        data-mold="{{item.type}}"
+        wx:if="{{item.status}}"
+        >
+        {{item.name}}({{item.num}})
+      </view>
+    </block>
+  </view>
+  <!-- 评价 -->
+  <block wx:for='{{list}}' wx:key="index" wx:for-index='pIndex'>
+    <view class='goods-comment' wx:if='{{list.length != 0}}'>
+      <view class='userInfo df ais'>
+        <image class='userInfoImg' src='{{item.Picture}}'></image>
+        <view class='userInfo-inner flex'>
+          <view class='userInfo-innerT df ais jct-between'>
+            <view class='user_wrap df ais'>
+              <view class='userName'>{{item.UserName}}</view>
+            </view>
+            <view class='buyTime'>{{item.ReviewDate}}</view>
+          </view>
+          <!-- 星星的数量 -->
+          <view class='userInfo-gradeStar df ais'>
+            <block wx:for="{{item.Score}}" wx:key="index">
+              <image src='{{img1}}' mode='widthFix'></image>
+            </block>
+            <block wx:for="{{item.gray}}" wx:key="index">
+              <image src='{{img2}}' mode='widthFix'></image>
+            </block>
+          </view>
+        </view>
+      </view>
+      <view class='commoentInfo'>{{item.ReviewText}}</view>
+      <view class='commoentImg'>
+        <view class="video_wrap" wx:if="{{item.VideoUrl && vidStatus}}">
+          <video class="myVideo" 
+            wx:if="{{item.VideoUrl}}"
+            enable-play-gesture="{{true}}" 
+            id="myVideo" 
+            src="{{item.VideoUrl}}" 
+            direction
+            bindplay="handlePlay">
+          </video>
+        </view>
+        <block wx:for='{{item.ImagesList}}' wx:for-item='ImagesList' wx:key="index" wx:for-index='cIndex'>
+          <image wx:if="{{ImagesList}}" src='{{ImagesList}}' mode='widthFix' bindtap="previewImage" data-pindex="{{pIndex}}"
+            data-cindex="{{cIndex}}">
+          </image>
+        </block>
+      </view>
+      <!-- 客服回复 -->
+      <view class="reply" wx:if="{{item.ReplyText}}">
+        客服回复: <text>{{item.ReplyText}}</text>
+      </view>
+    </view>
+  </block>
+    
+  <view class="nav_nodata" wx:if="{{list.length==0}}">暂无数据~</view>
+
+  
+
+</view>

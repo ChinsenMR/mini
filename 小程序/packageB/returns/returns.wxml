@@ -1,0 +1,40 @@
+<view class="returns">
+  <view class="seach_wrap">
+    <view class="seach">
+      <view class="seach-input">
+        <image src="{{imgUrl+'icon_search73@2x.png'}}" bindtap="handleSeach"></image>
+        <input type="number" placeholder="请输入订单号" value="{{orderVal}}" bindinput="handleInput" bindconfirm="handleChange" />
+      </view>
+      <text bindtap="handleClear">取消</text>
+    </view>
+  </view>
+  <view class="profitDetail">
+    <view class="content" wx:if="{{list.length !=0}}">
+      <block wx:for="{{list}}" wx:key="index">
+        <view class="content-list" bindtap="handleGo" data-order="{{item.OrderId}}">
+          <view class="content-list-title">
+            <view class="content-list-title-left">{{item.TradeName}}</view>
+            <view class="content-list-title-right">
+              <text>￥{{item.OrderTotal}}</text>
+              <!-- <image src="{{imgUrl+'more_02@2x.png'}}"></image> -->
+            </view>
+          </view>
+      
+          <view class="content-list-list_wrap">
+            <block wx:for="{{item.csList}}" wx:for-item="subItem" wx:for-index="subIndex" wx:key="subIndex">
+              <view class="content-list-list_wrap-main">
+                <text>{{subItem.name}}:</text>
+                <text>{{subItem.val}}</text>
+              </view>
+            </block>
+          </view>
+        </view>
+      </block>
+  
+    </view>
+    <view class="no_data" wx:else>
+      <image src="{{imgUrl+'no_data-icon.png'}}"></image>
+      <text>暂无数据~</text>
+    </view>
+  </view>
+</view>

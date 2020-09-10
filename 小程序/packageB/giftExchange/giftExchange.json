@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "礼品兑换",
+  "usingComponents": {
+    "van-popup":"../../miniprogram_npm/vant-weapp/popup/index"
+  }
+}

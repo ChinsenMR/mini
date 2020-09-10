@@ -1,0 +1,21 @@
+<view class="friend">
+  <view class="header">
+    <scroll-view class="scroll-view_H" scroll-x="true" style="width: 100%">
+      <block wx:for="{{navList}}" wx:key="index">
+        <view class="header-nav {{index==nums?'active':''}}" bindtap="handleNav" data-tagid="{{item.TagID}}" data-index="{{index}}">{{item.TagName}}</view>
+      </block>
+    </scroll-view>
+  </view>
+
+  <view class="content">
+    <block wx:for="{{sonList}}" wx:key="index">
+      <view class="content-main" wx:if="{{tagIndex==item.ParentTagId}}" bindtap="handleGo" data-tagid="{{item.TagID}}">
+        <view class="content-main-img">
+          <custom-image src="{{item.icon}}"></custom-image>
+        </view>
+        <view class="content-main-text line1">{{item.TagName}}</view>
+      </view>
+    </block>
+    <view class="no_data" wx:if="{{sonList.length ==0}}">暂无数据~</view>
+  </view>
+</view>

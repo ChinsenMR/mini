@@ -1,0 +1,65 @@
+/* pages/bankCard/bankCard.wxss */
+.bank-card {
+  box-sizing: border-box;
+  padding: 0 30rpx;
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+}
+.bank-list__item {
+  position: relative;
+  height: 110rpx;
+  font-size: 30rpx;
+  border-bottom: 2rpx solid #EAEAEA;
+  color: #333;
+}
+.bank-list__item .remove{
+  right: -30rpx;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 168rpx;
+  height: 100%;
+  overflow: hidden;
+  transition: all 0.3s;
+  color: #fff;
+  background:linear-gradient(90deg,rgba(251,119,117,1) 0%,rgba(241,92,101,1) 100%);
+
+}
+.bank-list__item-box {
+  display: flex;
+  width: 100%;
+  transition: all 0.3s;
+}
+.bank-list__item y-delete {
+  height: 110rpx;
+}
+.bank-list__item-delete {
+  width: 0;
+  height: 100%;
+  line-height: 110rpx;
+  text-align: center;
+  overflow: hidden;
+  transition: all 0.3s;
+  color: #fff;
+  background:linear-gradient(90deg,rgba(251,119,117,1) 0%,rgba(241,92,101,1) 100%);
+}
+.bank-list__item image {
+  width: 44rpx;
+  height: 44rpx;
+  margin-right: 20rpx;
+}
+.add-bank {
+  margin-top: 80rpx;
+  padding: 20rpx 0;
+  box-sizing: border-box;
+  width: 100%;
+  border: 2rpx dashed #2EA9FF;
+  text-align: center;
+  color: #2EA9FF;
+}
+.red-border{
+  color: rgba(241,92,101,1);
+  border: 2rpx dashed rgba(241,92,101,1)
+} 

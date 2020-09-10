@@ -1,0 +1,59 @@
+<view class="tradeGoods-wrap padding-l-30 padding-r-30 padding-b-80">
+  <view class="node-bar flex-center margin-t-40 margin-b-40 font-26">
+    <view class="node-bar-item-left flex-col-1"></view>
+    <view
+      class="node-bar-item-right text-right theme-yellow"
+      bindtap="seeTradeHistory"
+    >
+      兑换记录
+    </view>
+  </view>
+  <!-- 地址 -->
+  <navigator 
+    hover-class="navigator-hover" 
+    open-type="navigate" 
+    class="address-bar flex-center margin-b-20" 
+    url="{{ selectAddressUrl }}"
+  >
+    <image class="address-bar-icon margin-r-20" src="{{ iconUrl }}" mode="widthFix"></image>
+    <view class="address-bar-content" wx:if="{{ defaultAddress.ShippingId }}">
+      <view class="address-bar-content-user flex-center">
+        <view class="address-bar-content-user-name font-28 margin-r-30 font-bold">{{ defaultAddress.ShipTo}}</view>
+        <view class="address-bar-content-user-phone font-24">{{ defaultAddress.CellPhone }}</view>
+      </view>
+      <view class="address-bar-content-local margin-t-20 font-24">{{ defaultAddress.FullRegionName }} {{ defaultAddress.Address }}</view>
+    </view>
+    <view class="address-bar-content flex-col-1 text-right" wx:else>
+      选择收货地址
+    </view>
+    <image class="address-bar-arrow" src="{{ arrowRightIcon }}" mode="widthFix"></image>
+  </navigator>
+  <!-- 商品 -->
+  <block wx:for="{{ tradeDetail.goods }}" wx:key="index">
+      <navigator 
+        class="goods-bar flex-box padding-30" 
+        hover-class="navigator-hover" 
+        open-type="navigate" 
+        url="/pages/goodsDetail/goodsDetail?p={{ item.ProductId }}"
+      >
+        <view class="goods-bar-cover">
+          <custom-image src="{{ item.ImageUrl1 }}"></custom-image>
+        </view>
+        <view class="goods-bar-detail ">
+          <view class="goods-bar-detail-name font-28 overflow-eps-2">{{ item.ProductName || '-'}}</view>
+          <view class="goods-bar-detail-sku font-22 margin-t-5 overflow-eps-1">{{ item.SkuValue || '-'}}</view>
+          <view class="goods-bar-detail-price font-28 font-bold margin-t-30">￥{{ item.SalePrice || '-'}}</view>
+        </view>
+        <view class="goods-bar-count font-22 flex-box flex-col-1 text-right">× <text class="font-26">1</text> </view>
+    </navigator>
+  </block>
+  <!-- 备注 -->
+  <view class="remark-bar flex-box padding-30">
+    <view class="remark-bar-field flex-col-1">备注</view>
+    <textarea class="remark-bar-textarea" value="{{ tradeDetail.remark }}" placeholder="请输入备注内容" bind:input="inputRemark"></textarea>
+  </view>
+  
+  <button bind:tap="exchangeCodeToOrder" class="trade-button font-28 color-fff">
+    确认兑换
+  </button>
+</view>

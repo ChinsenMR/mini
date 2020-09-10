@@ -1,0 +1,41 @@
+<view class="withdraw">
+  <view class="content_wrap">
+    <view class="content" wx:if="{{showBalance}}">
+      <view class="content-left">
+        <text>零售收入</text>
+        <text>￥{{earnings.commission}}</text>
+      </view>
+      <view class="content-right" bindtap="handleClick" data-type="{{1}}">立即提现</view>
+    </view>
+
+    <view class="content active" >
+      <view class="content-left">
+        <text>奖励收入</text>
+        <text>￥{{earnings.balance}}</text>
+      </view>
+      <view class="content-right" style=" color: #F38262;" bindtap="handleClick" data-type="{{2}}">立即提现</view>
+    </view>
+  </view>
+
+  <view class="explain">
+    <view class="explain-title">提现说明</view>
+    <view class="explain-wrap">
+      <rich-text class="" nodes="{{richSpan}}"></rich-text>
+    </view>
+  </view>
+</view>
+
+<!-- 实名认证 -->
+<view class="real_name_wrap" wx:if="{{realShow}}">
+  <view class="real_name">
+    <view class="real_name-title">实名认证</view>
+    <view class="real_name-texts">
+      <text>依据平台运营要求</text>
+      <text>请完善实名认证后才能申请提现!</text>
+    </view>
+    <view class="real_name-btn">
+      <text catchtap="handleChange" data-type="{{1}}">稍后处理</text>
+      <text catchtap="handleChange" data-type="{{2}}">立即实名</text>
+    </view>
+  </view>
+</view>

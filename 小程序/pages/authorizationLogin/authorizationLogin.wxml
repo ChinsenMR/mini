@@ -1,0 +1,36 @@
+<!--pages/authorizationLogin/authorizationLogin.wxml-->
+<view class="logo">
+	<image  src='{{projectLogo}}' mode="widthFix"></image>
+
+</view>
+<view class='loginBox'>
+	<button class='wxLogin' open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo" wx:if="{{ isReadAgree }}">微信授权登录</button>
+	<button class='wxLogin' bindtap="bindGetUserInfo" wx:else>微信授权登录</button>
+	<image src='https://hmeshop-1256233971.cos.ap-guangzhou.myqcloud.com/wxapp/images/weixin@2x.png' />
+</view>
+<view class='loginBox goBack'>
+	<button class='wxLogin' bindtap="goBackHome">取消登录</button>
+
+</view>
+
+<view class='other' wx:if="{{false}}">其他登录方式</view>
+<view class='otherWay' wx:if="{{false}}">
+	<view>
+		<button bindtap='goPhoneLogin'>手机号登录</button>
+	</view>
+	<view>
+		<button bindtap='goUserLogin'>账号密码登录</button>
+	</view>
+</view>
+<view class="agree flex-box"> 
+	<image
+		class="check-box"
+		bindtap="handleReadAgree"
+		src="{{ isReadAgree ? checkedIcon : uncheckIcon}}"
+		mode="widthFix"
+	> </image>
+	<view class="agree-content">
+		我已阅读并同意<text wx:for="{{ agreementList }}" wx:key="index" bindtap="seeAgree" data-index="{{ index }}">《{{item.Name}}》</text>
+	</view>
+</view>
+

@@ -1,0 +1,28 @@
+<view class="tradeGoods-wrap padding-25">
+  <!-- 商品 -->
+  <block wx:for="{{ list }}" wx:key="index">
+     <view class="history-container margin-b-30">
+        <view class="history-bar flex-center padding-30">
+          <view class="history-bar-trade-code font-32">兑换码：{{ item.CardCode || '-'}}</view>
+          <view class="history-bar-trade-date font-24">{{ item.FinishTime || '-'}}</view>
+        </view>
+        <navigator
+          hover-class="navigator-hover" 
+          open-type="navigate" 
+          url="/pages/goodsDetail/goodsDetail?p={{ item.ProductId }}" 
+          class="goods-bar flex-box padding-30"
+        >
+            <view class="goods-bar-cover">
+              <custom-image src="{{ item.ImageUrl1 }}"></custom-image>
+            </view>
+            <view class="goods-bar-detail ">
+              <view class="goods-bar-detail-name font-28 overflow-eps-2">{{ item.ProductName || '-'}}</view>
+              <view class="goods-bar-detail-sku font-24 margin-t-5 overflow-eps-1">{{ item.SkuValue || '-'}}</view>
+              <view class="goods-bar-detail-price font-32 font-bold margin-t-30">￥{{ item.SalePrice || '-'}}</view>
+            </view>
+            <view class="goods-bar-count font-22 flex-box flex-col-1 text-right">× <text class="font-26">1</text> </view>
+        </navigator>
+       </view>
+    </block>
+     <view class="no-data-bar color-333 text-center padding-20">{{ loadMore ? '上拉加载更多' : '没有更多了'}}</view>
+</view>

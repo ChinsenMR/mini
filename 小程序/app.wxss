@@ -1,0 +1,26 @@
+/**app.wxss**/
+@import "/template/template.wxss";
+@import "./assets/wxss/clear.wxss";
+@import "./assets/wxss/other.wxss";
+/* 提供了基本的布局类库 便于开发使用*/
+@import "./assets/wxss/main.wxss";
+@import "./assets/font/iconfont.wxss";
+
+
+page{
+    --theme-red: #E7483F;
+    --radio-16rpxaa: 16rpx;
+}
+.theme-red {
+    color: var(--theme-red);
+}
+
+.theme-yellow{
+    color: #C4853D
+}
+.theme-gray{
+    color: #BFBFBF
+}
+.theme-16rpx{
+    border-radius: var(--radio-16rpx);
+}

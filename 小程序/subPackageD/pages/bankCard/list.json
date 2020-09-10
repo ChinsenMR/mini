@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "y-delete": "../../components/YDelete/YDelete"
+  },
+  "enablePullDownRefresh": true
+}

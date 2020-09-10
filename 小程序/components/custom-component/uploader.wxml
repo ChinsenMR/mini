@@ -1,0 +1,6 @@
+<view class="{{ wrapClass }} uploader-wrap" bindtap="upload">
+  <image src="{{ imageUrl }}" class="uploader-cover">
+    
+  </image>
+  <view class="uploader-text">请选择图片</view>
+</view>

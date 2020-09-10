@@ -1,0 +1,84 @@
+page {
+  background: #f7f7f7;
+}
+
+page .tradeGoods-wrap .address-bar {
+  padding: 40rpx 20rpx;
+  background-color: #fff;
+  border-radius: 6prx;
+}
+
+page .tradeGoods-wrap .address-bar-content-local {
+  color: #666666;
+}
+
+page .tradeGoods-wrap .address-bar-icon {
+  width: 50rpx;
+}
+
+page .tradeGoods-wrap .address-bar-arrow {
+  margin-left: 74rpx;
+  width: 20rpx;
+}
+
+page .tradeGoods-wrap .goods-bar {
+  background-color: #fff;
+  border-radius: 6prx;
+}
+
+page .tradeGoods-wrap .goods-bar-cover {
+  width: 128rpx;
+  height: 128rpx;
+  margin-right: 17rpx;
+}
+
+page .tradeGoods-wrap .goods-bar-detail {
+  width: 470rpx;
+}
+
+page .tradeGoods-wrap .goods-bar-detail-name {
+  font-weight: 400;
+  color: #333333;
+}
+
+page .tradeGoods-wrap .goods-bar-detail-sku {
+  display: inline-block;
+  padding: 4rpx 8rpx;
+  background: #eeeeee;
+  color: #666666;
+}
+
+page .tradeGoods-wrap .goods-bar-detail-price {
+  color: #333333;
+}
+
+page .tradeGoods-wrap .goods-bar-count {
+  align-items: flex-end;
+  color: #999999;
+}
+
+page .tradeGoods-wrap .remark-bar {
+  border-top: 2rpx solid #EEEEEE;
+  background-color: #fff;
+  border-radius: 6prx;
+}
+
+page .tradeGoods-wrap .remark-bar-field {
+  color: #333333;
+}
+
+page .tradeGoods-wrap .remark-bar-textarea {
+  width: 500rpx;
+  height: 150rpx;
+}
+
+page .tradeGoods-wrap .trade-button {
+  position: fixed;
+  width: 690rpx;
+  bottom: 36rpx;
+  left: 30rpx;
+  height: 88rpx;
+  line-height: 88rpx;
+  background: #333333;
+  border-radius: 8rpx;
+}

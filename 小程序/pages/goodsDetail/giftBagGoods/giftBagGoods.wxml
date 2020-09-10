@@ -1,0 +1,26 @@
+<view class="gift-bag-wrap padding-30 margin-t-20">
+  <view class="gift-bag-title flex-center font-30 font-bold padding-b-30">
+    礼包内容
+  </view>
+  <block wx:for="{{list}}" wx:key="index" >
+    <view class="flex-center" data-product-id="{{item.Product}}" bindtap="seeDetail">
+      <view class="container flex-col-1" >
+        <image src="{{item.Productinfo.ImageUrl1}}" mode="aspectFill" />
+        <view class="content flex-col-1">
+          <view class="name">{{item.Productinfo.ProductName}}</view>
+          <view class="sku" >
+            <view class="sku-text padding-5">
+              {{item.Productinfo.SKUText || '默认规格'}}
+            </view>
+          </view>
+          <view class="price-box">
+            <view class="price" >市场价￥{{item.Productinfo.MarketPrice || '0.00'}}</view>
+          
+            <view class="count font-26" >x{{item.Stock || 0}}</view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </block>
+  
+</view>

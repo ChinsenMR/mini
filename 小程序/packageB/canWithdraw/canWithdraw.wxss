@@ -1,0 +1,112 @@
+.withdraw .content_wrap {
+  box-sizing: border-box;
+  padding: 20rpx;
+  border-top: 1rpx solid #eee;
+}
+.withdraw .content_wrap .content {
+  width: 690rpx;
+  height: 188rpx;
+  margin: 0 auto;
+  background: url('http://hmqy.oss-cn-hangzhou.aliyuncs.com/hmeshop_jxy/images/ktxian-icon1.png') no-repeat;
+  background-size: 690rpx 188rpx;
+  display: flex;
+  justify-content: space-between;
+  box-sizing: border-box;
+  padding: 30rpx;
+}
+.withdraw .content_wrap .content-left {
+  display: flex;
+  flex-direction: column;
+  margin-top: 15rpx;
+}
+.withdraw .content_wrap .content-left text {
+  font-size: 28rpx;
+  color: #FFF;
+}
+.withdraw .content_wrap .content-left text:last-child {
+  font-weight: 600;
+  font-size: 32rpx;
+}
+.withdraw .content_wrap .content-right {
+  width: 150rpx;
+  height: 60rpx;
+  font-size: 30rpx;
+  color: #6277EF;
+  line-height: 60rpx;
+  border-radius: 10rpx;
+  background-color: #fff;
+  text-align: center;
+  margin-top: 20rpx;
+}
+.withdraw .content_wrap .active {
+  background: url('http://hmqy.oss-cn-hangzhou.aliyuncs.com/hmeshop_jxy/images/ktxian-cion2.png') no-repeat;
+  background-size: 690rpx 188rpx;
+}
+.withdraw .explain {
+  box-sizing: border-box;
+  padding: 0 30rpx;
+}
+.withdraw .explain-title {
+  font-size: 30rpx;
+  font-weight: 600;
+  color: #000;
+}
+.withdraw .explain-wrap text {
+  font-size: 26rpx;
+  color: #666666;
+  line-height: 30rpx;
+}
+.real_name_wrap {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+.real_name_wrap .real_name {
+  width: 610rpx;
+  height: 320rpx;
+  border-radius: 10rpx;
+  background-color: #fff;
+}
+.real_name_wrap .real_name-title {
+  font-size: 32rpx;
+  color: #000000;
+  font-weight: 600;
+  text-align: center;
+  padding: 30rpx 0;
+}
+.real_name_wrap .real_name-texts {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 50rpx;
+}
+.real_name_wrap .real_name-texts text {
+  font-size: 26rpx;
+  color: #333333;
+  margin-bottom: 10rpx;
+}
+.real_name_wrap .real_name-btn {
+  display: flex;
+  align-items: center;
+  padding: 20rpx 0;
+  border-top: 1rpx solid #eee;
+}
+.real_name_wrap .real_name-btn text {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 30rpx;
+  color: #333333;
+}
+.real_name_wrap .real_name-btn text:last-child {
+  color: var(--theme-red);
+}

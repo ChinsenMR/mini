@@ -1,0 +1,22 @@
+<view class="goods-wrap">
+  <block wx:for="{{goodsInfoList}}" wx:key="index">
+    <van-card 
+      num="{{goodsInfoList.length}}" 
+      price="{{item.Price || '0.00'}}"
+      desc="{{item.SkuText || '默认规格'}}" 
+      title="{{item.Name || item.GiftName || '-'}}" 
+      thumb="{{ item.Image || item.ImageUrl}}" 
+      wx:if="{{index === 0}}" 
+     ></van-card>
+  </block>
+</view>
+<view class="steps-wrap">
+  <van-steps 
+    steps="{{ steps }}" 
+    active="{{ active }}"
+    direction="vertical" 
+    active-color="#ee0a24" />
+</view>
+
+<view class="no_steps" wx:if="{{steps==0}}">暂无物流信息！</view>
+

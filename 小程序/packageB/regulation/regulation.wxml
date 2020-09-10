@@ -1,0 +1,5 @@
+<view class="regulation">
+  <view class="custom-image">
+    <custom-image src="{{obj.EquityImage}}"></custom-image>
+  </view>
+</view>

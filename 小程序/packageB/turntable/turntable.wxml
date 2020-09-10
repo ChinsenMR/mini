@@ -1,0 +1,140 @@
+<view class="container">
+  <view class="header">
+    <!-- 积分 -->
+    <view class="integral">
+      <image src="{{imgUrl+'nnyxx-icon.png'}}"></image>
+      <text>当前积分{{prizeObj.NowPoints}}</text>
+    </view>
+    <!-- 积分抽奖规则 -->
+    <view class="integral_rule">{{prizeObj.ConsumptionIntegral}}积分抽一次</view>
+    <view class="integral_nums">
+      <text>免费抽奖{{prizeObj.FreeTimes}}次</text>
+      <!-- <text>(免费抽奖不扣取积分)</text> -->
+    </view>
+    <!-- 大转盘 -->
+    <view class="main">
+      <view class="canvas-container">
+        <view animation="{{animationData}}" class="canvas-content">
+          <view class="canvas-line">
+            <view class="canvas-litem" wx:for="{{awardsList}}" wx:key="unique"
+              style="-webkit-transform: rotate({{item.lineTurn}});transform: rotate({{item.lineTurn}})">
+            </view>
+          </view>
+    
+          <view class="canvas-list">
+            <view class="canvas-item" wx:for="{{awardsList}}" wx:key="unique">
+              <view class="canvas-item-text"
+                style="-webkit-transform: rotate({{item.turn}});transform: rotate({{item.turn}})">
+                {{item.award}}
+                <image class="canvas-item-text-img {{item.PrizeType=='xxhg99'?'addActive':''}}" wx:if="{{item.PrizeType=='xxhg99'}}" src="{{item.url}}"></image>
+                <!-- 积分 -->
+                <image class="canvas-item-text-img {{item.PrizeType=='1'?'addActive2':''}}" wx:elif="{{item.PrizeType=='1'}}" src="{{item.url}}"></image>
+                <!-- 优惠券 -->
+                <image class="canvas-item-text-img {{item.PrizeType=='2'?'addActive3':''}}" wx:elif="{{item.PrizeType=='2'}}" src="{{item.url}}"></image>
+                <image class="canvas-item-text-img " wx:else src="{{item.url}}"></image>
+              </view>
+            </view>
+          </view>
+        </view>
+    
+        <!-- <view bindtap="playReward" class="canvas-btn {{btnDisabled}}">抽奖</view>	 -->
+        <view bindtap="getActivityDraw" class="canvas-btn {{btnDisabled}}">
+        <!-- <view bindtap="playReward" class="canvas-btn {{btnDisabled}}"> -->
+          <image class="canvas_btn_img1" src="{{imgUrl+'fangxjt.png'}}"></image>
+          <image class="canvas_btn_img2" src="{{imgUrl+'newkasi-icon.png'}}"></image>
+        </view>
+      </view>
+
+      
+    </view>
+    <!-- 查看中奖记录 -->
+    <view class="winning_records" bindtap="handleGo"></view>
+  </view>
+  <!-- 规则描述 -->
+  <view class="content">
+    <view class="content-main">
+      <view class="content-main-title">活动规则</view>
+      <view class="content-main-time">
+        <text>活动时间:</text>
+        <text>{{prizeObj.StartDate || '活动结束'}}~{{prizeObj.EndDate || '活动结束'}}</text>
+      </view>
+      <view class="content-main-integral">
+        <text>活动规则:</text>
+        <text>
+          1、消耗{{prizeObj.ConsumptionIntegral}}积分可抽一次;
+          2、抽奖奖品:积分、现金红包、优惠券(使用规则以实际发放情况为准)、实物奖品;
+          3、中奖后,可在中奖记录里查看中奖内容;
+          4、本抽奖活动以及所有奖品最终解释权归【{{projectName}}】所有;
+        </text>
+      </view>
+    </view>
+  </view>
+</view>
+
+<view class="shade" catchtap="handleShade" wx:if="{{showShade}}"></view>
+
+<!--中奖 弹窗 -->
+<view class="pop_up {{show?'':'active'}}" hidden="{{show}}" >
+<!-- <view class="pop_up active" > -->
+  <!-- 中奖内容 积分 -->
+  <view class="pop_up-content" style="background:url({{img}}) no-repeat;background-size: 580rpx 703rpx;" wx:if="{{content.PrizeType==1}}">
+    <!-- <image src="{{content.url}}" mode="aspectFit"></image> -->
+    <view class="integral_wrap">
+      <text>{{content.name}}</text>积分
+    </view>
+    <!-- 提示 -->
+    <view class="pop_up-content-texe_wrap2">
+      <view class="pop_up-content-texe_wrap-spans">
+        获得<text style="color:#F7DD4A;">{{content.name}}</text>积分
+      </view>
+      <text>已自动增加到积分账户</text>
+    </view>
+    <view class="pop_up-content-btn" catchtap="handleOff"></view>
+  </view>
+
+  <!-- 优惠券 商品 -->
+  <view class="pop_up-content" style="background:url({{img}}) no-repeat;background-size: 580rpx 703rpx;" wx:if="{{content.PrizeType==2}}">
+    <image src="{{imgUrl+'icon_quan34@2x.png'}}" mode="aspectFit"></image>
+    <!-- 提示 -->
+    <view class="pop_up-content-texe_wrap2">
+      <view class="pop_up-content-texe_wrap-spans">
+        获得<text style="color:#F7DD4A;">{{content.name}}</text>礼品券
+      </view>
+      <text>已自动增加到优惠账户</text>
+    </view>
+    <view class="pop_up-content-btn" catchtap="handleOff"></view>
+  </view>
+
+
+  <!-- 普通中奖 商品 -->
+  <view class="pop_up-content" style="background:url({{img}}) no-repeat;background-size: 580rpx 703rpx;" wx:if="{{content.PrizeType==3}}">
+    <image src="{{content.url}}" mode="aspectFit"></image>
+    <!-- 提示 -->
+    <view class="pop_up-content-texe_wrap2">
+      <view class="pop_up-content-texe_wrap-spans">
+        获得<text style="color:#F7DD4A;">{{content.name}}</text>一份
+      </view>
+    </view>
+    <view class="pop_up-content-btn" catchtap="handleOff"></view>
+  </view>
+
+
+  <!-- 谢谢惠顾 -->
+  <view class="pop_up-content" style="background:url({{img2}}) no-repeat;background-size: 580rpx 703rpx;" wx:elif="{{content.PrizeType=='xxhg99'}}">
+    <image src="{{imgUrl+'icon_xxhgma@2x.png'}}" mode="aspectFit"></image>
+    <!-- 提示 -->
+    <view class="pop_up-content-texe_wrap">再接再厉</view>
+    <view class="pop_up-content-btn" catchtap="handleOff"></view>
+  </view>
+  <!-- 关闭按钮 -->
+  <image class="pop_up_off" src="{{imgUrl+'icon_close @2x.png'}}" catchtap="handleOff"></image>
+</view>
+
+<!-- 活动结束弹窗 -->
+<view class="over_wrap" catchtap="handleOff" wx:if="{{overShow}}">
+  <view class="over_box">
+    <text>活动结束！</text>
+    <text>该活动结束了，无法参与抽奖！</text>
+    <text catchtap="handleOver">确定</text>
+  </view>
+</view>

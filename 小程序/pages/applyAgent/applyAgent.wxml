@@ -1,0 +1,92 @@
+
+<import src="../../wxParse/wxParse.wxml" />
+
+<!-- 审核失败的原因 -->
+<view class="tip" wx:if="{{intiData.LastMsg}}">*{{intiData.LastMsg}}</view>
+
+<view class='layout'>
+  <form bindsubmit='submitForm'>
+    <view class='content-ul'>
+      <view class='content-li df ais jct-between' wx:if="{{listFlag[0].isShow}}">
+        <view>姓名</view>
+        <view class='df ais'>
+          <input type='text' placeholder='请填写您的真实姓名' name='realName' value='{{realName}}' placeholder-class='inputStyle'></input>
+        </view>
+      </view>
+
+
+      <view class='content-li df ais jct-between'>
+      <!-- <view class='content-li df ais jct-between' wx:if="{{listFlag[1].isShow&&isShowAgency}}"> -->
+        <view>微信号</view>
+        <view class='df ais'>
+          <input type='text' placeholder='请填写您的微信号' name="wxNum" value='{{wxNum}}' placeholder-class='inputStyle'></input>
+        </view>
+      </view>
+
+      <view class='content-li df ais jct-between' wx:if="{{listFlag[2].isShow}}">
+        <view>联系电话</view>
+        <view class='df ais'>
+          <input type='number' placeholder='请填写您的手机号' name="telphone" value='{{telphone}}' placeholder-class='inputStyle' maxlength="11"></input>
+        </view>
+      </view>
+
+
+      <!-- <view class='content-li df ais jct-between YY' wx:if="{{listFlag[3].isShow&&isShowAgency}}"> -->
+      <view class='content-li df ais jct-between YY'>
+        <view>身份证号码</view>
+        <view class='df ais'>
+          <input type='idcard' placeholder='请填写您的身份证号码' name="IdCard" value='{{IdCard}}' placeholder-class='inputStyle' maxlength="18"></input>
+        </view>
+      </view>
+
+
+
+      <view class='content-li df ais jct-between' wx:if="{{listFlag[4].isShow}}">
+        <view>详细地址</view>
+        <view class='df ais'>
+          <input type='text' placeholder='请填写您的详细地址' name="adress" value='{{adress}}' placeholder-class='inputStyle'></input>
+        </view>
+      </view>
+
+      <view class='content-li df ais jct-between'>
+        <view>代理等级</view>
+        <picker range="{{agentArr}}" range-key='BrandLevelName' mode='selector' bindchange='selectAgent'>
+          <view class='df ais'>
+            <input type='text' value='{{agentValue}}' name='AgentGrade' placeholder='请您选择升级等级' placeholder-class='inputStyle' disabled='true'></input>
+            <image src='{{imgUrl+"arrowRight.png"}}' mode='widthFix'></image>
+          </view>
+        </picker>
+      </view>
+
+
+    </view>
+
+    <view class="about-content">
+      <view class="filed">审核证明<text>（选填）</text></view>
+      <view class="image-wrap">
+        <view class="item" bindtap="upload" data-type="{{ 1 }}"
+          style="background: url({{LicenseImg}})center center / cover no-repeat">
+          <image class="icon" src="{{iconUrl}}" wx:if="{{!LicenseImg}}" />
+          <view class="text">打款凭证</view>
+        </view>
+        <view class="item" bindtap="upload" data-type="{{ 2 }}"
+          style="background: url({{CertImg}})center center / cover no-repeat">
+          <image class="icon" src="{{iconUrl}}" wx:if="{{!CertImg}}" />
+          <view class="text">保证金截图</view>
+        </view>
+      </view>
+    </view>
+
+    <button class='btn df ais jct' form-type='submit'>提交申请</button>
+  </form>
+
+</view>
+<view class="agree-dialog" wx:if="{{ isNeedReadAgree }}"> 
+	<view class="text-center padding-b-30 font-32 font-bold">《推广员申请协议》</view>
+	<scroll-view scroll-y="{{true}}">
+		<template is="wxParse" data="{{wxParseData:article.nodes}}" ></template>
+	</scroll-view>
+	<view class="btn_wrap flex-content-center" >
+		<view class="search_title" bindtap="handleAgree">我已阅读并同意该协议</view>
+	</view>
+</view>
